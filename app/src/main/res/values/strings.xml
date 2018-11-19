@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">epatientenprotokoll</string>
+    <string name="jetzt">Jetzt</string>
+    <string name="ausgeruckt">Ausgerückt</string>
+    <string name="einsatzort">Einsatzort</string>
+    <string name="abfahrt">Abfahrt</string>
+    <string name="spital">Spital</string>
+    <string name="einsatzbereit">Einsatzbereit</string>
+    <string name="endzeit">Endzeit</string>
+    <string name="zielort">Zielort</string>
+    <string-array name="operation_array">
+        <item>Krankheit</item>
+        <item>Unfall</item>
+        <item>Verlegung</item>
+        <item>Psychiatrie</item>
+        <item>Isolette</item>
+        <item>SUVA</item>
+        <item>Andere</item>
+    </string-array>
+    <string-array name="accident_array">
+        <item>UV</item>
+        <item>Arbeit</item>
+        <item>Sport</item>
+    </string-array>
+    <string name="speichern">Speichern</string>
+    <string name="abbrechen">Abbrechen</string>
 </resources>
