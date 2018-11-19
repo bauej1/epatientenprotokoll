@@ -22,48 +22,36 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"
-                android:text="Patient"
+                android:text="@string/patient"
                 android:textColor="@android:color/black"
                 android:textSize="30dp" />
 
-            <ToggleButton
-                android:id="@+id/tGerman"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:text="ToggleButton"
-                android:textOff="D"
-                android:textOn="D" />
+            <org.honorato.multistatetogglebutton.MultiStateToggleButton
+                android:id="@+id/mstb_language"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="100dp"
+                android:visibility="visible"
+                mstb:mstbColorNotPressedText="@color/grey"
+                mstb:mstbColorPressedText="@color/grey"
+                mstb:mstbPrimaryColor="@android:color/black"
+                mstb:mstbSecondaryColor="@color/grey"
+                mstb:values="@array/language_array">
 
-            <ToggleButton
-                android:id="@+id/tFrench"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="-7dp"
-                android:text="ToggleButton"
-                android:textOff="F"
-                android:textOn="F" />
+            </org.honorato.multistatetogglebutton.MultiStateToggleButton>
 
-            <ToggleButton
-                android:id="@+id/tFemale"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:drawableStart="@drawable/female_black"
-                android:text="ToggleButton"
-                android:textOff=""
-                android:textOn="" />
+            <org.honorato.multistatetogglebutton.MultiStateToggleButton
+                android:id="@+id/mstb_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="50dp"
+                android:visibility="visible"
+                mstb:mstbColorNotPressedText="@color/grey"
+                mstb:mstbColorPressedText="@color/grey"
+                mstb:mstbPrimaryColor="@android:color/black"
+                mstb:mstbSecondaryColor="@color/grey"
+                mstb:values="@array/gender_array" />
 
-            <ToggleButton
-                android:id="@+id/tMale"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="-7dp"
-                android:drawableStart="@drawable/male"
-                android:text="ToggleButton"
-                android:textColorLink="@color/grey"
-                android:textOff=""
-                android:textOn="" />
         </LinearLayout>
 
         <LinearLayout
@@ -78,7 +66,7 @@
                 android:id="@+id/tName"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
-                android:text="Name"
+                android:text="@string/name"
                 android:textColor="@android:color/black"
                 android:textSize="16dp" />
 
@@ -94,7 +82,7 @@
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:text="Vorname"
+                android:text="@string/vorname"
                 android:textColor="@android:color/black"
                 android:textSize="16dp" />
 
@@ -119,7 +107,7 @@
                 android:id="@+id/textView4"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
-                android:text="Strasse"
+                android:text="@string/strasse"
                 android:textColor="@android:color/black"
                 android:textSize="16dp" />
 
@@ -135,7 +123,7 @@
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:text="PLZ"
+                android:text="@string/plz"
                 android:textColor="@android:color/black"
                 android:textSize="16dp" />
 
@@ -161,7 +149,7 @@
                 android:id="@+id/textView6"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
-                android:text="Telefon"
+                android:text="@string/telefon"
                 android:textColor="@android:color/black"
                 android:textSize="16dp" />
 
@@ -177,7 +165,7 @@
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:text="Einsatzort"
+                android:text="@string/einsatzort"
                 android:textColor="@android:color/black"
                 android:textSize="16dp" />
 

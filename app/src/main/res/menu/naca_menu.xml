@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/naca_zero"
+        android:title="0"/>
+        <!--android:title="0 Keine Verletzung oder Erkrankung"/>-->
+
+    <item
+        android:id="@+id/naca_one"
+        android:title="1"/>
+        <!--android:title="1 Geringfügige Verletzung bzw. Funktionsstörung"/>-->
+
+    <item
+        android:id="@+id/two"
+        android:title="2"/>
+        <!--android:title="2 Leichte bis mässig schwere Funktionsstörung"/>-->
+
+    <item
+        android:id="@+id/naca_three"
+        android:title="3"/>
+        <!--android:title="3 Mässige bis schwere, aber nicht lebensbedrohliche Störung"/>-->
+
+    <item
+        android:id="@+id/naca_four"
+        android:title="4"/>
+        <!--android:title="4 Schwere Störung, bei der die kurzfristige Entwicklung einer Lebensbedrohung nicht ausgeschlossen werden kann"/>-->
+
+    <item
+        android:id="@+id/naca_five"
+        android:title="5"/>
+        <!--android:title="5 Akute Lebensgefahr"/>-->
+
+    <item
+        android:id="@+id/naca_six"
+        android:title="6"/>
+        <!--android:title="6 Atem- und/oder Kreislaufstillstand"/>-->
+
+    <item
+        android:id="@+id/naca_seven"
+        android:title="7"/>
+        <!--android:title="7 Tödliche Verletzung oder Erkrankung"/>-->
+</menu>

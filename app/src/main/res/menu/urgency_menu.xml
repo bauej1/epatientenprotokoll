@@ -9,7 +9,7 @@
         android:title="2"/>
 
     <item
-    android:id="@+id/three"
-    android:title="3"/>
+        android:id="@+id/three"
+        android:title="3"/>
 
 </menu>

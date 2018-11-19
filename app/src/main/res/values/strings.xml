@@ -22,6 +22,105 @@
         <item>Arbeit</item>
         <item>Sport</item>
     </string-array>
+    <string-array name="language_array">
+        <item>D</item>
+        <item>F</item>
+    </string-array>
+    <string-array name="gender_array">
+        <item>Weiblich</item>
+        <item>Männlich</item>
+    </string-array>
     <string name="speichern">Speichern</string>
     <string name="abbrechen">Abbrechen</string>
+    <string name="name">Name</string>
+    <string name="vorname">Vorname</string>
+    <string name="strasse">Strasse</string>
+    <string name="plz">PLZ</string>
+    <string name="telefon">Telefon</string>
+    <string name="patient">Patient</string>
+    <string name="status">Status</string>
+    <string name="verdacht">Verdacht</string>
+    <string name="naca">NACA</string>
+    <string name="oeffnenAugen">Öffnen der Augen</string>
+    <string name="eyes1">nicht</string>
+    <string name="eyes2">auf Schmerzreiz</string>
+    <string name="eyes3">auf Anruf</string>
+    <string name="eyes4">spontan</string>
+
+    <string-array name="eyes_array">
+        <item>spontan</item>
+        <item>auf Anruf</item>
+        <item>auf Schmerzreiz</item>
+        <item>nicht</item>
+    </string-array>
+
+    <string name="response1">keine</string>
+    <string name="response2">unverständlich</string>
+    <string name="response3">verworren</string>
+    <string name="response4">unvollständig orientiert</string>
+    <string name="response5">voll orientiert</string>
+
+
+    <string name="antworten">Antworten</string>
+    <string-array name="response_array">
+        <item>voll orientiert</item>
+        <item>unvollständig orientiert</item>
+        <item>verworren</item>
+        <item>unverständlich</item>
+        <item>keine</item>
+    </string-array>
+
+    <string name="reaction1">keine</string>
+    <string name="reaction2">Streckung</string>
+    <string name="reaction3">Beugung</string>
+    <string name="reaction4">ungezielt auf Schmerzen</string>
+    <string name="reaction5">gezielt auf Schmerzen</string>
+    <string name="reaction6">adäquat</string>
+
+    <string name="motorischeReak">Motorische Reaktionen</string>
+    <string-array name="reaction_array">
+        <item>adäquat</item>
+        <item>gezielt auf Schmerzen</item>
+        <item>ungezielt auf Schmerzen</item>
+        <item>Beugung</item>
+        <item>Streckung</item>
+        <item>keine</item>
+    </string-array>
+
+    <string name="gsc">Glasgow Coma Scale</string>
+    <string name="materialundlagerung">Material und Lagerung</string>
+
+    <string-array name="material_array1">
+        <item>Vaakummatratze</item>
+        <item>Vaakumschienen</item>
+        <item>Schaufelbahre</item>
+        <item>Fernostuhl</item>
+        <item>Beckengurt</item>
+    </string-array>
+
+    <string-array name="material_array2">
+        <item>Halskragen</item>
+        <item>Rettungsbrett</item>
+        <item>Wundversorgung</item>
+        <item>Eisbeutel</item>
+        <item>KED</item>
+    </string-array>
+    
+    <string-array name="halskragen_array">
+        <item>Erwachsene</item>
+        <item>Kinder</item>
+    </string-array>
+
+    <string-array name="rettungsbrett_array">
+        <item>Transport</item>
+        <item>Rettung</item>
+    </string-array>
+
+    <string-array name="wundversorgung_array">
+        <item>klein</item>
+        <item>gross</item>
+    </string-array>
+
+    <string name="weitereMat">Weitere verbrauchte Materialien:</string>
+    <string name="zielortAbgegeben">Am Zielort abgegebenes Material</string>
 </resources>

@@ -139,15 +139,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="30"
-                    android:textOff="PATIENT"
-                    android:textOn="PATIENT" />
+                    android:textOff="@string/patient"
+                    android:textOn="@string/patient" />
 
                 <ToggleButton
                     android:id="@+id/tbStatus"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="30"
-                    android:text="ToggleButton" />
+                    android:text="ToggleButton"
+                    android:textOff="@string/status"
+                    android:textOn="@string/status" />
 
                 <ToggleButton
                     android:id="@+id/tbMaterial"
