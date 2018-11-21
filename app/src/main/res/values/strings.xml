@@ -123,4 +123,9 @@
 
     <string name="weitereMat">Weitere verbrauchte Materialien:</string>
     <string name="zielortAbgegeben">Am Zielort abgegebenes Material</string>
+    <string name="effekten">Effekten</string>
+    <string name="medikamente">Medikamente</string>
+    <string name="wertsachen">Wertsachen</string>
+    <string name="rxBilder">Rx-Bilder</string>
+    <string name="arztpflegebericht">Arzt-/Pflegebericht</string>
 </resources>

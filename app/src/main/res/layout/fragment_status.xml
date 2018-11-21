@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:mstb="http://schemas.android.com/tools"
+    xmlns:mstb="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -24,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"
                 android:text="@string/status"
-                android:textColor="@android:color/black"
+                android:textColor="@color/black"
                 android:textSize="30dp" />
 
         </LinearLayout>
@@ -43,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/verdacht"
-                android:textColor="@android:color/black"
+                android:textColor="@color/black"
                 android:textSize="16dp" />
 
             <EditText
@@ -61,7 +60,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="0.5"
                 android:background="@color/lightGrey"
-                app:srcCompat="@drawable/information" />
+                mstb:srcCompat="@drawable/information" />
 
             <TextView
                 android:id="@+id/textView9"
@@ -71,7 +70,7 @@
                 android:layout_weight="1"
                 android:paddingLeft="40dp"
                 android:text="@string/naca"
-                android:textColor="@android:color/black" />
+                android:textColor="@color/black" />
 
             <EditText
                 android:id="@+id/etNaca"
@@ -88,7 +87,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="0.5"
                 android:background="@color/lightGrey"
-                app:srcCompat="@drawable/information" />
+                mstb:srcCompat="@drawable/information" />
 
         </LinearLayout>
 
@@ -114,7 +113,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/gsc"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/black"
                     android:textSize="22dp"
                     android:textStyle="normal" />
             </LinearLayout>
@@ -130,7 +129,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/oeffnenAugen"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/black"
                     android:textSize="16dp" />
 
                 <org.honorato.multistatetogglebutton.MultiStateToggleButton
@@ -138,11 +137,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="visible"
-                    app:mstbColorNotPressedText="@color/grey"
-                    app:mstbColorPressedText="@color/grey"
-                    app:mstbPrimaryColor="@android:color/black"
-                    app:mstbSecondaryColor="@color/grey"
-                    app:values="@array/eyes_array">
+                    mstb:mstbColorNotPressedText="@color/grey"
+                    mstb:mstbColorPressedText="@color/grey"
+                    mstb:mstbPrimaryColor="@color/black"
+                    mstb:mstbSecondaryColor="@color/grey"
+                    mstb:values="@array/eyes_array">
 
                 </org.honorato.multistatetogglebutton.MultiStateToggleButton>
 
@@ -160,7 +159,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/antworten"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/black"
                     android:textSize="16dp" />
 
                 <org.honorato.multistatetogglebutton.MultiStateToggleButton
@@ -168,11 +167,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="visible"
-                    app:mstbColorNotPressedText="@color/grey"
-                    app:mstbColorPressedText="@color/grey"
-                    app:mstbPrimaryColor="@android:color/black"
-                    app:mstbSecondaryColor="@color/grey"
-                    app:values="@array/response_array"></org.honorato.multistatetogglebutton.MultiStateToggleButton>
+                    mstb:mstbColorNotPressedText="@color/grey"
+                    mstb:mstbColorPressedText="@color/grey"
+                    mstb:mstbPrimaryColor="@color/black"
+                    mstb:mstbSecondaryColor="@color/grey"
+                    mstb:values="@array/response_array"></org.honorato.multistatetogglebutton.MultiStateToggleButton>
             </LinearLayout>
 
             <LinearLayout
@@ -187,7 +186,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/motorischeReak"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/black"
                     android:textSize="16dp" />
 
                 <org.honorato.multistatetogglebutton.MultiStateToggleButton
@@ -195,11 +194,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="visible"
-                    app:mstbColorNotPressedText="@color/grey"
-                    app:mstbColorPressedText="@color/grey"
-                    app:mstbPrimaryColor="@android:color/black"
-                    app:mstbSecondaryColor="@color/grey"
-                    app:values="@array/reaction_array" />
+                    mstb:mstbColorNotPressedText="@color/grey"
+                    mstb:mstbColorPressedText="@color/grey"
+                    mstb:mstbPrimaryColor="@color/black"
+                    mstb:mstbSecondaryColor="@color/grey"
+                    mstb:values="@array/reaction_array" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

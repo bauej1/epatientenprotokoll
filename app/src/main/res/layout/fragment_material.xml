@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:mstb="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -23,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"
                 android:text="@string/materialundlagerung"
-                android:textColor="@android:color/black"
+                android:textColor="@color/black"
                 android:textSize="30dp" />
 
         </LinearLayout>
@@ -42,11 +43,11 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="7dp"
                 android:visibility="visible"
-                app:mstbColorNotPressedText="@color/grey"
-                app:mstbColorPressedText="@color/grey"
-                app:mstbPrimaryColor="@android:color/black"
-                app:mstbSecondaryColor="@color/grey"
-                app:values="@array/material_array1" />
+                mstb:mstbColorNotPressedText="@color/grey"
+                mstb:mstbColorPressedText="@color/grey"
+                mstb:mstbPrimaryColor="@color/black"
+                mstb:mstbSecondaryColor="@color/grey"
+                mstb:values="@array/material_array1" />
 
             <org.honorato.multistatetogglebutton.MultiStateToggleButton
                 android:id="@+id/mstb_material2"
@@ -55,11 +56,11 @@
                 android:layout_marginLeft="7dp"
                 android:layout_marginRight="7dp"
                 android:visibility="visible"
-                app:mstbColorNotPressedText="@color/grey"
-                app:mstbColorPressedText="@color/grey"
-                app:mstbPrimaryColor="@android:color/black"
-                app:mstbSecondaryColor="@color/grey"
-                app:values="@array/material_array2">
+                mstb:mstbColorNotPressedText="@color/grey"
+                mstb:mstbColorPressedText="@color/grey"
+                mstb:mstbPrimaryColor="@color/black"
+                mstb:mstbSecondaryColor="@color/grey"
+                mstb:values="@array/material_array2">
 
             </org.honorato.multistatetogglebutton.MultiStateToggleButton>
 
@@ -70,11 +71,11 @@
                 android:layout_marginLeft="7dp"
                 android:layout_marginRight="7dp"
                 android:visibility="gone"
-                app:mstbColorNotPressedText="@color/grey"
-                app:mstbColorPressedText="@color/grey"
-                app:mstbPrimaryColor="@android:color/black"
-                app:mstbSecondaryColor="@color/grey"
-                app:values="@array/halskragen_array">
+                mstb:mstbColorNotPressedText="@color/grey"
+                mstb:mstbColorPressedText="@color/grey"
+                mstb:mstbPrimaryColor="@color/black"
+                mstb:mstbSecondaryColor="@color/grey"
+                mstb:values="@array/halskragen_array">
 
             </org.honorato.multistatetogglebutton.MultiStateToggleButton>
 
@@ -85,11 +86,11 @@
                 android:layout_marginLeft="142dp"
                 android:layout_marginRight="7dp"
                 android:visibility="gone"
-                app:mstbColorNotPressedText="@color/grey"
-                app:mstbColorPressedText="@color/grey"
-                app:mstbPrimaryColor="@android:color/black"
-                app:mstbSecondaryColor="@color/grey"
-                app:values="@array/rettungsbrett_array">
+                mstb:mstbColorNotPressedText="@color/grey"
+                mstb:mstbColorPressedText="@color/grey"
+                mstb:mstbPrimaryColor="@color/black"
+                mstb:mstbSecondaryColor="@color/grey"
+                mstb:values="@array/rettungsbrett_array">
 
             </org.honorato.multistatetogglebutton.MultiStateToggleButton>
 
@@ -100,12 +101,11 @@
                 android:layout_marginLeft="278dp"
                 android:layout_marginRight="7dp"
                 android:visibility="gone"
-                app:mstbColorNotPressedText="@color/grey"
-                app:mstbColorPressedText="@color/grey"
-                app:mstbPrimaryColor="@android:color/black"
-                app:mstbSecondaryColor="@color/grey"
-                app:values="@array/wundversorgung_array">
-
+                mstb:mstbColorNotPressedText="@color/grey"
+                mstb:mstbColorPressedText="@color/grey"
+                mstb:mstbPrimaryColor="@color/black"
+                mstb:mstbSecondaryColor="@color/grey"
+                mstb:values="@array/wundversorgung_array">
             </org.honorato.multistatetogglebutton.MultiStateToggleButton>
 
             <LinearLayout
@@ -121,7 +121,8 @@
                     android:layout_marginLeft="7dp"
                     android:layout_weight="1"
                     android:text="@string/weitereMat"
-                    android:textColor="@android:color/black"
+                    android:textColor="@color/black"
+                    android:textColorLink="@color/colorPrimary"
                     android:textSize="16dp" />
 
                 <EditText
@@ -131,7 +132,9 @@
                     android:layout_weight="2"
                     android:ems="10"
                     android:imeOptions="actionDone"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:textColorLink="?attr/actionModeSplitBackground"
+                    tools:textColorLink="@color/colorAccent" />
             </LinearLayout>
 
         </LinearLayout>
@@ -149,38 +152,43 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/zielortAbgegeben"
-                android:textColor="@android:color/black"
+                android:textColor="@color/black"
                 android:textSize="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"></LinearLayout>
 
             <CheckBox
                 android:id="@+id/checkBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CheckBox" />
+                android:text="@string/effekten" />
 
             <CheckBox
                 android:id="@+id/checkBox5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CheckBox" />
+                android:text="@string/medikamente" />
 
             <CheckBox
                 android:id="@+id/checkBox3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CheckBox" />
+                android:text="@string/wertsachen" />
 
             <CheckBox
                 android:id="@+id/checkBox2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CheckBox" />
+                android:text="@string/rxBilder" />
 
             <CheckBox
                 android:id="@+id/checkBox4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CheckBox" />
+                android:text="@string/arztpflegebericht" />
 
         </LinearLayout>
 

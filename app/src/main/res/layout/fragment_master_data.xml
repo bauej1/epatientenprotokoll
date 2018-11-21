@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"
                 android:text="@string/patient"
-                android:textColor="@android:color/black"
+                android:textColor="@color/black"
                 android:textSize="30dp" />
 
             <org.honorato.multistatetogglebutton.MultiStateToggleButton
@@ -34,7 +34,7 @@
                 android:visibility="visible"
                 mstb:mstbColorNotPressedText="@color/grey"
                 mstb:mstbColorPressedText="@color/grey"
-                mstb:mstbPrimaryColor="@android:color/black"
+                mstb:mstbPrimaryColor="@color/black"
                 mstb:mstbSecondaryColor="@color/grey"
                 mstb:values="@array/language_array">
 
@@ -48,7 +48,7 @@
                 android:visibility="visible"
                 mstb:mstbColorNotPressedText="@color/grey"
                 mstb:mstbColorPressedText="@color/grey"
-                mstb:mstbPrimaryColor="@android:color/black"
+                mstb:mstbPrimaryColor="@color/black"
                 mstb:mstbSecondaryColor="@color/grey"
                 mstb:values="@array/gender_array" />
 
@@ -67,7 +67,7 @@
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:text="@string/name"
-                android:textColor="@android:color/black"
+                android:textColor="@color/black"
                 android:textSize="16dp" />
 
             <EditText
@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:text="@string/vorname"
-                android:textColor="@android:color/black"
+                android:textColor="@color/black"
                 android:textSize="16dp" />
 
             <EditText
@@ -108,7 +108,7 @@
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:text="@string/strasse"
-                android:textColor="@android:color/black"
+                android:textColor="@color/black"
                 android:textSize="16dp" />
 
             <EditText
@@ -124,7 +124,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:text="@string/plz"
-                android:textColor="@android:color/black"
+                android:textColor="@color/black"
                 android:textSize="16dp" />
 
             <EditText
@@ -150,7 +150,7 @@
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:text="@string/telefon"
-                android:textColor="@android:color/black"
+                android:textColor="@color/black"
                 android:textSize="16dp" />
 
             <EditText
@@ -166,7 +166,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:text="@string/einsatzort"
-                android:textColor="@android:color/black"
+                android:textColor="@color/black"
                 android:textSize="16dp" />
 
             <EditText
@@ -193,7 +193,7 @@
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:text="@string/zielort"
-                android:textColor="@android:color/black"
+                android:textColor="@color/black"
                 android:textSize="16dp" />
 
             <EditText
@@ -216,7 +216,7 @@
                 android:layout_height="match_parent"
                 mstb:mstbColorNotPressedText="@color/grey"
                 mstb:mstbColorPressedText="@color/grey"
-                mstb:mstbPrimaryColor="@android:color/black"
+                mstb:mstbPrimaryColor="@color/black"
                 mstb:mstbSecondaryColor="@color/lightGrey"
                 mstb:values="@array/operation_array">
 
@@ -237,7 +237,7 @@
                 android:visibility="invisible"
                 mstb:mstbColorNotPressedText="@color/grey"
                 mstb:mstbColorPressedText="@color/grey"
-                mstb:mstbPrimaryColor="@android:color/black"
+                mstb:mstbPrimaryColor="@color/black"
                 mstb:mstbSecondaryColor="@color/lightGrey"
                 mstb:values="@array/accident_array" />
         </LinearLayout>
