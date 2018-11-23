@@ -128,4 +128,12 @@
     <string name="wertsachen">Wertsachen</string>
     <string name="rxBilder">Rx-Bilder</string>
     <string name="arztpflegebericht">Arzt-/Pflegebericht</string>
+
+    <string-array name="abgegebenMaterial_array">
+        <item>Effekten</item>
+        <item>Medikamente</item>
+        <item>Wertsachen</item>
+        <item>RX-Bilder</item>
+        <item>Arzt-/Pflegebericht</item>
+    </string-array>
 </resources>

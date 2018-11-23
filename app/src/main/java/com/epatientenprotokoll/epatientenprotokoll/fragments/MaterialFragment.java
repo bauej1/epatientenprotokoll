@@ -2,14 +2,14 @@ package com.epatientenprotokoll.epatientenprotokoll.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+
 import com.epatientenprotokoll.epatientenprotokoll.R;
 
 import org.honorato.multistatetogglebutton.MultiStateToggleButton;
-import org.honorato.multistatetogglebutton.ToggleButton;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,11 +30,13 @@ public class MaterialFragment extends Fragment{
     MultiStateToggleButton mstbHalskragen;
     MultiStateToggleButton mstbRettungsbrett;
     MultiStateToggleButton mstbWundversorgung;
+    MultiStateToggleButton mstbAbgegebenesMaterial;
     List<String> materialArray1;
     List<String> materialArray2;
     List<String> halskragenArray;
     List<String> rettungsbrettArray;
     List<String> wundversorgungArray;
+    List<String> abgegebenesMaterialArray;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,21 +50,24 @@ public class MaterialFragment extends Fragment{
         mstbHalskragen = getView().findViewById(R.id.mstb_halskragen);
         mstbRettungsbrett = getView().findViewById(R.id.mstb_rettungsbrett);
         mstbWundversorgung = getView().findViewById(R.id.mstb_wundversorgung);
+        mstbAbgegebenesMaterial = getView().findViewById(R.id.mstb_abgegebenMaterial);
         materialArray1 = Arrays.asList(getResources().getStringArray(R.array.material_array1));
         materialArray2 = Arrays.asList(getResources().getStringArray(R.array.material_array2));
         halskragenArray = Arrays.asList(getResources().getStringArray(R.array.halskragen_array));
         rettungsbrettArray = Arrays.asList(getResources().getStringArray(R.array.rettungsbrett_array));
         wundversorgungArray = Arrays.asList(getResources().getStringArray(R.array.wundversorgung_array));
+        abgegebenesMaterialArray = Arrays.asList(getResources().getStringArray(R.array.abgegebenMaterial_array));
 
         mstbMaterial1.enableMultipleChoice(true);
         mstbMaterial2.enableMultipleChoice(true);
+        mstbAbgegebenesMaterial.enableMultipleChoice(true);
 
-        mstbMaterial2.setOnValueChangedListener(new ToggleButton.OnValueChangedListener() {
+        mstbMaterial2.setOnValueChangedListener(new org.honorato.multistatetogglebutton.ToggleButton.OnValueChangedListener() {
             @Override
             public void onValueChanged(int position) {
                 if (position == 0){
                     mstbHalskragen.setVisibility(View.VISIBLE);
-                    mstbHalskragen.setOnValueChangedListener(new ToggleButton.OnValueChangedListener() {
+                    mstbHalskragen.setOnValueChangedListener(new org.honorato.multistatetogglebutton.ToggleButton.OnValueChangedListener() {
                         @Override
                         public void onValueChanged(int value) {
                             materialArray2.set(position, "Halskragen " + halskragenArray.get(value));
@@ -74,7 +79,7 @@ public class MaterialFragment extends Fragment{
 
                 if (position == 1){
                     mstbRettungsbrett.setVisibility(View.VISIBLE);
-                    mstbRettungsbrett.setOnValueChangedListener(new ToggleButton.OnValueChangedListener() {
+                    mstbRettungsbrett.setOnValueChangedListener(new org.honorato.multistatetogglebutton.ToggleButton.OnValueChangedListener() {
                         @Override
                         public void onValueChanged(int value) {
                             materialArray2.set(position, "Rettungsbrett " + rettungsbrettArray.get(value));
@@ -86,7 +91,7 @@ public class MaterialFragment extends Fragment{
 
                 if (position == 2) {
                     mstbWundversorgung.setVisibility(View.VISIBLE);
-                    mstbWundversorgung.setOnValueChangedListener(new ToggleButton.OnValueChangedListener() {
+                    mstbWundversorgung.setOnValueChangedListener(new org.honorato.multistatetogglebutton.ToggleButton.OnValueChangedListener() {
                         @Override
                         public void onValueChanged(int value) {
                             materialArray2.set(position, "Wundversorgung " + wundversorgungArray.get(value));
@@ -97,5 +102,7 @@ public class MaterialFragment extends Fragment{
                 }
             }
         });
+
+
     }
 }
