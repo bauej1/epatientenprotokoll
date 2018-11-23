@@ -136,4 +136,21 @@
         <item>RX-Bilder</item>
         <item>Arzt-/Pflegebericht</item>
     </string-array>
+
+    <string-array name="lagerung_array">
+        <item>Liegend</item>
+        <item>Seitenlage</item>
+        <item>Sitzend</item>
+    </string-array>
+
+    <string-array name="lagerung_liegend">
+        <item>Obere Extremität angew.</item>
+        <item>Untere Extremität angew.</item>
+        <item>Bede Extremitäten angew.</item>
+    </string-array>
+
+    <string-array name="lagerung_seitenlage">
+        <item>Links</item>
+        <item>Rechts</item>
+    </string-array>
 </resources>
