@@ -1,17 +1,13 @@
 package com.epatientenprotokoll.epatientenprotokoll.activities;
 
-import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.res.Resources;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -19,17 +15,14 @@ import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 import com.epatientenprotokoll.epatientenprotokoll.R;
 import com.epatientenprotokoll.epatientenprotokoll.fragments.MasterDataFragment;
 import com.epatientenprotokoll.epatientenprotokoll.fragments.MaterialFragment;
 import com.epatientenprotokoll.epatientenprotokoll.fragments.StatusFragment;
 
-import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +37,12 @@ public class MainActivity extends AppCompatActivity {
     PopupWindow mpopup;
     Context mConext;
     LinearLayout vertLayout;
+
+    //MeasuresGrid
+    private MeasuresGrid measuresGrid;
+    String[][] table = new String[15][10];
+    int ventilationStart = 2;
+    int ventilationEnd = 5;
 
 
     @Override
@@ -154,6 +153,48 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        initMeasuresGrid();
+    }
+
+    private void initMeasuresGrid() {
+        measuresGrid = findViewById(R.id.measuresGrid);
+        measuresGrid.setOnClickListener(new MeasuresGrid.OnClickListener() {
+            @Override
+            void onClick(View view, int row, int column) {
+                onMeasuresGridClick(row, column);
+            }
+        });
+
+        measuresGrid.setOnDragListener(new MeasuresGrid.OnDragListener() {
+            @Override
+            void onDrag(View view, int columnStart, int columnEnd) {
+                onMeasuresGridDrag(columnStart, columnEnd);
+            }
+        });
+
+        setMeasuresGrid();
+    }
+
+    private void onMeasuresGridClick(int row, int column) {
+        System.out.println("clicked: " + row + " " + column);
+
+        table[row][column] = "X";
+
+        setMeasuresGrid();
+    }
+
+    private void onMeasuresGridDrag(int columnStart, int columnEnd) {
+        System.out.println("drag: " + columnStart + " " + columnEnd);
+
+        ventilationStart = columnStart;
+        ventilationEnd = columnEnd;
+
+        setMeasuresGrid();
+    }
+
+    private void setMeasuresGrid() {
+        measuresGrid.setTable(table);
+        measuresGrid.setVentilation(ventilationStart, ventilationEnd);
     }
 
 }
