@@ -11,7 +11,14 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="40"
-        android:orientation="horizontal"></LinearLayout>
+        android:orientation="horizontal">
+
+        <com.epatientenprotokoll.epatientenprotokoll.activities.MeasuresGrid
+            android:id="@+id/measuresGrid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/verticalLayout"
