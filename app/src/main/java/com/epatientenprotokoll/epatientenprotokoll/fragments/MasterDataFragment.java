@@ -5,7 +5,9 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
 import android.text.InputType;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +37,11 @@ import static android.content.ContentValues.TAG;
 public class MasterDataFragment extends Fragment{
     MultiStateToggleButton mstbOperation;
     MultiStateToggleButton mstbAccident;
+    EditText etName;
+    EditText etLastname;
+    String patientName;
+    String patientLastname;
+    String patientBirthdate;
     List<String> operationArray;
     List<String> accidentArray;
 
@@ -42,16 +49,34 @@ public class MasterDataFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         return inflater.inflate(R.layout.fragment_master_data, container, false);
-
-
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         mstbOperation = getView().findViewById(R.id.mstb_multi_id);
         mstbAccident = getView().findViewById(R.id.mstb_multi_id2);
+        etName = getView().findViewById(R.id.etName);
+        etLastname = getView().findViewById(R.id.etLastname);
         operationArray = Arrays.asList(getResources().getStringArray(R.array.operation_array));
         accidentArray = Arrays.asList(getResources().getStringArray(R.array.accident_array));
+
+        etName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                patientName = etName.getText().toString();
+            }
+        });
+
+        patientLastname = etLastname.getText().toString();
+
 
         mstbOperation.setOnValueChangedListener(new org.honorato.multistatetogglebutton.ToggleButton.OnValueChangedListener() {
             @Override

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:mstb="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -28,9 +29,9 @@
 
             <org.honorato.multistatetogglebutton.MultiStateToggleButton
                 android:id="@+id/mstb_language"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="100dp"
+                android:layout_marginLeft="50dp"
                 android:visibility="visible"
                 mstb:mstbColorNotPressedText="@color/grey"
                 mstb:mstbColorPressedText="@color/grey"
@@ -52,6 +53,16 @@
                 mstb:mstbSecondaryColor="@color/grey"
                 mstb:values="@array/gender_array" />
 
+            <com.mikhaellopez.lazydatepicker.LazyDatePicker
+                android:id="@+id/lazyDatePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="50dp"
+                app:ldp_date_format="dd-mm-yyyy"
+                app:ldp_hint_color="@color/black"
+                app:ldp_text_color="@color/grey" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -71,7 +82,7 @@
                 android:textSize="16dp" />
 
             <EditText
-                android:id="@+id/etName"
+                android:id="@+id/etLastname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -87,7 +98,7 @@
                 android:textSize="16dp" />
 
             <EditText
-                android:id="@+id/etVorname"
+                android:id="@+id/etName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
