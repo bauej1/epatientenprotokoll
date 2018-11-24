@@ -144,6 +144,7 @@
     </string-array>
 
     <string-array name="lagerung_liegend">
+        <item>Normal</item>
         <item>Obere Extremität angew.</item>
         <item>Untere Extremität angew.</item>
         <item>Bede Extremitäten angew.</item>

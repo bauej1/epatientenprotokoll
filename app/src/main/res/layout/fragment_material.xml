@@ -186,52 +186,109 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@color/lightGrey"
-            android:orientation="vertical"
-            android:paddingBottom="10dp">
+            android:orientation="horizontal"
+            android:paddingBottom="10dp"
+            android:weightSum="4">
 
-            <org.honorato.multistatetogglebutton.MultiStateToggleButton
-                android:id="@+id/mstb_lagerung"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="7dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginRight="7dp"
-                android:visibility="visible"
-                mstb:mstbColorNotPressedText="@color/grey"
-                mstb:mstbColorPressedText="@color/grey"
-                mstb:mstbPrimaryColor="@color/black"
-                mstb:mstbSecondaryColor="@color/grey"
-                mstb:values="@array/lagerung_array">
-
-            </org.honorato.multistatetogglebutton.MultiStateToggleButton>
-
-            <org.honorato.multistatetogglebutton.MultiStateToggleButton
-                android:id="@+id/mstb_liegend"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="7dp"
-                android:layout_marginRight="7dp"
-                android:visibility="gone"
-                mstb:mstbColorNotPressedText="@color/grey"
-                mstb:mstbColorPressedText="@color/grey"
-                mstb:mstbPrimaryColor="@color/black"
-                mstb:mstbSecondaryColor="@color/grey"
-                mstb:values="@array/lagerung_liegend">
+                android:layout_weight="3.6"
+                android:orientation="vertical">
 
-            </org.honorato.multistatetogglebutton.MultiStateToggleButton>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3.6">
 
-            <org.honorato.multistatetogglebutton.MultiStateToggleButton
-                android:id="@+id/mstb_seitenlage"
-                android:layout_width="match_parent"
+                    <ToggleButton
+                        android:id="@+id/tbLiegend"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.2"
+                        android:drawableStart="@drawable/lagerung_liegend"
+                        android:gravity="center"
+                        android:textOff=""
+                        android:textOn="" />
+
+                    <ToggleButton
+                        android:id="@+id/tbObereExtr"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.2"
+                        android:drawableStart="@drawable/lagerung_obereextr"
+                        android:textOff=""
+                        android:textOn="" />
+
+                    <ToggleButton
+                        android:id="@+id/tbUntereExtr"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.2"
+                        android:drawableStart="@drawable/lagerung_untereextr"
+                        android:textOff=""
+                        android:textOn="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="3.6">
+
+                    <ToggleButton
+                        android:id="@+id/tbBeideExtr"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.2"
+                        android:drawableStart="@drawable/lagerung_beideextr"
+                        android:textOff=""
+                        android:textOn="" />
+
+                    <ToggleButton
+                        android:id="@+id/tbSeitenlage"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.2"
+                        android:drawableStart="@drawable/lagerung_seitenlage"
+                        android:textOff=""
+                        android:textOn="" />
+
+                    <org.honorato.multistatetogglebutton.MultiStateToggleButton
+                        android:id="@+id/mstb_Seitenlage"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="7dp"
+                        android:layout_weight="1.2"
+                        android:visibility="gone"
+                        mstb:mstbColorNotPressedText="@color/grey"
+                        mstb:mstbColorPressedText="@color/grey"
+                        mstb:mstbPrimaryColor="@color/black"
+                        mstb:mstbSecondaryColor="@color/grey"
+                        mstb:values="@array/lagerung_seitenlage" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="232.5dp"
-                android:layout_marginRight="7dp"
-                android:visibility="gone"
-                mstb:mstbColorNotPressedText="@color/grey"
-                mstb:mstbColorPressedText="@color/grey"
-                mstb:mstbPrimaryColor="@color/black"
-                mstb:mstbSecondaryColor="@color/grey"
-                mstb:values="@array/lagerung_seitenlage" />
+                android:layout_weight="0.4"
+                android:orientation="vertical">
+
+                <ToggleButton
+                    android:id="@+id/tbSitzend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:drawableStart="@drawable/lagerung_sitzend"
+                    android:textOff=""
+                    android:textOn="" />
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>
