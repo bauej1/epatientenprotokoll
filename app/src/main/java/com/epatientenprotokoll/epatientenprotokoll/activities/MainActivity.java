@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.PopupWindow;
+import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 import com.epatientenprotokoll.epatientenprotokoll.R;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     Button urgencyOne;
     Button urgencyTwo;
     ImageButton ibTime;
+    TextClock actualTime;
     PopupWindow mpopup;
     Context mConext;
     LinearLayout vertLayout;
@@ -59,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         urgencyTwo = findViewById(R.id.bUrgency2);
         ibTime = findViewById(R.id.ibTime);
         vertLayout = findViewById(R.id.verticalLayout);
+        actualTime = findViewById(R.id.textClock);
 
         tbMasterData.setOnClickListener(i -> {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -134,9 +137,69 @@ public class MainActivity extends AppCompatActivity {
                 //mpopup = new PopupWindow(timeView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 //mpopup.showAsDropDown(vertLayout);
 
-                final TextView tAlarm = timeView.findViewById(R.id.tAlarm);
-                final EditText timeAlarm = timeView.findViewById(R.id.timeAlarm);
-                final Button bAlarm = timeView.findViewById(R.id.bAlarm);
+                EditText timeAlarm = timeView.findViewById(R.id.timeAlarm);
+                EditText timeAusruck = timeView.findViewById(R.id.timeAusruck);
+                EditText timeEinsatzort = timeView.findViewById(R.id.timeEinsatzort);
+                EditText timeAbfahrt = timeView.findViewById(R.id.timeAbfahrt);
+                EditText timeSpital = timeView.findViewById(R.id.timeSpital);
+                EditText timeEinsatzbereit = timeView.findViewById(R.id.timeEinsatzbereit);
+                EditText timeEndzeit = timeView.findViewById(R.id.timeEndzeit);
+                Button bAlarm = timeView.findViewById(R.id.bAlarm);
+                Button bAusruck = timeView.findViewById(R.id.bAusruck);
+                Button bEinsatzort = timeView.findViewById(R.id.bEinsatzort);
+                Button bAbfahrt = timeView.findViewById(R.id.bAbfahrt);
+                Button bSpital = timeView.findViewById(R.id.bSpital);
+                Button bEinsatzebereit = timeView.findViewById(R.id.bEinsatzbereit);
+                Button bEndzeit = timeView.findViewById(R.id.bEndzeit);
+
+                bAlarm.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        timeAlarm.setText(actualTime.getText().toString());
+                    }
+                });
+
+                bAusruck.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        timeAusruck.setText(actualTime.getText().toString());
+                    }
+                });
+
+                bEinsatzort.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        timeEinsatzort.setText(actualTime.getText().toString());
+                    }
+                });
+
+                bAbfahrt.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        timeAbfahrt.setText(actualTime.getText().toString());
+                    }
+                });
+
+                bSpital.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        timeSpital.setText(actualTime.getText().toString());
+                    }
+                });
+
+                bEinsatzebereit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        timeEinsatzbereit.setText(actualTime.getText().toString());
+                    }
+                });
+
+                bEndzeit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        timeEndzeit.setText(actualTime.getText().toString());
+                    }
+                });
 
                 new AlertDialog.Builder(MainActivity.this).setView(timeView).setTitle("Zeiten").show();
 
