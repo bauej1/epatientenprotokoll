@@ -136,4 +136,12 @@
         <item>RX-Bilder</item>
         <item>Arzt-/Pflegebericht</item>
     </string-array>
+
+    <string name="ventilation">Beatmung</string>
+    <string name="intubation_extubation">In- / Extubation</string>
+    <string name="defibrilation">Defibrilation</string>
+    <string name="pacing">Ext. Pacing</string>
+    <string name="heart_massage">Herzmassage</string>
+    <string name="bloodpressure">BD</string>
+    <string name="pulse">Puls</string>
 </resources>

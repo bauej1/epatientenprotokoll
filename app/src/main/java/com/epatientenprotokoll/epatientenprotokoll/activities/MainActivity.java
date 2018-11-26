@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,14 +14,13 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 import com.epatientenprotokoll.epatientenprotokoll.R;
 import com.epatientenprotokoll.epatientenprotokoll.fragments.MasterDataFragment;
 import com.epatientenprotokoll.epatientenprotokoll.fragments.MaterialFragment;
 import com.epatientenprotokoll.epatientenprotokoll.fragments.StatusFragment;
-
+import com.epatientenprotokoll.epatientenprotokoll.model.Toolbox;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -34,16 +34,18 @@ public class MainActivity extends AppCompatActivity {
     Button urgencyOne;
     Button urgencyTwo;
     ImageButton ibTime;
-    PopupWindow mpopup;
-    Context mConext;
     LinearLayout vertLayout;
 
     //MeasuresGrid
     private MeasuresGrid measuresGrid;
-    String[][] table = new String[15][10];
-    int ventilationStart = 2;
-    int ventilationEnd = 5;
+    int[][] table = new int[25][15];
+    int ventilationStart;
+    int ventilationEnd;
+    int row;
 
+    //Toolbox
+    private Toolbar toolChooser;
+    private Toolbox toolbox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -153,48 +155,86 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        initToolChooser();
         initMeasuresGrid();
     }
 
+    /**
+     * Initializes the grid for measurements and handels the onclick and ondrag-Listener for further actions.
+     */
     private void initMeasuresGrid() {
         measuresGrid = findViewById(R.id.measuresGrid);
         measuresGrid.setOnClickListener(new MeasuresGrid.OnClickListener() {
             @Override
             void onClick(View view, int row, int column) {
-                onMeasuresGridClick(row, column);
+                if(toolbox.checkIfToolIsSelected()){
+                    if(!toolbox.getActualTool().isMultiMeasure()){
+                        onMeasuresGridClick(row, column);
+                    }
+                }
             }
         });
 
         measuresGrid.setOnDragListener(new MeasuresGrid.OnDragListener() {
             @Override
-            void onDrag(View view, int columnStart, int columnEnd) {
-                onMeasuresGridDrag(columnStart, columnEnd);
+            void onDrag(View view, int columnStart, int columnEnd, int row) {
+                if(toolbox.checkIfToolIsSelected()){
+                    if(toolbox.getActualTool().isMultiMeasure()){
+                        onMeasuresGridDrag(columnStart, columnEnd, row);
+                    }
+                }
             }
         });
 
         setMeasuresGrid();
     }
 
+    /**
+     * Handles the action if the user clicks on the grid. It gets the selected toolbox symbol and writes it into the two-dimensional table array to store the symbol.
+     *
+     * @param row - clicked row
+     * @param column - clicked column
+     */
     private void onMeasuresGridClick(int row, int column) {
         System.out.println("clicked: " + row + " " + column);
 
-        table[row][column] = "X";
-
+        table[row][column] = toolbox.getActualTool().getSymbol();
         setMeasuresGrid();
     }
 
-    private void onMeasuresGridDrag(int columnStart, int columnEnd) {
+    /**
+     * Handles the action if the user drags on the grid. It gets the selected toolbox symbol and writes it into the two-dimensional table array to store the symbol.
+     *
+     * @param columnStart - first tap
+     * @param columnEnd - last tap
+     * @param row - row tapped
+     */
+    private void onMeasuresGridDrag(int columnStart, int columnEnd, int row) {
         System.out.println("drag: " + columnStart + " " + columnEnd);
 
         ventilationStart = columnStart;
         ventilationEnd = columnEnd;
+        this.row = row;
 
         setMeasuresGrid();
     }
 
+    /**
+     * Actualizes the data table behind the grid.
+     */
     private void setMeasuresGrid() {
         measuresGrid.setTable(table);
-        measuresGrid.setVentilation(ventilationStart, ventilationEnd);
+        measuresGrid.setVentilation(ventilationStart, ventilationEnd, row);
     }
 
+    /**
+     * Initializes the tool chooser element on top left screen corner. It allows the user to handle different tools.
+     */
+    private void initToolChooser(){
+        toolChooser = findViewById(R.id.toolbar);
+        toolbox = new Toolbox();
+        toolChooser.setOnClickListener(v -> {
+            toolbox.showToolbox(v);
+        });
+    }
 }

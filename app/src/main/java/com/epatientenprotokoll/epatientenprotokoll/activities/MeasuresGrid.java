@@ -1,6 +1,8 @@
 package com.epatientenprotokoll.epatientenprotokoll.activities;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -15,15 +17,16 @@ public class MeasuresGrid extends View {
     }
 
     abstract static class OnDragListener {
-        abstract void onDrag(View view, int columnStart, int columnEnd);
+        abstract void onDrag(View view, int columnStart, int columnEnd, int row);
     }
 
-    String[][] table;
+    int[][] table;
     OnClickListener onClickListener;
     OnDragListener onDragListener;
     Paint paint = new Paint();
     int ventilationStart;
     int ventilationEnd;
+    int row;
 
     public MeasuresGrid(Context context) {
         super(context);
@@ -46,15 +49,16 @@ public class MeasuresGrid extends View {
         paint.setTextSize(50);
     }
 
-    public void setTable(String[][] table) {
+    public void setTable(int[][] table) {
         this.table = table;
 
         invalidate();
     }
 
-    public void setVentilation(int ventilationStart, int ventilationEnd) {
+    public void setVentilation(int ventilationStart, int ventilationEnd, int row) {
         this.ventilationStart = ventilationStart;
         this.ventilationEnd = ventilationEnd;
+        this.row = row;
     }
 
     void setOnClickListener(OnClickListener onClickListener) {
@@ -93,16 +97,16 @@ public class MeasuresGrid extends View {
     private void drawCells(Canvas canvas) {
         for (int row = 0; row < getRowCount(); ++row) {
             for (int column = 0; column < getColumnCount(); ++column) {
-                String text = table[row][column];
+                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), table[row][column]);
 
-                if(text == null) {
+                if(bitmap == null) {
                     continue;
                 }
 
                 int x = getWidth() / getColumnCount() * column + 4;
                 int y = getHeight() / getRowCount() * (row + 1) - 4;
 
-                canvas.drawText(text, x, y, paint);
+                canvas.drawBitmap(bitmap, x, y, paint);
             }
         }
     }
@@ -112,7 +116,8 @@ public class MeasuresGrid extends View {
             return;
         }
 
-        int row = 3;
+        int row = this.row;
+        System.out.println("row : " + row);
         boolean upwards = true;
 
         for(int column = ventilationStart; column < ventilationEnd; ++column) {
@@ -145,7 +150,7 @@ public class MeasuresGrid extends View {
             if(event.getAction() == MotionEvent.ACTION_UP) {
                 if(dragStartColumn != column) {
                     if (onDragListener != null) {
-                        onDragListener.onDrag(this, dragStartColumn, column + 1);
+                        onDragListener.onDrag(this, dragStartColumn, column + 1, row);
                     }
                 }
                 else {
