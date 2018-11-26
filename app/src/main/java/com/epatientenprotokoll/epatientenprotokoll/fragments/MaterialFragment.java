@@ -10,6 +10,7 @@ import android.widget.EditText;
 import com.epatientenprotokoll.epatientenprotokoll.R;
 
 import org.honorato.multistatetogglebutton.MultiStateToggleButton;
+import org.honorato.multistatetogglebutton.ToggleButton;
 
 import java.util.Arrays;
 import java.util.List;
@@ -31,12 +32,19 @@ public class MaterialFragment extends Fragment{
     MultiStateToggleButton mstbRettungsbrett;
     MultiStateToggleButton mstbWundversorgung;
     MultiStateToggleButton mstbAbgegebenesMaterial;
+    MultiStateToggleButton mstbLagerung;
+    MultiStateToggleButton mstbLiegend;
+    MultiStateToggleButton mstbSeitenlage;
     List<String> materialArray1;
     List<String> materialArray2;
     List<String> halskragenArray;
     List<String> rettungsbrettArray;
     List<String> wundversorgungArray;
     List<String> abgegebenesMaterialArray;
+    List<String> lagerungArray;
+    List<String> lagerungFinalArray;
+    List<String> liegendArray;
+    List<String> seitenlageArray;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -51,12 +59,19 @@ public class MaterialFragment extends Fragment{
         mstbRettungsbrett = getView().findViewById(R.id.mstb_rettungsbrett);
         mstbWundversorgung = getView().findViewById(R.id.mstb_wundversorgung);
         mstbAbgegebenesMaterial = getView().findViewById(R.id.mstb_abgegebenMaterial);
+        mstbLagerung = getView().findViewById(R.id.mstb_lagerung);
+        mstbLiegend = getView().findViewById(R.id.mstb_liegend);
+        mstbSeitenlage = getView().findViewById(R.id.mstb_seitenlage);
         materialArray1 = Arrays.asList(getResources().getStringArray(R.array.material_array1));
         materialArray2 = Arrays.asList(getResources().getStringArray(R.array.material_array2));
         halskragenArray = Arrays.asList(getResources().getStringArray(R.array.halskragen_array));
         rettungsbrettArray = Arrays.asList(getResources().getStringArray(R.array.rettungsbrett_array));
         wundversorgungArray = Arrays.asList(getResources().getStringArray(R.array.wundversorgung_array));
         abgegebenesMaterialArray = Arrays.asList(getResources().getStringArray(R.array.abgegebenMaterial_array));
+        lagerungArray = Arrays.asList(getResources().getStringArray(R.array.lagerung_array));
+        lagerungFinalArray = Arrays.asList(getResources().getStringArray(R.array.lagerung_array));
+        liegendArray = Arrays.asList(getResources().getStringArray(R.array.lagerung_liegend));
+        seitenlageArray = Arrays.asList(getResources().getStringArray(R.array.lagerung_seitenlage));
 
         mstbMaterial1.enableMultipleChoice(true);
         mstbMaterial2.enableMultipleChoice(true);
@@ -101,6 +116,38 @@ public class MaterialFragment extends Fragment{
                     });
                 }
             }
+        });
+
+        mstbLagerung.setOnValueChangedListener(new org.honorato.multistatetogglebutton.ToggleButton.OnValueChangedListener() {
+            @Override
+            public void onValueChanged(int position) {
+                if (position == 0){
+                    mstbLiegend.setVisibility(View.VISIBLE);
+                    mstbLiegend.setOnValueChangedListener(new ToggleButton.OnValueChangedListener() {
+                        @Override
+                        public void onValueChanged(int value) {
+                            lagerungArray.set(1, lagerungFinalArray.get(1));
+                            lagerungArray.set(position, "Liegend \n" + liegendArray.get(value));
+                            mstbLagerung.setElements(lagerungArray, lagerungArray.get(position));
+                            mstbLiegend.setVisibility(View.GONE);
+                        }
+                    });
+                }
+
+                if (position == 1){
+                    mstbSeitenlage.setVisibility(View.VISIBLE);
+                    mstbSeitenlage.setOnValueChangedListener(new ToggleButton.OnValueChangedListener() {
+                        @Override
+                        public void onValueChanged(int value) {
+                            lagerungArray.set(0, lagerungFinalArray.get(0));
+                            lagerungArray.set(position, "Seitenlage \n" + seitenlageArray.get(value));
+                            mstbLagerung.setElements(lagerungArray, lagerungArray.get(position));
+                            mstbSeitenlage.setVisibility(View.GONE);
+                        }
+                    });
+                }
+            }
+
         });
 
 

@@ -183,8 +183,56 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"></LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/lightGrey"
+            android:orientation="vertical"
+            android:paddingBottom="10dp">
+
+            <org.honorato.multistatetogglebutton.MultiStateToggleButton
+                android:id="@+id/mstb_lagerung"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="7dp"
+                android:visibility="visible"
+                mstb:mstbColorNotPressedText="@color/grey"
+                mstb:mstbColorPressedText="@color/grey"
+                mstb:mstbPrimaryColor="@color/black"
+                mstb:mstbSecondaryColor="@color/grey"
+                mstb:values="@array/lagerung_array">
+
+            </org.honorato.multistatetogglebutton.MultiStateToggleButton>
+
+            <org.honorato.multistatetogglebutton.MultiStateToggleButton
+                android:id="@+id/mstb_liegend"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:visibility="gone"
+                mstb:mstbColorNotPressedText="@color/grey"
+                mstb:mstbColorPressedText="@color/grey"
+                mstb:mstbPrimaryColor="@color/black"
+                mstb:mstbSecondaryColor="@color/grey"
+                mstb:values="@array/lagerung_liegend">
+
+            </org.honorato.multistatetogglebutton.MultiStateToggleButton>
+
+            <org.honorato.multistatetogglebutton.MultiStateToggleButton
+                android:id="@+id/mstb_seitenlage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="232.5dp"
+                android:layout_marginRight="7dp"
+                android:visibility="gone"
+                mstb:mstbColorNotPressedText="@color/grey"
+                mstb:mstbColorPressedText="@color/grey"
+                mstb:mstbPrimaryColor="@color/black"
+                mstb:mstbSecondaryColor="@color/grey"
+                mstb:values="@array/lagerung_seitenlage" />
+        </LinearLayout>
 
     </LinearLayout>
 </FrameLayout>
