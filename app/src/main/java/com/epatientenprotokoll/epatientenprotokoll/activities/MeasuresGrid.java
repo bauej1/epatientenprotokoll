@@ -20,13 +20,15 @@ public class MeasuresGrid extends View {
         abstract void onDrag(View view, int columnStart, int columnEnd, int row);
     }
 
-    int[][] table;
-    OnClickListener onClickListener;
-    OnDragListener onDragListener;
-    Paint paint = new Paint();
-    int ventilationStart;
-    int ventilationEnd;
-    int row;
+    private static final int maxYValue = 250;
+
+    private int[][] table;
+    private OnClickListener onClickListener;
+    private OnDragListener onDragListener;
+    private Paint paint = new Paint();
+    private int ventilationStart;
+    private int ventilationEnd;
+    private int row;
 
     public MeasuresGrid(Context context) {
         super(context);
@@ -83,12 +85,14 @@ public class MeasuresGrid extends View {
     }
 
     private void drawGrid(Canvas canvas) {
-        for (int row = 0; row <= getRowCount(); ++row) {
+        //horizontal lines
+        for (int row = 1; row <= getRowCount(); ++row) {
             int y = getHeight() / getRowCount() * row;
-            canvas.drawLine(0, y, getWidth(), y, paint);
+            canvas.drawText(getYGridValues(row), 0, y - 15, paint);
+            canvas.drawLine(getHeight() / getRowCount() * 2, y, getWidth(), y, paint); //canvas.drawLine(0, y, getWidth(), y, paint);
         }
-
-        for (int column = 0; column <= getColumnCount(); ++column) {
+        //vertical lines
+        for (int column = 2; column <= getColumnCount(); ++column) {
             int x = getWidth() / getColumnCount() * column;
             canvas.drawLine(x, 0, x, getHeight(), paint);
         }
@@ -172,5 +176,13 @@ public class MeasuresGrid extends View {
 
     private int getColumnCount() {
         return table[0].length;
+    }
+
+    private String getYGridValues(int column){
+        return maxYValue - (column * 10) + "";
+    }
+
+    private String getXGridValues(){
+        return "";
     }
 }
