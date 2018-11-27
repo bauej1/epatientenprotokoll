@@ -1,5 +1,7 @@
 package com.epatientenprotokoll.epatientenprotokoll.model;
 
+import com.epatientenprotokoll.epatientenprotokoll.R;
+
 /**
  * This Class represents the different Measurements which can used in the grid.
  *
@@ -90,3 +92,5 @@ public class Measurement {
         this.y2 = y2;
     }
 }
+
+

@@ -20,7 +20,8 @@ public class MeasuresGrid extends View {
         abstract void onDrag(View view, int columnStart, int columnEnd, int row);
     }
 
-    private static final int maxYValue = 250;
+    private static final int maxYValue = 220;
+    private static final int yAxisLabelDiff = 15;
 
     private int[][] table;
     private OnClickListener onClickListener;
@@ -85,17 +86,8 @@ public class MeasuresGrid extends View {
     }
 
     private void drawGrid(Canvas canvas) {
-        //horizontal lines
-        for (int row = 1; row <= getRowCount(); ++row) {
-            int y = getHeight() / getRowCount() * row;
-            canvas.drawText(getYGridValues(row), 0, y - 15, paint);
-            canvas.drawLine(getHeight() / getRowCount() * 2, y, getWidth(), y, paint); //canvas.drawLine(0, y, getWidth(), y, paint);
-        }
-        //vertical lines
-        for (int column = 2; column <= getColumnCount(); ++column) {
-            int x = getWidth() / getColumnCount() * column;
-            canvas.drawLine(x, 0, x, getHeight(), paint);
-        }
+        drawHorizontalLines(canvas);
+        drawVerticalLines(canvas);
     }
 
     private void drawCells(Canvas canvas) {
@@ -184,5 +176,27 @@ public class MeasuresGrid extends View {
 
     private String getXGridValues(){
         return "";
+    }
+
+    private void drawHorizontalLines(Canvas canvas){
+        for (int row = 1; row <= getRowCount(); ++row) {
+            int y = getHeight() / getRowCount() * row;
+            if(row <= getRowCount()-3){
+                canvas.drawText(getYGridValues(row), 0, y - yAxisLabelDiff, paint);
+            }
+            if(row == getRowCount() - 3){
+                paint.setStrokeWidth(5f);
+            } else {
+                paint.setStrokeWidth(2f);
+            }
+            canvas.drawLine(getHeight() / getRowCount() * 2, y, getWidth(), y, paint); //canvas.drawLine(0, y, getWidth(), y, paint);
+        }
+    }
+
+    private void drawVerticalLines(Canvas canvas){
+        for (int column = 2; column <= getColumnCount(); ++column) {
+            int x = getWidth() / getColumnCount() * column;
+            canvas.drawLine(x, 0, x, getHeight(), paint);
+        }
     }
 }

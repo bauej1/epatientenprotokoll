@@ -20,7 +20,10 @@ import com.epatientenprotokoll.epatientenprotokoll.R;
 import com.epatientenprotokoll.epatientenprotokoll.fragments.MasterDataFragment;
 import com.epatientenprotokoll.epatientenprotokoll.fragments.MaterialFragment;
 import com.epatientenprotokoll.epatientenprotokoll.fragments.StatusFragment;
-import com.epatientenprotokoll.epatientenprotokoll.model.Toolbox;
+import com.epatientenprotokoll.epatientenprotokoll.toolbox.ActionToolbox;
+import com.epatientenprotokoll.epatientenprotokoll.model.Tool;
+import com.epatientenprotokoll.epatientenprotokoll.toolbox.ValueToolBox;
+import com.epatientenprotokoll.epatientenprotokoll.toolbox.Toolbox;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -38,14 +41,22 @@ public class MainActivity extends AppCompatActivity {
 
     //MeasuresGrid
     private MeasuresGrid measuresGrid;
+    private Tool tool;
     int[][] table = new int[25][15];
     int ventilationStart;
     int ventilationEnd;
     int row;
 
     //Toolbox
+    Toolbox toolbox;
+
+    //ActionToolbox
     private Toolbar toolChooser;
-    private Toolbox toolbox;
+
+    //ValueToolBox
+    private Toolbar valueChooser;
+
+    //DrugToolBox
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,7 +166,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        initToolChooser();
+        //Initialize measurements and tool singleton
+        tool = Tool.getInstance();
+        tool.initMeasurements();
+
+        initActionToolChooser();
+        initValueToolChooser();
         initMeasuresGrid();
     }
 
@@ -167,8 +183,8 @@ public class MainActivity extends AppCompatActivity {
         measuresGrid.setOnClickListener(new MeasuresGrid.OnClickListener() {
             @Override
             void onClick(View view, int row, int column) {
-                if(toolbox.checkIfToolIsSelected()){
-                    if(!toolbox.getActualTool().isMultiMeasure()){
+                if(tool.checkIfToolIsSelected()){
+                    if(!tool.getCurrentTool().isMultiMeasure()){
                         onMeasuresGridClick(row, column);
                     }
                 }
@@ -178,8 +194,8 @@ public class MainActivity extends AppCompatActivity {
         measuresGrid.setOnDragListener(new MeasuresGrid.OnDragListener() {
             @Override
             void onDrag(View view, int columnStart, int columnEnd, int row) {
-                if(toolbox.checkIfToolIsSelected()){
-                    if(toolbox.getActualTool().isMultiMeasure()){
+                if(tool.checkIfToolIsSelected()){
+                    if(tool.getCurrentTool().isMultiMeasure()){
                         onMeasuresGridDrag(columnStart, columnEnd, row);
                     }
                 }
@@ -198,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
     private void onMeasuresGridClick(int row, int column) {
         System.out.println("clicked: " + row + " " + column);
 
-        table[row][column] = toolbox.getActualTool().getSymbol();
+        table[row][column] = tool.getCurrentTool().getSymbol();
         setMeasuresGrid();
     }
 
@@ -230,11 +246,22 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Initializes the tool chooser element on top left screen corner. It allows the user to handle different tools.
      */
-    private void initToolChooser(){
+    private void initActionToolChooser(){
         toolChooser = findViewById(R.id.toolbar);
-        toolbox = new Toolbox();
         toolChooser.setOnClickListener(v -> {
-            toolbox.showToolbox(v);
+            toolbox = new ActionToolbox();
+            toolbox.showToolbox(v, R.menu.toolbox);
         });
+    }
+
+    private void initValueToolChooser(){
+        valueChooser = findViewById(R.id.measure_values_toolbar);
+        valueChooser.setOnClickListener(v -> {
+            toolbox = new ValueToolBox(this);
+            toolbox.showToolbox(v, R.menu.value_toolbox);
+        });
+    }
+
+    private void initDrugToolChooser(){
     }
 }

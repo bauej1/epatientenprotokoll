@@ -161,4 +161,14 @@
         <item>Links</item>
         <item>Rechts</item>
     </string-array>
+
+    <string name="temperature">Temp °C</string>
+    <string name="breath_frequency">Atemfrequenz</string>
+    <string name="pulsox">Sp02 Pulsox %</string>
+    <string name="co2">Et CO2 mmHg</string>
+    <string name="hgt">HGT mmol / l</string>
+    <string name="pain">Schmerz-Score</string>
+    <string name="ekg">EKG I, II, III, 12er, Pads</string>
+    <string name="venous_canule">Venenkanüle</string>
+    <string name="nacl">NaCl 0.9% ml</string>
 </resources>
