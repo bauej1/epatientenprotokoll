@@ -93,16 +93,25 @@ public class MeasuresGrid extends View {
     private void drawCells(Canvas canvas) {
         for (int row = 0; row < getRowCount(); ++row) {
             for (int column = 0; column < getColumnCount(); ++column) {
-                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), table[row][column]);
-
-                if(bitmap == null) {
-                    continue;
-                }
 
                 int x = getWidth() / getColumnCount() * column + 4;
                 int y = getHeight() / getRowCount() * (row + 1) - 4;
 
-                canvas.drawBitmap(bitmap, x, y, paint);
+                if(table[row][column] > 1000){
+                    Bitmap bitmap = BitmapFactory.decodeResource(getResources(), table[row][column]);
+
+                    if(bitmap == null) {
+                        continue;
+                    }
+                    canvas.drawBitmap(bitmap, x, y, paint);
+                } else if(table[row][column] > 0) {
+                    String text = table[row][column] + "°C";        //here comes the evaluation which Stringadapter shoudl take place blabla
+
+                    if(text == null){
+                        continue;
+                    }
+                    canvas.drawText(text, x, y, paint);
+                }
             }
         }
     }
@@ -178,6 +187,10 @@ public class MeasuresGrid extends View {
         return "";
     }
 
+    /**
+     * Draws all horizontal lines in the grid.
+     * @param canvas
+     */
     private void drawHorizontalLines(Canvas canvas){
         for (int row = 1; row <= getRowCount(); ++row) {
             int y = getHeight() / getRowCount() * row;
@@ -193,6 +206,10 @@ public class MeasuresGrid extends View {
         }
     }
 
+    /**
+     * Draws all vertical lines in the grid.
+     * @param canvas
+     */
     private void drawVerticalLines(Canvas canvas){
         for (int column = 2; column <= getColumnCount(); ++column) {
             int x = getWidth() / getColumnCount() * column;

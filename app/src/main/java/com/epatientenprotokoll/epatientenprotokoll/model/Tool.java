@@ -1,9 +1,11 @@
 package com.epatientenprotokoll.epatientenprotokoll.model;
 
 import com.epatientenprotokoll.epatientenprotokoll.R;
-
 import java.util.ArrayList;
 
+/**
+ * This class represents a singleton. It handles all interactions with the measurement model and which tool is currently selected.
+ */
 public class Tool {
 
     private static Tool instance = new Tool();
@@ -13,23 +15,48 @@ public class Tool {
     private Tool(){
     }
 
+    /**
+     * Returns the only instance of Tool Class.
+     * @return Tool
+     */
     public static Tool getInstance(){
         return instance;
     }
 
+    /**
+     * Returns the currently selected Tool.
+     * @return Measurement - the currently selected Tool
+     */
     public Measurement getCurrentTool(){
         return currentTool;
     }
 
+    /**
+     * Sets the new selected Tool.
+     * @param m - the selected tool
+     */
     public void setCurrentTool(Measurement m){
         currentTool = m;
     }
 
+    /**
+     * Returns the measurement by its id.
+     * @param id
+     * @return
+     */
     public Measurement getToolById(int id){
         for(Measurement m : measurements){
             if(m.getId() == id) return m;
         }
         return null;
+    }
+
+    public void setToolValue(int id, double value){
+        for(Measurement m : measurements){
+            if(m.getId() == id){
+                m.setValue(value);
+            }
+        }
     }
 
     /**
@@ -41,22 +68,23 @@ public class Tool {
     }
 
     public void initMeasurements(){
-        Measurement ventilation = new Measurement(1, R.drawable.ventilation, true, 0, 0, 0, 0);
-        Measurement inextubation = new Measurement(2, R.drawable.intubation_extubation, false, 0, 0, 0, 0);
-        Measurement defibrilation = new Measurement(3, R.drawable.defibrilation, false, 0, 0, 0, 0);
-        Measurement extPacing = new Measurement(4, R.drawable.pacing, false, 0, 0, 0, 0);
-        Measurement heartMassage = new Measurement(5, R.drawable.heart_massage, false, 0, 0, 0, 0);
-        Measurement bloodPressure = new Measurement(6, R.drawable.heart_massage, true, 0, 0, 0, 0);
-        Measurement pulse = new Measurement(7, R.drawable.pulse, false, 0, 0, 0, 0);
-        Measurement breath_frequency = new Measurement(8, R.drawable.measurevalues, false, 0, 0, 0, 0);
-        Measurement pulsox = new Measurement(9, R.drawable.measurevalues, false, 0, 0, 0, 0);
-        Measurement co2 = new Measurement(10, R.drawable.measurevalues, false, 0, 0, 0, 0);
-        Measurement hgt = new Measurement(11, R.drawable.measurevalues, false, 0, 0, 0, 0);
-        Measurement pain = new Measurement(12, R.drawable.measurevalues, false, 0, 0, 0, 0);
-        Measurement ekg = new Measurement(13, R.drawable.measurevalues, false, 0, 0, 0, 0);
-        Measurement venous_canule = new Measurement(14, R.drawable.measurevalues, false, 0, 0, 0, 0);
-        Measurement nacl = new Measurement(15, R.drawable.measurevalues, false, 0, 0, 0, 0);
-        Measurement temp = new Measurement(16, R.drawable.measurevalues, false, 0, 0, 0, 0);
+        Measurement ventilation = new ActionMeasurement(1, 1, true, 0.0, R.drawable.ventilation, 0, 0, 0, 0);
+        Measurement inextubation = new ActionMeasurement(2, 1, false,0.0, R.drawable.intubation_extubation, 0, 0, 0, 0);
+        Measurement defibrilation = new ActionMeasurement(3, 1, false,0.0, R.drawable.defibrilation, 0, 0, 0, 0);
+        Measurement extPacing = new ActionMeasurement(4, 1, false,0.0, R.drawable.pacing, 0, 0, 0, 0);
+        Measurement heartMassage = new ActionMeasurement(5, 1, false, 0.0,R.drawable.heart_massage, 0, 0, 0, 0);
+        Measurement bloodPressure = new ActionMeasurement(6, 1, false,0.0, R.drawable.heart_massage, 0, 0, 0, 0);
+        Measurement pulse = new ActionMeasurement(7, 1, false,0.0, R.drawable.pulse, 0, 0, 0, 0);
+
+        Measurement breath_frequency = new ValueMeasurement(8, 2, false, 0.0, 0,0,0,0);
+        Measurement pulsox = new ValueMeasurement(9, 2, false, 0.0, 0,0,0,0);
+        Measurement co2 = new ValueMeasurement(10, 2, false, 0.0, 0,0,0,0);
+        Measurement hgt = new ValueMeasurement(11, 2, false, 0.0, 0,0,0,0);
+        Measurement pain = new ValueMeasurement(12, 2, false, 0.0, 0,0,0,0);
+        Measurement ekg = new ValueMeasurement(13, 2, false, 0.0, 0,0,0,0);
+        Measurement venous_canule = new ValueMeasurement(14, 2, false, 0.0, 0,0,0,0);
+        Measurement nacl = new ValueMeasurement(15, 2, false, 0.0, 0,0,0,0);
+        Measurement temp = new ValueMeasurement(16, 2, false, 0.0, 0,0,0,0);
 
         measurements.add(ventilation);
         measurements.add(inextubation);

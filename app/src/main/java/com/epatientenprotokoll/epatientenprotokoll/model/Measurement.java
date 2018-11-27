@@ -1,35 +1,35 @@
 package com.epatientenprotokoll.epatientenprotokoll.model;
 
-import com.epatientenprotokoll.epatientenprotokoll.R;
-
 /**
  * This Class represents the different Measurements which can used in the grid.
  *
  */
 public class Measurement {
 
+    /**
+     * id - the identification of the measurement method
+     * origin - the origin of the mesurement {1 = Action, 2 = Value, 3 = Drug}
+     * multiMeasure - if the measurement is more than a point in the grid -> drag
+     * value - the value entered in the grid when the origin is 2
+     * x1 - the x position of the element
+     * y1 - the y position of the element
+     * x2 - (only when multiMeasure = true) --> x Position of the end
+     * y2 - (only when multiMeasure = true) --> y Position of the end
+     */
     private int id;
-    private int symbol;
+    private int origin;
     private boolean multiMeasure;
+    private double value;
     private int x1;
     private int y1;
     private int x2;
     private int y2;
 
-    /**
-     *
-     * @param id - Identification of the Measurement
-     * @param symbol - Symbol used in the grid as an integer from drawables folder
-     * @param multiMeasure - is the Measurement just a point or does it need a drag action
-     * @param x1 - x-value of the first click
-     * @param y1 - y-value of the second click
-     * @param x2 - x-value of the second click (only if multiMeasure is true)
-     * @param y2 - y-value of the second click (only if multiMeasure is true)
-     */
-    public Measurement(int id, int symbol, boolean multiMeasure, int x1, int y1, int x2, int y2) {
+    public Measurement(int id, int origin, boolean multiMeasure, double value, int x1, int y1, int x2, int y2){
         this.id = id;
-        this.symbol = symbol;
+        this.origin = origin;
         this.multiMeasure = multiMeasure;
+        this.value = value;
         this.x1 = x1;
         this.y1 = y1;
         this.x2 = x2;
@@ -44,12 +44,12 @@ public class Measurement {
         this.id = id;
     }
 
-    public int getSymbol() {
-        return symbol;
+    public int getOrigin() {
+        return origin;
     }
 
-    public void setSymbol(int symbol) {
-        this.symbol = symbol;
+    public void setOrigin(int origin) {
+        this.origin = origin;
     }
 
     public boolean isMultiMeasure() {
@@ -90,6 +90,14 @@ public class Measurement {
 
     public void setY2(int y2) {
         this.y2 = y2;
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
     }
 }
 

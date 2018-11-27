@@ -20,6 +20,8 @@ import com.epatientenprotokoll.epatientenprotokoll.R;
 import com.epatientenprotokoll.epatientenprotokoll.fragments.MasterDataFragment;
 import com.epatientenprotokoll.epatientenprotokoll.fragments.MaterialFragment;
 import com.epatientenprotokoll.epatientenprotokoll.fragments.StatusFragment;
+import com.epatientenprotokoll.epatientenprotokoll.model.ActionMeasurement;
+import com.epatientenprotokoll.epatientenprotokoll.model.ValueMeasurement;
 import com.epatientenprotokoll.epatientenprotokoll.toolbox.ActionToolbox;
 import com.epatientenprotokoll.epatientenprotokoll.model.Tool;
 import com.epatientenprotokoll.epatientenprotokoll.toolbox.ValueToolBox;
@@ -214,7 +216,14 @@ public class MainActivity extends AppCompatActivity {
     private void onMeasuresGridClick(int row, int column) {
         System.out.println("clicked: " + row + " " + column);
 
-        table[row][column] = tool.getCurrentTool().getSymbol();
+        if(tool.getCurrentTool() instanceof ActionMeasurement){
+            ActionMeasurement tempObject = (ActionMeasurement) tool.getCurrentTool();
+            table[row][column] = tempObject.getSymbol();
+        } else if(tool.getCurrentTool() instanceof ValueMeasurement){
+            ValueMeasurement tempObject = (ValueMeasurement) tool.getCurrentTool();
+            table[row][column] = (int) tempObject.getValue();
+        }
+
         setMeasuresGrid();
     }
 
@@ -244,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Initializes the tool chooser element on top left screen corner. It allows the user to handle different tools.
+     * Initializes the tool chooser element on top left screen corner. It allows the user to handle different action tools.
      */
     private void initActionToolChooser(){
         toolChooser = findViewById(R.id.toolbar);
@@ -254,6 +263,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Initializes the tool chooser element on top left screen corner. It allows the user to handle different value tools.
+     */
     private void initValueToolChooser(){
         valueChooser = findViewById(R.id.measure_values_toolbar);
         valueChooser.setOnClickListener(v -> {
@@ -262,6 +274,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Initializes the tool chooser element on top left screen corner. It allows the user to handle different drug tools.
+     */
     private void initDrugToolChooser(){
     }
 }
