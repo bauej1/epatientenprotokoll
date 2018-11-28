@@ -171,4 +171,6 @@
     <string name="ekg">EKG I, II, III, 12er, Pads</string>
     <string name="venous_canule">Venenkanüle</string>
     <string name="nacl">NaCl 0.9% ml</string>
-</resources>
+    <string name="point">.</string>
+    <string name="celcius">°C</string>
+    </resources>
