@@ -11,7 +11,30 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="40"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="15"
+                android:background="@drawable/tools"
+                android:backgroundTint="@color/colorAccent" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/measure_values_toolbar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="15"
+                android:background="@drawable/measurevalues"
+                android:backgroundTint="@color/colorAccent" />
+        </LinearLayout>
 
         <com.epatientenprotokoll.epatientenprotokoll.activities.MeasuresGrid
             android:id="@+id/measuresGrid"
@@ -177,4 +200,5 @@
         </LinearLayout>
 
     </LinearLayout>
+
 </LinearLayout>

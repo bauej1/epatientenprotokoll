@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/tool_temperature"
+        android:icon="@drawable/value"
+        android:title="@string/temperature" />
+    <item android:id="@+id/tool_breath_frequency"
+        android:icon="@drawable/value"
+        android:title="@string/breath_frequency"/>
+    <item android:id="@+id/tool_pulsox"
+        android:icon="@drawable/value"
+        android:title="@string/pulsox" />
+    <item android:id="@+id/tool_co2"
+        android:icon="@drawable/value"
+        android:title="@string/co2" />
+    <item android:id="@+id/tool_hgt"
+        android:icon="@drawable/value"
+        android:title="@string/hgt" />
+    <item android:id="@+id/tool_pain"
+        android:icon="@drawable/value"
+        android:title="@string/pain" />
+    <item android:id="@+id/tool_ekg"
+        android:icon="@drawable/value"
+        android:title="@string/ekg" />
+    <item android:id="@+id/tool_venous_canula"
+        android:icon="@drawable/value"
+        android:title="@string/venous_canule" />
+    <item android:id="@+id/tool_nacl"
+        android:icon="@drawable/value"
+        android:title="@string/nacl" />
+</menu>

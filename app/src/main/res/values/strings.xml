@@ -137,6 +137,14 @@
         <item>Arzt-/Pflegebericht</item>
     </string-array>
 
+    <string name="ventilation">Beatmung</string>
+    <string name="intubation_extubation">In- / Extubation</string>
+    <string name="defibrilation">Defibrilation</string>
+    <string name="pacing">Ext. Pacing</string>
+    <string name="heart_massage">Herzmassage</string>
+    <string name="bloodpressure">BD</string>
+    <string name="pulse">Puls</string>
+
     <string-array name="lagerung_array">
         <item>Liegend</item>
         <item>Seitenlage</item>
@@ -154,4 +162,14 @@
         <item>Links</item>
         <item>Rechts</item>
     </string-array>
+
+    <string name="temperature">Temp °C</string>
+    <string name="breath_frequency">Atemfrequenz</string>
+    <string name="pulsox">Sp02 Pulsox %</string>
+    <string name="co2">Et CO2 mmHg</string>
+    <string name="hgt">HGT mmol / l</string>
+    <string name="pain">Schmerz-Score</string>
+    <string name="ekg">EKG I, II, III, 12er, Pads</string>
+    <string name="venous_canule">Venenkanüle</string>
+    <string name="nacl">NaCl 0.9% ml</string>
 </resources>

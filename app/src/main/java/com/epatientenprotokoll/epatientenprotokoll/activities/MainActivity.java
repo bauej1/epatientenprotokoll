@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -23,7 +24,12 @@ import com.epatientenprotokoll.epatientenprotokoll.R;
 import com.epatientenprotokoll.epatientenprotokoll.fragments.MasterDataFragment;
 import com.epatientenprotokoll.epatientenprotokoll.fragments.MaterialFragment;
 import com.epatientenprotokoll.epatientenprotokoll.fragments.StatusFragment;
-
+import com.epatientenprotokoll.epatientenprotokoll.model.ActionMeasurement;
+import com.epatientenprotokoll.epatientenprotokoll.model.ValueMeasurement;
+import com.epatientenprotokoll.epatientenprotokoll.toolbox.ActionToolbox;
+import com.epatientenprotokoll.epatientenprotokoll.model.Tool;
+import com.epatientenprotokoll.epatientenprotokoll.toolbox.ValueToolBox;
+import com.epatientenprotokoll.epatientenprotokoll.toolbox.Toolbox;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -49,10 +55,22 @@ public class MainActivity extends AppCompatActivity {
 
     //MeasuresGrid
     private MeasuresGrid measuresGrid;
-    String[][] table = new String[15][10];
-    int ventilationStart = 2;
-    int ventilationEnd = 5;
+    private Tool tool;
+    int[][] table = new int[25][15];
+    int ventilationStart;
+    int ventilationEnd;
+    int row;
 
+    //Toolbox
+    Toolbox toolbox;
+
+    //ActionToolbox
+    private Toolbar toolChooser;
+
+    //ValueToolBox
+    private Toolbar valueChooser;
+
+    //DrugToolBox
 
     public void setPatientName(String name){
         this.name = name;
@@ -245,47 +263,115 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Initialize measurements and tool singleton
+        tool = Tool.getInstance();
+        tool.initMeasurements();
+
+        initActionToolChooser();
+        initValueToolChooser();
         initMeasuresGrid();
     }
 
+    /**
+     * Initializes the grid for measurements and handels the onclick and ondrag-Listener for further actions.
+     */
     private void initMeasuresGrid() {
         measuresGrid = findViewById(R.id.measuresGrid);
         measuresGrid.setOnClickListener(new MeasuresGrid.OnClickListener() {
             @Override
             void onClick(View view, int row, int column) {
-                onMeasuresGridClick(row, column);
+                if(tool.checkIfToolIsSelected()){
+                    if(!tool.getCurrentTool().isMultiMeasure()){
+                        onMeasuresGridClick(row, column);
+                    }
+                }
             }
         });
 
         measuresGrid.setOnDragListener(new MeasuresGrid.OnDragListener() {
             @Override
-            void onDrag(View view, int columnStart, int columnEnd) {
-                onMeasuresGridDrag(columnStart, columnEnd);
+            void onDrag(View view, int columnStart, int columnEnd, int row) {
+                if(tool.checkIfToolIsSelected()){
+                    if(tool.getCurrentTool().isMultiMeasure()){
+                        onMeasuresGridDrag(columnStart, columnEnd, row);
+                    }
+                }
             }
         });
 
         setMeasuresGrid();
     }
 
+    /**
+     * Handles the action if the user clicks on the grid. It gets the selected toolbox symbol and writes it into the two-dimensional table array to store the symbol.
+     *
+     * @param row - clicked row
+     * @param column - clicked column
+     */
     private void onMeasuresGridClick(int row, int column) {
         System.out.println("clicked: " + row + " " + column);
 
-        table[row][column] = "X";
+        if(tool.getCurrentTool() instanceof ActionMeasurement){
+            ActionMeasurement tempObject = (ActionMeasurement) tool.getCurrentTool();
+            table[row][column] = tempObject.getSymbol();
+        } else if(tool.getCurrentTool() instanceof ValueMeasurement){
+            ValueMeasurement tempObject = (ValueMeasurement) tool.getCurrentTool();
+            table[row][column] = (int) tempObject.getValue();
+        }
 
         setMeasuresGrid();
     }
 
-    private void onMeasuresGridDrag(int columnStart, int columnEnd) {
+    /**
+     * Handles the action if the user drags on the grid. It gets the selected toolbox symbol and writes it into the two-dimensional table array to store the symbol.
+     *
+     * @param columnStart - first tap
+     * @param columnEnd - last tap
+     * @param row - row tapped
+     */
+    private void onMeasuresGridDrag(int columnStart, int columnEnd, int row) {
         System.out.println("drag: " + columnStart + " " + columnEnd);
 
         ventilationStart = columnStart;
         ventilationEnd = columnEnd;
+        this.row = row;
 
         setMeasuresGrid();
     }
 
+    /**
+     * Actualizes the data table behind the grid.
+     */
     private void setMeasuresGrid() {
         measuresGrid.setTable(table);
-        measuresGrid.setVentilation(ventilationStart, ventilationEnd);
+        measuresGrid.setVentilation(ventilationStart, ventilationEnd, row);
+    }
+
+    /**
+     * Initializes the tool chooser element on top left screen corner. It allows the user to handle different action tools.
+     */
+    private void initActionToolChooser(){
+        toolChooser = findViewById(R.id.toolbar);
+        toolChooser.setOnClickListener(v -> {
+            toolbox = new ActionToolbox();
+            toolbox.showToolbox(v, R.menu.toolbox);
+        });
+    }
+
+    /**
+     * Initializes the tool chooser element on top left screen corner. It allows the user to handle different value tools.
+     */
+    private void initValueToolChooser(){
+        valueChooser = findViewById(R.id.measure_values_toolbar);
+        valueChooser.setOnClickListener(v -> {
+            toolbox = new ValueToolBox(this);
+            toolbox.showToolbox(v, R.menu.value_toolbox);
+        });
+    }
+
+    /**
+     * Initializes the tool chooser element on top left screen corner. It allows the user to handle different drug tools.
+     */
+    private void initDrugToolChooser(){
     }
 }
