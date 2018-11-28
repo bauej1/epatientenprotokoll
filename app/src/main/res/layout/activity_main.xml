@@ -91,6 +91,7 @@
                     android:textStyle="bold" />
 
                 <TextClock
+                    android:id="@+id/textClock"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
@@ -99,11 +100,10 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/patientInformation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="10"
-                    android:text="Müller Laura, 13.05.1994"
                     android:textColor="@color/white" />
             </LinearLayout>
 
