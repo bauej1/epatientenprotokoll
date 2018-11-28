@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.PopupMenu;
 import android.widget.PopupWindow;
 import android.widget.TextClock;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 import com.epatientenprotokoll.epatientenprotokoll.R;
 import com.epatientenprotokoll.epatientenprotokoll.fragments.MasterDataFragment;
@@ -40,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
     Context mConext;
     LinearLayout vertLayout;
 
+    TextView patientInformation;
+    String name = "---";
+    String lastname = "";
+    String birthdate = "";
+
     //MeasuresGrid
     private MeasuresGrid measuresGrid;
     String[][] table = new String[15][10];
@@ -47,10 +54,32 @@ public class MainActivity extends AppCompatActivity {
     int ventilationEnd = 5;
 
 
+    public void setPatientName(String name){
+        this.name = name;
+        setPatientInformation();
+    }
+
+    public void setPatientLastname(String lastname){
+        this.lastname = lastname;
+        setPatientInformation();
+    }
+
+    public void setPatientBirthdate(String birthdate){
+        this.birthdate = birthdate;
+        setPatientInformation();
+    }
+
+    public void setPatientInformation(){
+        patientInformation = findViewById(R.id.patientInformation);
+        patientInformation.setText(lastname + " " + name + ", " + birthdate);
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setPatientInformation();
 
         tbMasterData = findViewById(R.id.tbMasterData);
         tbStatus = findViewById(R.id.tbStatus);
@@ -135,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
                 final View timeView = inflater.inflate(R.layout.time_view,null, false);
 
                 //mpopup = new PopupWindow(timeView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                //mpopup.showAsDropDown(vertLayout);
+                //mpopup.showAsDropDown(vertLayout);gSf
 
                 EditText timeAlarm = timeView.findViewById(R.id.timeAlarm);
                 EditText timeAusruck = timeView.findViewById(R.id.timeAusruck);
@@ -259,5 +288,4 @@ public class MainActivity extends AppCompatActivity {
         measuresGrid.setTable(table);
         measuresGrid.setVentilation(ventilationStart, ventilationEnd);
     }
-
 }

@@ -81,7 +81,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="10"
-                    android:text="Müller Laura, 13.05.1994"
                     android:textColor="@color/white" />
             </LinearLayout>
 
