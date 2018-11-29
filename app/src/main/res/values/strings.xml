@@ -174,4 +174,11 @@
     <string name="nacl">NaCl 0.9% ml</string>
     <string name="point">.</string>
     <string name="celcius">°C</string>
-    </resources>
+    <string name="gutenTag">Guten Tag!</string>
+    <string name="einsatzmeldung1">Trauma Extremität/RQW</string>
+    <string name="einsatzmeldung2">Alter: 37; Männlich; Verletzung/RQW; unbekannt ob Arbeitsunfall. Verletzung am Kopf unklare Ursache. \nPolizei ist unterwegs. </string>
+    <string-array name="lang_array">
+        <item>Français</item>
+        <item>Deutsch</item>
+    </string-array>
+</resources>
