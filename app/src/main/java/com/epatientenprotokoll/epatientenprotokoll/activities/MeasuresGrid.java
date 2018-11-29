@@ -10,6 +10,10 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.epatientenprotokoll.epatientenprotokoll.model.ActionMeasurement;
+import com.epatientenprotokoll.epatientenprotokoll.model.Measurement;
+import com.epatientenprotokoll.epatientenprotokoll.model.ValueMeasurement;
+
 public class MeasuresGrid extends View {
 
     abstract static class OnClickListener {
@@ -23,7 +27,7 @@ public class MeasuresGrid extends View {
     private static final int maxYValue = 220;
     private static final int yAxisLabelDiff = 15;
 
-    private int[][] table;
+    private Measurement[][] table;
     private OnClickListener onClickListener;
     private OnDragListener onDragListener;
     private Paint paint = new Paint();
@@ -52,7 +56,7 @@ public class MeasuresGrid extends View {
         paint.setTextSize(50);
     }
 
-    public void setTable(int[][] table) {
+    public void setTable(Measurement[][] table) {
         this.table = table;
 
         invalidate();
@@ -97,20 +101,18 @@ public class MeasuresGrid extends View {
                 int x = getWidth() / getColumnCount() * column + 4;
                 int y = getHeight() / getRowCount() * (row + 1) - 4;
 
-                if(table[row][column] > 1000){
-                    Bitmap bitmap = BitmapFactory.decodeResource(getResources(), table[row][column]);
+                if(table[row][column] instanceof ActionMeasurement){
 
-                    if(bitmap == null) {
-                        continue;
-                    }
-                    canvas.drawBitmap(bitmap, x, y, paint);
-                } else if(table[row][column] > 0) {
-                    String text = table[row][column] + "°C";        //here comes the evaluation which Stringadapter shoudl take place blabla
+                    System.out.println("MEASUREMENT: Action " + table[row][column].getStoredValue());
 
-                    if(text == null){
-                        continue;
-                    }
-                    canvas.drawText(text, x, y, paint);
+                    Bitmap bitmap = BitmapFactory.decodeResource(getResources(), (int)table[row][column].getStoredValue());
+                    if(bitmap != null) canvas.drawBitmap(bitmap, x, y, paint);
+
+                } else if(table[row][column] instanceof ValueMeasurement) {
+
+                    String text = table[row][column].getStoredValue() + "°C";        //here comes the evaluation which String ending should be printed
+                    if(text != null) canvas.drawText(text, x, y, paint);
+
                 }
             }
         }

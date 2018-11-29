@@ -10,7 +10,6 @@ public class Measurement {
      * id - the identification of the measurement method
      * origin - the origin of the mesurement {1 = Action, 2 = Value, 3 = Drug}
      * multiMeasure - if the measurement is more than a point in the grid -> drag
-     * value - the value entered in the grid when the origin is 2
      * x1 - the x position of the element
      * y1 - the y position of the element
      * x2 - (only when multiMeasure = true) --> x Position of the end
@@ -19,17 +18,15 @@ public class Measurement {
     private int id;
     private int origin;
     private boolean multiMeasure;
-    private double value;
     private int x1;
     private int y1;
     private int x2;
     private int y2;
 
-    public Measurement(int id, int origin, boolean multiMeasure, double value, int x1, int y1, int x2, int y2){
+    public Measurement(int id, int origin, boolean multiMeasure, int x1, int y1, int x2, int y2){
         this.id = id;
         this.origin = origin;
         this.multiMeasure = multiMeasure;
-        this.value = value;
         this.x1 = x1;
         this.y1 = y1;
         this.x2 = x2;
@@ -92,12 +89,11 @@ public class Measurement {
         this.y2 = y2;
     }
 
-    public double getValue() {
-        return value;
+    public Object getStoredValue(){
+        return "";
     }
 
-    public void setValue(double value) {
-        this.value = value;
+    public void setStoredValue(Object o){
     }
 }
 

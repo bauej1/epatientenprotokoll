@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,13 +17,13 @@ import android.widget.PopupMenu;
 import android.widget.PopupWindow;
 import android.widget.TextClock;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 import com.epatientenprotokoll.epatientenprotokoll.R;
 import com.epatientenprotokoll.epatientenprotokoll.fragments.MasterDataFragment;
 import com.epatientenprotokoll.epatientenprotokoll.fragments.MaterialFragment;
 import com.epatientenprotokoll.epatientenprotokoll.fragments.StatusFragment;
 import com.epatientenprotokoll.epatientenprotokoll.model.ActionMeasurement;
+import com.epatientenprotokoll.epatientenprotokoll.model.Measurement;
 import com.epatientenprotokoll.epatientenprotokoll.model.ValueMeasurement;
 import com.epatientenprotokoll.epatientenprotokoll.toolbox.ActionToolbox;
 import com.epatientenprotokoll.epatientenprotokoll.model.Tool;
@@ -56,10 +55,10 @@ public class MainActivity extends AppCompatActivity {
     //MeasuresGrid
     private MeasuresGrid measuresGrid;
     private Tool tool;
-    int[][] table = new int[25][15];
-    int ventilationStart;
-    int ventilationEnd;
-    int row;
+    private Measurement[][] table = new Measurement[25][15];
+    private int ventilationStart;
+    private int ventilationEnd;
+    private int row;
 
     //Toolbox
     Toolbox toolbox;
@@ -311,14 +310,7 @@ public class MainActivity extends AppCompatActivity {
     private void onMeasuresGridClick(int row, int column) {
         System.out.println("clicked: " + row + " " + column);
 
-        if(tool.getCurrentTool() instanceof ActionMeasurement){
-            ActionMeasurement tempObject = (ActionMeasurement) tool.getCurrentTool();
-            table[row][column] = tempObject.getSymbol();
-        } else if(tool.getCurrentTool() instanceof ValueMeasurement){
-            ValueMeasurement tempObject = (ValueMeasurement) tool.getCurrentTool();
-            table[row][column] = (int) tempObject.getValue();
-        }
-
+        table[row][column] = tool.getCurrentTool();
         setMeasuresGrid();
     }
 
