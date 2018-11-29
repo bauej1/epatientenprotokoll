@@ -176,7 +176,7 @@
     <string name="celcius">°C</string>
     <string name="gutenTag">Guten Tag!</string>
     <string name="einsatzmeldung1">Trauma Extremität/RQW</string>
-    <string name="einsatzmeldung2">Alter: 37; Männlich; Verletzung/RQW; unbekannt ob Arbeitsunfall. Verletzung am Kopf unklare Ursache. \n Polizei ist unterwegs. </string>
+    <string name="einsatzmeldung2">Alter: 37; Männlich; Verletzung/RQW; unbekannt ob Arbeitsunfall. Verletzung am Kopf unklare Ursache. \nPolizei ist unterwegs. </string>
     <string-array name="lang_array">
         <item>Français</item>
         <item>Deutsch</item>

@@ -61,7 +61,7 @@
         mstb:mstbColorPressedText="@color/lightGrey"
         mstb:mstbPrimaryColor="@color/darkGrey"
         mstb:mstbSecondaryColor="@color/lightGrey"
-        mstb:values="@array/lang_array" />
+        mstb:values="@array/lang_array"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -102,6 +102,13 @@
                 android:text="@string/einsatzmeldung2"
                 android:textSize="16dp" />
         </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/startProtocolButton"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:background="@color/darkGrey"
+            mstb:srcCompat="@drawable/ic_arrow_forward_lightgrey_24dp" />
     </LinearLayout>
 
 </LinearLayout>
