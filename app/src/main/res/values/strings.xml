@@ -165,6 +165,11 @@
 
     <string name="temperature">Temp °C</string>
     <string name="breath_frequency">Atemfrequenz</string>
+    <string name="breath_frequency_input">Bitte geben Sie die Atemfrequenz pro Minute ein.</string>
+    <string name="pulsox_input">Geben Sie die Sauerstoffsättigung in % ein.</string>
+    <string name="pain_input">Geben Sie die Schmerzen des Patienten ein (10 = Max, 0 = Min).</string>
+    <string name="hgt_input">Geben Sie das Resultat des Hämoglucotest in mmol / l ein.</string>
+    <string name="co2_input">Geben Sie die endexpiratorischen CO2-Partialdruck in mmHg ein.</string>
     <string name="pulsox">Sp02 Pulsox %</string>
     <string name="co2">Et CO2 mmHg</string>
     <string name="hgt">HGT mmol / l</string>
@@ -174,6 +179,10 @@
     <string name="nacl">NaCl 0.9% ml</string>
     <string name="point">.</string>
     <string name="celcius">°C</string>
+    <string name="breath_per_minute"> / min</string>
+    <string name="percent">%</string>
+    <string name="mmHg"> mmHg</string>
+    <string name="mmol"> mmol/l</string>
     <string name="gutenTag">Guten Tag!</string>
     <string name="einsatzmeldung1">Trauma Extremität/RQW</string>
     <string name="einsatzmeldung2">Alter: 37; Männlich; Verletzung/RQW; unbekannt ob Arbeitsunfall. Verletzung am Kopf unklare Ursache. \nPolizei ist unterwegs. </string>

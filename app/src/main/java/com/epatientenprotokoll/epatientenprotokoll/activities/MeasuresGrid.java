@@ -103,8 +103,6 @@ public class MeasuresGrid extends View {
 
                 if(table[row][column] instanceof ActionMeasurement){
 
-                    System.out.println("MEASUREMENT: Action " + table[row][column].getStoredValue());
-
                     Bitmap bitmap = BitmapFactory.decodeResource(getResources(), (int)table[row][column].getStoredValue());
                     if(bitmap != null) canvas.drawBitmap(bitmap, x, y, paint);
 

@@ -9,7 +9,7 @@ import com.epatientenprotokoll.epatientenprotokoll.R;
 import com.epatientenprotokoll.epatientenprotokoll.model.Tool;
 
 /**
- * This Class represents the Dialog when the user wants to capture the body temperature.
+ * This Class represents the MotherDialog when the user wants to capture the body temperature.
  */
 public class TemperatureDialog {
 
@@ -28,7 +28,7 @@ public class TemperatureDialog {
     }
 
     /**
-     * Shows the Dialog and handles all interactions with buttons.
+     * Shows the MotherDialog and handles all interactions with buttons.
      */
     public void showDialog(){
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
