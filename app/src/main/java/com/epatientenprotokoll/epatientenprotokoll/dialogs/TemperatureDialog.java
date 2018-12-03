@@ -130,7 +130,7 @@ public class TemperatureDialog {
      */
     private void submitData(){
         double value = Double.parseDouble(tValueInt.getText() + "." + tValuePoint.getText());
-        Tool.getInstance().getCurrentTool().setValue(value);
+        Tool.getInstance().getCurrentTool().setStoredValue(value);
         dialog.dismiss();
     }
 }
