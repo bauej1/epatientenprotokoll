@@ -2,12 +2,10 @@ package com.epatientenprotokoll.epatientenprotokoll.dialogs;
 
 import android.app.Activity;
 import android.widget.Button;
-import android.widget.TextView;
 import com.epatientenprotokoll.epatientenprotokoll.R;
 
 public class BreathFrequencyDialog extends MotherDialog {
 
-    private TextView tValueInt;
     private Button bIntUp, bIntDown;
 
     private static final int minBreathFrequency = 0;      //Minimal breath frequency
@@ -19,7 +17,6 @@ public class BreathFrequencyDialog extends MotherDialog {
     }
 
     protected void initControls(){
-        tValueInt = dialog.findViewById(R.id.tValueInt);
         bIntUp = dialog.findViewById(R.id.bIntUp);
         bIntDown = dialog.findViewById(R.id.bIntDown);
 
@@ -37,14 +34,10 @@ public class BreathFrequencyDialog extends MotherDialog {
     }
 
     private void increaseBreathFrequency(){
-        int freq = Integer.parseInt(tValueInt.getText().toString());
-        if(freq < maxBreathFrequency) ++freq;
-        tValueInt.setText(freq + "");
+        increaseIntValue(maxBreathFrequency);
     }
 
     private void decreaseBreathFrequency(){
-        int freq = Integer.parseInt(tValueInt.getText().toString());
-        if(freq > minBreathFrequency) --freq;
-        tValueInt.setText(freq + "");
+        decreaseIntValue(minBreathFrequency);
     }
 }

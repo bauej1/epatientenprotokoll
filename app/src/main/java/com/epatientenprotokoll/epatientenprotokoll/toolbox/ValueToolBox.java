@@ -88,7 +88,7 @@ public class ValueToolBox extends Toolbox {
                 break;
             case R.id.tool_temperature:
                 toolId = 16;
-                new TemperatureDialog(activity);
+                new TemperatureDialog(activity, R.layout.dialog_temperature);
                 break;
         }
         setTool(toolId);
