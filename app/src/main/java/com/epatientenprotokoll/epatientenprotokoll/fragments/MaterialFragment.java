@@ -50,6 +50,7 @@ public class MaterialFragment extends Fragment{
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+        // Assigns all values to view
         mstbMaterial1 = getView().findViewById(R.id.mstb_material1);
         mstbMaterial2 = getView().findViewById(R.id.mstb_material2);
         mstbHalskragen = getView().findViewById(R.id.mstb_halskragen);
@@ -67,6 +68,7 @@ public class MaterialFragment extends Fragment{
 
         tbSeitenlage = getView().findViewById(R.id.tbSeitenlage);
 
+        // Enables multiple choice for multi state toggle buttons
         mstbMaterial1.enableMultipleChoice(true);
         mstbMaterial2.enableMultipleChoice(true);
         mstbAbgegebenesMaterial.enableMultipleChoice(true);
@@ -74,37 +76,52 @@ public class MaterialFragment extends Fragment{
         mstbMaterial2.setOnValueChangedListener(new org.honorato.multistatetogglebutton.ToggleButton.OnValueChangedListener() {
             @Override
             public void onValueChanged(int position) {
+                // Checks if position 0 is selected
                 if (position == 0){
+                    // Sets multi state button Halskragen visible
                     mstbHalskragen.setVisibility(View.VISIBLE);
                     mstbHalskragen.setOnValueChangedListener(new org.honorato.multistatetogglebutton.ToggleButton.OnValueChangedListener() {
                         @Override
                         public void onValueChanged(int value) {
+                            // Sets position 0 as selected and overwrites position 0 of materialArray2 with selected position of halskragenArray
                             materialArray2.set(position, "Halskragen " + halskragenArray.get(value));
+                            // Resets element of materialArray2 and set position 0 as selected
                             mstbMaterial2.setElements(materialArray2, materialArray2.get(position));
+                            // Sets multi state toggle button Halskragen gone
                             mstbHalskragen.setVisibility(View.GONE);
                         }
                     });
                 }
 
+                // Checks if position 1 is selected
                 if (position == 1){
+                    // Sets multi state button Rettungsbrett visible
                     mstbRettungsbrett.setVisibility(View.VISIBLE);
                     mstbRettungsbrett.setOnValueChangedListener(new org.honorato.multistatetogglebutton.ToggleButton.OnValueChangedListener() {
                         @Override
                         public void onValueChanged(int value) {
+                            // Sets position 1 as selected and overwrites position 1 of materialArray2 with selected position of rettungsbrettArray
                             materialArray2.set(position, "Rettungsbrett " + rettungsbrettArray.get(value));
+                            // Resets element of materialArray2 and set position 1 as selected
                             mstbMaterial2.setElements(materialArray2, materialArray2.get(position));
+                            // Sets multi state toggle button Halskragen gone
                             mstbRettungsbrett.setVisibility(View.GONE);
                         }
                     });
                 }
 
+                // Checks if position 2 is selected
                 if (position == 2) {
+                    // Sets multi state button Wundversorgung visible
                     mstbWundversorgung.setVisibility(View.VISIBLE);
                     mstbWundversorgung.setOnValueChangedListener(new org.honorato.multistatetogglebutton.ToggleButton.OnValueChangedListener() {
                         @Override
                         public void onValueChanged(int value) {
+                            // Sets position 2 as selected and overwrites position 2 of materialArray2 with selected position of wundversorgungArray
                             materialArray2.set(position, "Wundversorgung " + wundversorgungArray.get(value));
+                            // Resets element of materialArray2 and set position 2 as selected
                             mstbMaterial2.setElements(materialArray2, materialArray2.get(position));
+                            // Sets multi state toggle button Halskragen gone
                             mstbWundversorgung.setVisibility(View.GONE);
                         }
                     });
@@ -115,9 +132,12 @@ public class MaterialFragment extends Fragment{
         tbSeitenlage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Checks if toggleButton Seitenlage is checked
                 if (tbSeitenlage.isChecked()){
+                    // Sets multi state toggle button as visible
                     mstbSeitenlage.setVisibility(View.VISIBLE);
                 } else {
+                    // Sets multi state toggle button as gone
                     mstbSeitenlage.setVisibility(View.GONE);
                 }
             }
