@@ -33,6 +33,7 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
+        // Assigns all variables to view
         weekday = findViewById(R.id.tvWeekday);
         date = findViewById(R.id.tvDate);
         actualTime = findViewById(R.id.textClockStart);
@@ -40,6 +41,7 @@ public class StartActivity extends AppCompatActivity {
         languageToggleButton = findViewById(R.id.mstb_lang);
         languageArray = Arrays.asList(getResources().getStringArray(R.array.lang_array));
 
+        // Sets the current date
         Calendar cal = Calendar.getInstance();
         int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
         int month = (cal.get(Calendar.MONTH)) + 1;
@@ -49,21 +51,25 @@ public class StartActivity extends AppCompatActivity {
         String yearString = String.valueOf(year);
         date.setText(dayOfMonthString + "." + monthString + "." + yearString);
 
+        // Sets the current weekday
         SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE");
         String dayOfWeek = dayFormat.format(cal.getTime());
         weekday.setText(dayOfWeek + ", ");
 
+        // Sets the languages of the toggleButton and selects german as default
         languageToggleButton.setElements(languageArray, languageArray.get(1));
 
         languageToggleButton.setOnValueChangedListener(new ToggleButton.OnValueChangedListener() {
             @Override
             public void onValueChanged(int value) {
+                // Changes weekday to french, if language french is selected
                 if (value == 0){
                     SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE", Locale.FRENCH);
                     String dayOfWeek = dayFormat.format(cal.getTime());
                     weekday.setText(dayOfWeek + ", ");
                 }
 
+                // Changes weekday to german, if language german is selected
                 if (value == 1) {
                     SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE", Locale.GERMAN);
                     String dayOfWeek = dayFormat.format(cal.getTime());
@@ -72,6 +78,7 @@ public class StartActivity extends AppCompatActivity {
             }
         });
 
+        // Opens the MainActivity if startButton is clicked
         startProtocolButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
