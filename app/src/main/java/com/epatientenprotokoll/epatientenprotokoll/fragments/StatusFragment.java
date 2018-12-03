@@ -34,6 +34,7 @@ public class StatusFragment extends Fragment{
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+        // Assigns all variables to views
         suspected_information = getView().findViewById(R.id.suspected_information);
         naca_information = getView().findViewById(R.id.naca_information);
         etSuspected = getView().findViewById(R.id.etSuspected);
@@ -42,16 +43,20 @@ public class StatusFragment extends Fragment{
         suspected_information.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Creates popup menu
                 PopupMenu popup = new PopupMenu(getActivity(), suspected_information);
+                // Inflates popup menu
                 popup.getMenuInflater().inflate(R.menu.suspected_menu, popup.getMenu());
 
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
+                        // Sets selected item to EditText
                         etSuspected.setText(item.getTitle());
                         return true;
                     }
                 });
 
+                // Shows popup
                 popup.show();
             }
         });
@@ -59,16 +64,20 @@ public class StatusFragment extends Fragment{
         naca_information.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Creates popup menu
                 PopupMenu popup = new PopupMenu(getActivity(), naca_information);
+                // Inflates popup menu
                 popup.getMenuInflater().inflate(R.menu.naca_menu, popup.getMenu());
 
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
+                        // Sets selected item to EditText
                         etNaca.setText(item.getTitle());
                         return true;
                     }
                 });
 
+                // Shows popup
                 popup.show();
             }
         });
