@@ -72,21 +72,36 @@ public class MainActivity extends AppCompatActivity {
 
     //DrugToolBox
 
+    /**
+     * Sets the inserted patient name from MasterDataFragment.
+     * @param name
+     */
     public void setPatientName(String name){
         this.name = name;
         setPatientInformation();
     }
 
+    /**
+     * Sets the inserted patient lastname from MasterDataFragment.
+     * @param lastname
+     */
     public void setPatientLastname(String lastname){
         this.lastname = lastname;
         setPatientInformation();
     }
 
+    /**
+     * Sets the inserted patient birthdate from MasterDataFragment.
+     * @param birthdate
+     */
     public void setPatientBirthdate(String birthdate){
         this.birthdate = birthdate;
         setPatientInformation();
     }
 
+    /**
+     * Sets the patient information containing patient name, lastname and birthdate in title.
+     */
     public void setPatientInformation(){
         patientInformation = findViewById(R.id.patientInformation);
         patientInformation.setText(lastname + " " + name + ", " + birthdate);
@@ -99,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setPatientInformation();
 
+        // Assigns all variables to views
         tbMasterData = findViewById(R.id.tbMasterData);
         tbStatus = findViewById(R.id.tbStatus);
         tbMaterial = findViewById(R.id.tbMaterial);
@@ -110,24 +126,28 @@ public class MainActivity extends AppCompatActivity {
         vertLayout = findViewById(R.id.verticalLayout);
         actualTime = findViewById(R.id.textClock);
 
+        // Opens MasterDataFragment if Patient button is clicked
         tbMasterData.setOnClickListener(i -> {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.layout_placeholder, new MasterDataFragment());
             transaction.commit();
         });
 
+        // Opens StatusFragment if Status button is clicked
         tbStatus.setOnClickListener(i -> {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.layout_placeholder, new StatusFragment());
             transaction.commit();
         });
 
+        // Opens MaterialFragment if Material button is clicked
         tbMaterial.setOnClickListener(i -> {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.layout_placeholder, new MaterialFragment());
             transaction.commit();
         });
 
+        // Sets the current date
         Calendar cal = Calendar.getInstance();
         int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
         int month = (cal.get(Calendar.MONTH)) + 1;
@@ -137,16 +157,20 @@ public class MainActivity extends AppCompatActivity {
         String yearString = String.valueOf(year);
         tDate.setText(dayOfMonthString + "." + monthString + "." + yearString);
 
+        // Sets the current weekday
         SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE");
         String dayOfWeek = dayFormat.format(cal.getTime());
         tWeekday.setText(dayOfWeek);
 
+        // Opens popup if urgency one is clicked
         urgencyOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Initializes popup
                 PopupMenu popup = new PopupMenu(MainActivity.this, urgencyOne);
                 popup.getMenuInflater().inflate(R.menu.urgency_menu, popup.getMenu());
 
+                // Sets text from popup to button
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
                         urgencyOne.setText(item.getTitle());
@@ -154,16 +178,20 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+                // Shows the popup
                 popup.show();
             }
         });
 
+        // Opens popup if urgency two is clicked
         urgencyTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Initializes popup
                 PopupMenu popup = new PopupMenu(MainActivity.this, urgencyTwo);
                 popup.getMenuInflater().inflate(R.menu.urgency_menu, popup.getMenu());
 
+                // Sets text from popup to button
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
                         urgencyTwo.setText(item.getTitle());
@@ -171,19 +199,19 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+                // Shows the popup
                 popup.show();
             }
         });
 
+        // Opens dialogBox if time button is clicked
         ibTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 final View timeView = inflater.inflate(R.layout.time_view,null, false);
 
-                //mpopup = new PopupWindow(timeView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                //mpopup.showAsDropDown(vertLayout);gSf
-
+                // Assigns all variables to timeView
                 EditText timeAlarm = timeView.findViewById(R.id.timeAlarm);
                 EditText timeAusruck = timeView.findViewById(R.id.timeAusruck);
                 EditText timeEinsatzort = timeView.findViewById(R.id.timeEinsatzort);
@@ -199,6 +227,7 @@ public class MainActivity extends AppCompatActivity {
                 Button bEinsatzebereit = timeView.findViewById(R.id.bEinsatzbereit);
                 Button bEndzeit = timeView.findViewById(R.id.bEndzeit);
 
+                // Sets text to actual time if button is clicked
                 bAlarm.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -206,6 +235,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+                // Sets text to actual time if button is clicked
                 bAusruck.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -213,6 +243,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+                // Sets text to actual time if button is clicked
                 bEinsatzort.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -220,6 +251,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+                // Sets text to actual time if button is clicked
                 bAbfahrt.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -227,6 +259,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+                // Sets text to actual time if button is clicked
                 bSpital.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -234,6 +267,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+                // Sets text to actual time if button is clicked
                 bEinsatzebereit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -241,6 +275,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+                // Sets text to actual time if button is clicked
                 bEndzeit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -248,18 +283,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+                // Opens the diaglogBox
                 new AlertDialog.Builder(MainActivity.this).setView(timeView).setTitle("Zeiten").show();
 
-
-                //AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                //builder.setTitle("Zeiten");
-
-                //TextView ziit = new TextView(MainActivity.this);
-                //ziit.setText("Alarm");
-                //builder.setView(ziit);
-
-                //AlertDialog dialog = builder.create();
-                //dialog.show();
             }
         });
 
