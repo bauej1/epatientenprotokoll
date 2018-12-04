@@ -18,23 +18,15 @@ public class Co2Dialog extends MotherDialog {
         bIntDown = dialog.findViewById(R.id.bIntDown);
 
         bIntUp.setOnClickListener(event -> {
-            increaseCo2();
+            increaseIntValue(maxCo2);
         });
 
         bIntDown.setOnClickListener(event -> {
-            decreaseCo2();
+            decreaseIntValue(minCo2);
         });
 
         bSubmit.setOnClickListener(event -> {
             super.submitData(tValueInt.getText().toString(), "");
         });
-    }
-
-    private void increaseCo2(){
-        increaseIntValue(maxCo2);
-    }
-
-    private void decreaseCo2(){
-        decreaseIntValue(minCo2);
     }
 }

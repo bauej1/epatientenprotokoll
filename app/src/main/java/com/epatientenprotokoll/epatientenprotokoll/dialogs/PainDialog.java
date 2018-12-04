@@ -18,23 +18,15 @@ public class PainDialog extends MotherDialog {
         bIntDown = dialog.findViewById(R.id.bIntDown);
 
         bIntUp.setOnClickListener(event -> {
-            increasePain();
+            increaseIntValue(maxPain);
         });
 
         bIntDown.setOnClickListener(event -> {
-            decreasePain();
+            decreaseIntValue(minPain);
         });
 
         bSubmit.setOnClickListener(event -> {
             super.submitData(tValueInt.getText().toString(), "");
         });
-    }
-
-    private void increasePain(){
-       increaseIntValue(maxPain);
-    }
-
-    private void decreasePain(){
-        decreaseIntValue(minPain);
     }
 }

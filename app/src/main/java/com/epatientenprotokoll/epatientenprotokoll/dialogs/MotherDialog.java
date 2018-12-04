@@ -5,11 +5,8 @@ import android.app.Dialog;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.epatientenprotokoll.epatientenprotokoll.R;
 import com.epatientenprotokoll.epatientenprotokoll.model.Tool;
-
-import org.w3c.dom.Text;
 
 /**
  * This class represents the super class of all underlying MotherDialog Subclasses for values like breath-frequency, pulsox, ...

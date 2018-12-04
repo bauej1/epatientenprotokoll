@@ -21,23 +21,15 @@ public class BreathFrequencyDialog extends MotherDialog {
         bIntDown = dialog.findViewById(R.id.bIntDown);
 
         bIntUp.setOnClickListener(event -> {
-            increaseBreathFrequency();
+            increaseIntValue(maxBreathFrequency);
         });
 
         bIntDown.setOnClickListener(event -> {
-            decreaseBreathFrequency();
+            decreaseIntValue(minBreathFrequency);
         });
 
         bSubmit.setOnClickListener(event -> {
             super.submitData(tValueInt.getText().toString(), "");
         });
-    }
-
-    private void increaseBreathFrequency(){
-        increaseIntValue(maxBreathFrequency);
-    }
-
-    private void decreaseBreathFrequency(){
-        decreaseIntValue(minBreathFrequency);
     }
 }

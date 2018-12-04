@@ -18,23 +18,15 @@ public class HgtDialog extends MotherDialog {
         bIntDown = dialog.findViewById(R.id.bIntDown);
 
         bIntUp.setOnClickListener(event -> {
-            increaseHgt();
+            increaseIntValue(maxHgt);
         });
 
         bIntDown.setOnClickListener(event -> {
-            decreaseHgt();
+            decreaseIntValue(minHgt);
         });
 
         bSubmit.setOnClickListener(event -> {
             super.submitData(tValueInt.getText().toString(), "");
         });
-    }
-
-    private void increaseHgt(){
-        increaseIntValue(maxHgt);
-    }
-
-    private void decreaseHgt(){
-        decreaseIntValue(minHgt);
     }
 }

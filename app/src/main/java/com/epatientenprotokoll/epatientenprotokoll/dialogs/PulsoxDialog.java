@@ -18,23 +18,15 @@ public class PulsoxDialog extends MotherDialog {
         bIntDown = dialog.findViewById(R.id.bIntDown);
 
         bIntUp.setOnClickListener(event -> {
-            increasePulsox();
+            increaseIntValue(maxPulsox);
         });
 
         bIntDown.setOnClickListener(event -> {
-            decreasePulsox();
+            decreaseIntValue(minPulsox);
         });
 
         bSubmit.setOnClickListener(event -> {
             super.submitData(tValueInt.getText().toString(), "");
         });
-    }
-
-    private void increasePulsox(){
-        increaseIntValue(maxPulsox);
-    }
-
-    private void decreasePulsox(){
-        decreaseIntValue(minPulsox);
     }
 }
