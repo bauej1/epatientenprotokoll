@@ -68,15 +68,15 @@ public class Tool {
         Measurement bloodPressure = new ActionMeasurement(6, 1, false, R.drawable.heart_massage, 0, 0, 0, 0);
         Measurement pulse = new ActionMeasurement(7, 1, false, R.drawable.pulse, 0, 0, 0, 0);
 
-        Measurement breath_frequency = new ValueMeasurement(8, 2, false, 0.0, 0,0,0,0);
-        Measurement pulsox = new ValueMeasurement(9, 2, false, 0.0, 0,0,0,0);
-        Measurement co2 = new ValueMeasurement(10, 2, false, 0.0, 0,0,0,0);
-        Measurement hgt = new ValueMeasurement(11, 2, false, 0.0, 0,0,0,0);
-        Measurement pain = new ValueMeasurement(12, 2, false, 0.0, 0,0,0,0);
-        Measurement ekg = new ValueMeasurement(13, 2, false, 0.0, 0,0,0,0);
-        Measurement venous_canule = new ValueMeasurement(14, 2, false, 0.0, 0,0,0,0);
-        Measurement nacl = new ValueMeasurement(15, 2, false, 0.0, 0,0,0,0);
-        Measurement temp = new ValueMeasurement(16, 2, false, 0.0, 0,0,0,0);
+        Measurement breath_frequency = new ValueMeasurement(8, 2, false, 0.0, "/min", 0,0,0,0);
+        Measurement pulsox = new ValueMeasurement(9, 2, false, 0.0, "%", 0,0,0,0);
+        Measurement co2 = new ValueMeasurement(10, 2, false, 0.0, "mmHg", 0,0,0,0);
+        Measurement hgt = new ValueMeasurement(11, 2, false, 0.0, "mmol/l", 0,0,0,0);
+        Measurement pain = new ValueMeasurement(12, 2, false, 0.0, "", 0,0,0,0);
+        Measurement ekg = new ValueMeasurement(13, 2, false, 0.0, "", 0,0,0,0);
+        Measurement venous_canule = new ValueMeasurement(14, 2, false, 0.0, "", 0,0,0,0);
+        Measurement nacl = new ValueMeasurement(15, 2, false, 0.0, "", 0,0,0,0);
+        Measurement temp = new ValueMeasurement(16, 2, false, 0.0, "°C", 0,0,0,0);
 
         measurements.add(ventilation);
         measurements.add(inextubation);

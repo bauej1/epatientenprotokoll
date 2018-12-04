@@ -108,9 +108,8 @@ public class MeasuresGrid extends View {
 
                 } else if(table[row][column] instanceof ValueMeasurement) {
 
-                    String text = table[row][column].getStoredValue() + "°C";        //here comes the evaluation which String ending should be printed
+                    String text = table[row][column].getStoredValue() + table[row][column].getUnit();
                     if(text != null) canvas.drawText(text, x, y, paint);
-
                 }
             }
         }

@@ -95,6 +95,13 @@ public class Measurement {
 
     public void setStoredValue(Object o){
     }
+
+    public String getUnit(){
+        return "";
+    }
+
+    public void setUnit(String unit){
+    }
 }
 
 
