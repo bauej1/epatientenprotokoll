@@ -27,8 +27,9 @@
         <item>F</item>
     </string-array>
     <string-array name="gender_array">
-        <item>Weiblich</item>
-        <item>Männlich</item>
+        <item>Mann</item>
+        <item>Frau</item>
+        <item>Kind</item>
     </string-array>
     <string name="speichern">Speichern</string>
     <string name="abbrechen">Abbrechen</string>
@@ -36,7 +37,9 @@
     <string name="vorname">Vorname</string>
     <string name="strasse">Strasse</string>
     <string name="plz">PLZ</string>
+    <string name="ort">Ort</string>
     <string name="telefon">Telefon</string>
+    <string name="rechnung">Rechnung an</string>
     <string name="patient">Patient</string>
     <string name="status">Status</string>
     <string name="verdacht">Verdacht</string>

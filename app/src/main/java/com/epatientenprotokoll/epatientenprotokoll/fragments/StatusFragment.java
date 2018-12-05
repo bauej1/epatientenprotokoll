@@ -81,6 +81,5 @@ public class StatusFragment extends Fragment{
                 popup.show();
             }
         });
-
     }
 }
