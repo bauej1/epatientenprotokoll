@@ -6,9 +6,11 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 
 import com.epatientenprotokoll.epatientenprotokoll.model.ActionMeasurement;
 import com.epatientenprotokoll.epatientenprotokoll.model.Measurement;
@@ -24,16 +26,32 @@ public class MeasuresGrid extends View {
         abstract void onDrag(View view, int columnStart, int columnEnd, int row);
     }
 
+    abstract static class OnLongClickListener {
+        abstract void onLongClick(View view, int row, int column);
+    }
+
+    //Constants
     private static final int maxYValue = 220;
     private static final int yAxisLabelDiff = 15;
 
+    //Common
     private Measurement[][] table;
     private OnClickListener onClickListener;
     private OnDragListener onDragListener;
+    private OnLongClickListener onLongClickListener;
     private Paint paint = new Paint();
+
+    //Drag
     private int ventilationStart;
     private int ventilationEnd;
     private int row;
+
+    //LongClick
+    private final Handler handler = new Handler();
+    private int longClickRow;
+    private int longClickColumn;
+    private View longClickView;
+    public boolean isLongClick = false;
 
     public MeasuresGrid(Context context) {
         super(context);
@@ -62,6 +80,15 @@ public class MeasuresGrid extends View {
         invalidate();
     }
 
+    public void deleteMeasurement(int row, int column){
+
+        if(this.table.length < 0 || this.table[row][column] == null){
+            return;
+        }
+        this.table[row][column] = null;
+        invalidate();
+    }
+
     public void setVentilation(int ventilationStart, int ventilationEnd, int row) {
         this.ventilationStart = ventilationStart;
         this.ventilationEnd = ventilationEnd;
@@ -74,6 +101,10 @@ public class MeasuresGrid extends View {
 
     void setOnDragListener(OnDragListener onDragListener) {
         this.onDragListener = onDragListener;
+    }
+
+    void setOnLongClickListener(OnLongClickListener onLongClickListener){
+        this.onLongClickListener = onLongClickListener;
     }
 
     @Override
@@ -139,30 +170,38 @@ public class MeasuresGrid extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+
         if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_UP) {
             int row = (int) (event.getY() / getHeight() * getRowCount());
             int column = (int) (event.getX() / getWidth() * getColumnCount());
 
-            if (row < 0 || row >= getRowCount() || column < 0 || column >= getColumnCount()) {
+            if (row < 0 || row >= getRowCount() || column < 2 || column >= getColumnCount()) {
                 return false;
             }
 
-            if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                dragStartColumn = column;
-            }
-
-            if(event.getAction() == MotionEvent.ACTION_UP) {
-                if(dragStartColumn != column) {
-                    if (onDragListener != null) {
-                        onDragListener.onDrag(this, dragStartColumn, column + 1, row);
+            switch(event.getAction()){
+                case MotionEvent.ACTION_DOWN:
+                    dragStartColumn = column;
+                    longClickRow = row;
+                    longClickColumn = column;
+                    longClickView = this;
+                    handler.postDelayed(mLongPressed, ViewConfiguration.getLongPressTimeout());
+                    break;
+                case MotionEvent.ACTION_UP:
+                    handler.removeCallbacks(mLongPressed);
+                    if(dragStartColumn != column) {
+                        if (onDragListener != null) {
+                            onDragListener.onDrag(this, dragStartColumn, column + 1, row);
+                        }
                     }
-                }
-                else {
-                    if (onClickListener != null) {
-                        onClickListener.onClick(this, row, column);
+                    else {
+                        if (onClickListener != null && !isLongClick) {
+                            onClickListener.onClick(this, row, column);
+                        }
                     }
-                }
+                    break;
             }
+            if(isLongClick) isLongClick = false;
 
             return true;
         }
@@ -170,16 +209,24 @@ public class MeasuresGrid extends View {
         return false;
     }
 
+    Runnable mLongPressed = new Runnable() {
+        @Override
+        public void run() {
+            isLongClick = true;
+            onLongClickListener.onLongClick(longClickView, longClickRow, longClickColumn);
+        }
+    };
+
     private int getRowCount() {
-        return table.length;
+        return table.length -1;
     }
 
     private int getColumnCount() {
-        return table[0].length;
+        return table[0].length - 1;
     }
 
-    private String getYGridValues(int column){
-        return maxYValue - (column * 10) + "";
+    private String getYGridValues(int row){
+        return maxYValue - (row * 10) + "";
     }
 
     private String getXGridValues(){
@@ -191,7 +238,7 @@ public class MeasuresGrid extends View {
      * @param canvas
      */
     private void drawHorizontalLines(Canvas canvas){
-        for (int row = 1; row <= getRowCount(); ++row) {
+        for (int row = 0; row <= getRowCount(); ++row) {
             int y = getHeight() / getRowCount() * row;
             if(row <= getRowCount()-3){
                 canvas.drawText(getYGridValues(row), 0, y - yAxisLabelDiff, paint);

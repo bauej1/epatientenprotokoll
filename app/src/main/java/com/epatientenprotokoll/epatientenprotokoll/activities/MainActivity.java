@@ -324,6 +324,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        measuresGrid.setOnLongClickListener(new MeasuresGrid.OnLongClickListener() {
+            @Override
+            void onLongClick(View view, int row, int column) {
+                onMeasuresGridLongClick(row, column);
+            }
+        });
+
         setMeasuresGrid();
     }
 
@@ -334,7 +341,7 @@ public class MainActivity extends AppCompatActivity {
      * @param column - clicked column
      */
     private void onMeasuresGridClick(int row, int column) {
-        System.out.println("clicked: " + row + " " + column);
+        System.out.println("click-event--> clicked: " + row + " " + column);
 
         table[row][column] = tool.getCurrentTool();
         setMeasuresGrid();
@@ -348,13 +355,19 @@ public class MainActivity extends AppCompatActivity {
      * @param row - row tapped
      */
     private void onMeasuresGridDrag(int columnStart, int columnEnd, int row) {
-        System.out.println("drag: " + columnStart + " " + columnEnd);
+        System.out.println("click-event--> drag: " + columnStart + " " + columnEnd);
 
         ventilationStart = columnStart;
         ventilationEnd = columnEnd;
         this.row = row;
 
         setMeasuresGrid();
+    }
+
+    private void onMeasuresGridLongClick(int row, int column){
+        System.out.println("click-event--> long-clicked: " + row + " " + column);
+
+        measuresGrid.deleteMeasurement(row, column);
     }
 
     /**
