@@ -6,12 +6,12 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
-
 import com.epatientenprotokoll.epatientenprotokoll.model.ActionMeasurement;
 import com.epatientenprotokoll.epatientenprotokoll.model.Measurement;
 import com.epatientenprotokoll.epatientenprotokoll.model.ValueMeasurement;
@@ -71,7 +71,8 @@ public class MeasuresGrid extends View {
     private void init() {
         paint.setColor(Color.BLACK);
         paint.setStrokeWidth(2f);
-        paint.setTextSize(50);
+        paint.setTextSize(30);
+        paint.setAntiAlias(true);
     }
 
     public void setTable(Measurement[][] table) {
@@ -129,8 +130,8 @@ public class MeasuresGrid extends View {
         for (int row = 0; row < getRowCount(); ++row) {
             for (int column = 0; column < getColumnCount(); ++column) {
 
-                int x = getWidth() / getColumnCount() * column + 4;
-                int y = getHeight() / getRowCount() * (row + 1) - 4;
+                int x = getWidth() / getColumnCount() * column;
+                int y = getHeight() / getRowCount() * row;
 
                 if(table[row][column] instanceof ActionMeasurement){
 
@@ -140,7 +141,7 @@ public class MeasuresGrid extends View {
                 } else if(table[row][column] instanceof ValueMeasurement) {
 
                     String text = table[row][column].getStoredValue() + table[row][column].getUnit();
-                    if(text != null) canvas.drawText(text, x, y, paint);
+                    if(text != null) canvas.drawText(text, x, y + (getHeight() / getRowCount()) - 10, paint);   //+ (getHeight() / getRowCount()) - 10 is to align the text in the middle of the cell
                 }
             }
         }
@@ -174,6 +175,8 @@ public class MeasuresGrid extends View {
         if (event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_UP) {
             int row = (int) (event.getY() / getHeight() * getRowCount());
             int column = (int) (event.getX() / getWidth() * getColumnCount());
+
+            System.out.println("klick row " + row);
 
             if (row < 0 || row >= getRowCount() || column < 2 || column >= getColumnCount()) {
                 return false;
@@ -218,7 +221,7 @@ public class MeasuresGrid extends View {
     };
 
     private int getRowCount() {
-        return table.length -1;
+        return table.length - 1;
     }
 
     private int getColumnCount() {
@@ -248,7 +251,8 @@ public class MeasuresGrid extends View {
             } else {
                 paint.setStrokeWidth(2f);
             }
-            canvas.drawLine(getHeight() / getRowCount() * 2, y, getWidth(), y, paint); //canvas.drawLine(0, y, getWidth(), y, paint);
+            canvas.drawLine(getHeight() / getRowCount() * 2, y, getWidth(), y, paint);
+            //canvas.drawLine(0, y, getWidth(), y, paint);
         }
     }
 
