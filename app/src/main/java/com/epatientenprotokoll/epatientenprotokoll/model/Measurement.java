@@ -27,10 +27,10 @@ public class Measurement {
         this.id = id;
         this.origin = origin;
         this.multiMeasure = multiMeasure;
-        this.x1 = x1;
-        this.y1 = y1;
-        this.x2 = x2;
-        this.y2 = y2;
+        this.x1 = x1;       //column 1
+        this.y1 = y1;       //row 1
+        this.x2 = x2;       //column 2
+        this.y2 = y2;       //row 2
     }
 
     public int getId() {
