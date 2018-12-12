@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:mstb="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -9,25 +8,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
         android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:background="@color/grey"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:text="@string/materialundlagerung"
-                android:textColor="@color/black"
-                android:textSize="30dp" />
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,78 +17,105 @@
             android:background="@color/lightGrey"
             android:orientation="vertical">
 
-            <org.honorato.multistatetogglebutton.MultiStateToggleButton
-                android:id="@+id/mstb_material1"
+            <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
+                android:id="@+id/tbgMaterial1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="7dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="7dp"
-                android:visibility="visible"
-                mstb:mstbColorNotPressedText="@color/grey"
-                mstb:mstbColorPressedText="@color/grey"
-                mstb:mstbPrimaryColor="@color/black"
-                mstb:mstbSecondaryColor="@color/grey"
-                mstb:values="@array/material_array1" />
+                android:layout_marginTop="5dp"
+                mstb:tbgChildSpacingForLastRow="align"
+                mstb:tbgFlow="true"
+                mstb:tbgChildSpacing="5dp"
+                mstb:tbgRowSpacing="5dp">
 
-            <org.honorato.multistatetogglebutton.MultiStateToggleButton
-                android:id="@+id/mstb_material2"
+            </com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
+
+            <View
+                android:id="@+id/separator"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/darkGrey" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="7dp"
-                android:layout_marginRight="7dp"
-                android:visibility="visible"
-                mstb:mstbColorNotPressedText="@color/grey"
-                mstb:mstbColorPressedText="@color/grey"
-                mstb:mstbPrimaryColor="@color/black"
-                mstb:mstbSecondaryColor="@color/grey"
-                mstb:values="@array/material_array2">
+                android:orientation="horizontal">
 
-            </org.honorato.multistatetogglebutton.MultiStateToggleButton>
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="7dp"
+                    android:text="@string/halskragen"
+                    android:textColor="@color/black" />
 
-            <org.honorato.multistatetogglebutton.MultiStateToggleButton
-                android:id="@+id/mstb_halskragen"
-                android:layout_width="270dp"
+                <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
+                    android:id="@+id/tbgHalskragen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginTop="5dp"
+                    mstb:tbgChildSpacingForLastRow="align"
+                    mstb:tbgFlow="true"
+                    mstb:tbgChildSpacing="5dp"
+                    mstb:tbgRowSpacing="5dp"></com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="7dp"
-                android:layout_marginRight="7dp"
-                android:visibility="gone"
-                mstb:mstbColorNotPressedText="@color/grey"
-                mstb:mstbColorPressedText="@color/grey"
-                mstb:mstbPrimaryColor="@color/black"
-                mstb:mstbSecondaryColor="@color/grey"
-                mstb:values="@array/halskragen_array">
+                android:orientation="horizontal">
 
-            </org.honorato.multistatetogglebutton.MultiStateToggleButton>
+                <TextView
+                    android:id="@+id/textView24"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="7dp"
+                    android:text="@string/rettungsbrett"
+                    android:textColor="@color/black" />
 
-            <org.honorato.multistatetogglebutton.MultiStateToggleButton
-                android:id="@+id/mstb_rettungsbrett"
-                android:layout_width="270dp"
+                <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
+                    android:id="@+id/tbgRettungsbrett"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginTop="5dp"
+                    mstb:tbgChildSpacingForLastRow="align"
+                    mstb:tbgFlow="true"
+                    mstb:tbgChildSpacing="5dp"
+                    mstb:tbgRowSpacing="5dp"></com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="142dp"
-                android:layout_marginRight="7dp"
-                android:visibility="gone"
-                mstb:mstbColorNotPressedText="@color/grey"
-                mstb:mstbColorPressedText="@color/grey"
-                mstb:mstbPrimaryColor="@color/black"
-                mstb:mstbSecondaryColor="@color/grey"
-                mstb:values="@array/rettungsbrett_array">
+                android:orientation="horizontal">
 
-            </org.honorato.multistatetogglebutton.MultiStateToggleButton>
+                <TextView
+                    android:id="@+id/textView25"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="7dp"
+                    android:text="@string/wundversorgung"
+                    android:textColor="@color/black" />
 
-            <org.honorato.multistatetogglebutton.MultiStateToggleButton
-                android:id="@+id/mstb_wundversorgung"
-                android:layout_width="270dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="278dp"
-                android:layout_marginRight="7dp"
-                android:visibility="gone"
-                mstb:mstbColorNotPressedText="@color/grey"
-                mstb:mstbColorPressedText="@color/grey"
-                mstb:mstbPrimaryColor="@color/black"
-                mstb:mstbSecondaryColor="@color/grey"
-                mstb:values="@array/wundversorgung_array">
-            </org.honorato.multistatetogglebutton.MultiStateToggleButton>
+                <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
+                    android:id="@+id/tbgWundversorgung"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginTop="5dp"
+                    mstb:tbgChildSpacingForLastRow="align"
+                    mstb:tbgFlow="true"
+                    mstb:tbgChildSpacing="5dp"
+                    mstb:tbgRowSpacing="5dp"></com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -133,8 +142,7 @@
                     android:ems="10"
                     android:imeOptions="actionDone"
                     android:inputType="textPersonName"
-                    android:textColorLink="?attr/actionModeSplitBackground"
-                    tools:textColorLink="@color/colorAccent" />
+                    android:textColorLink="?attr/actionModeSplitBackground"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -162,14 +170,27 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="7dp"
-                android:visibility="visible"
+                android:visibility="gone"
                 mstb:mstbColorNotPressedText="@color/grey"
                 mstb:mstbColorPressedText="@color/grey"
                 mstb:mstbPrimaryColor="@color/black"
                 mstb:mstbSecondaryColor="@color/grey"
-                mstb:values="@array/abgegebenMaterial_array" >
+                mstb:values="@array/abgegebenMaterial_array">
 
             </org.honorato.multistatetogglebutton.MultiStateToggleButton>
+
+            <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
+                android:id="@+id/tbgMaterial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                mstb:tbgChildSpacingForLastRow="align"
+                mstb:tbgFlow="true"
+                mstb:tbgChildSpacing="5dp"
+                mstb:tbgRowSpacing="5dp">
+
+
+            </com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
 
             <EditText
                 android:id="@+id/editText5"

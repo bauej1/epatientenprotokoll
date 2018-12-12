@@ -20,10 +20,10 @@
             android:id="@+id/tAlarm"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
+            android:layout_weight="5"
             android:text="Alarm"
             android:textColor="@color/black"
-            android:textSize="16dp" />
+            android:textSize="14dp" />
 
         <EditText
             android:id="@+id/timeAlarm"
@@ -31,7 +31,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="4"
-            android:inputType="time" />
+            android:inputType="time"
+            android:textSize="14dp" />
 
         <Button
             android:id="@+id/bAlarm"
@@ -39,7 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_weight="2"
-            android:text="@string/jetzt" />
+            android:text="@string/jetzt"
+            android:textSize="14dp" />
 
     </LinearLayout>
 
@@ -55,10 +57,10 @@
             android:id="@+id/tAusruck"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
+            android:layout_weight="5"
             android:text="@string/ausgeruckt"
             android:textColor="@color/black"
-            android:textSize="16dp" />
+            android:textSize="14dp" />
 
         <EditText
             android:id="@+id/timeAusruck"
@@ -66,7 +68,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="4"
-            android:inputType="time" />
+            android:inputType="time"
+            android:textSize="14dp" />
 
         <Button
             android:id="@+id/bAusruck"
@@ -74,7 +77,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_weight="2"
-            android:text="@string/jetzt" />
+            android:text="@string/jetzt"
+            android:textSize="14dp" />
 
     </LinearLayout>
 
@@ -90,10 +94,10 @@
             android:id="@+id/tEinsatzort"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
+            android:layout_weight="5"
             android:text="@string/einsatzort"
             android:textColor="@color/black"
-            android:textSize="16dp" />
+            android:textSize="14dp" />
 
         <EditText
             android:id="@+id/timeEinsatzort"
@@ -101,7 +105,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="4"
-            android:inputType="time" />
+            android:inputType="time"
+            android:textSize="14dp" />
 
         <Button
             android:id="@+id/bEinsatzort"
@@ -109,7 +114,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_weight="2"
-            android:text="@string/jetzt" />
+            android:text="@string/jetzt"
+            android:textSize="14dp" />
 
     </LinearLayout>
 
@@ -125,10 +131,10 @@
             android:id="@+id/tAbfahrt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
+            android:layout_weight="5"
             android:text="@string/abfahrt"
             android:textColor="@color/black"
-            android:textSize="16dp" />
+            android:textSize="14dp" />
 
         <EditText
             android:id="@+id/timeAbfahrt"
@@ -136,7 +142,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="4"
-            android:inputType="time" />
+            android:inputType="time"
+            android:textSize="14dp" />
 
         <Button
             android:id="@+id/bAbfahrt"
@@ -144,7 +151,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_weight="2"
-            android:text="@string/jetzt" />
+            android:text="@string/jetzt"
+            android:textSize="14dp" />
 
     </LinearLayout>
 
@@ -160,10 +168,10 @@
             android:id="@+id/tSpital"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
+            android:layout_weight="5"
             android:text="@string/spital"
             android:textColor="@color/black"
-            android:textSize="16dp" />
+            android:textSize="14dp" />
 
         <EditText
             android:id="@+id/timeSpital"
@@ -171,7 +179,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="4"
-            android:inputType="time" />
+            android:inputType="time"
+            android:textSize="14dp" />
 
         <Button
             android:id="@+id/bSpital"
@@ -179,7 +188,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_weight="2"
-            android:text="@string/jetzt" />
+            android:text="@string/jetzt"
+            android:textSize="14dp" />
 
     </LinearLayout>
 
@@ -195,10 +205,10 @@
             android:id="@+id/tEinsatzbereit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
+            android:layout_weight="5"
             android:text="@string/einsatzbereit"
             android:textColor="@color/black"
-            android:textSize="16dp" />
+            android:textSize="14dp" />
 
         <EditText
             android:id="@+id/timeEinsatzbereit"
@@ -206,7 +216,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="4"
-            android:inputType="time" />
+            android:inputType="time"
+            android:textSize="14dp" />
 
         <Button
             android:id="@+id/bEinsatzbereit"
@@ -214,7 +225,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_weight="2"
-            android:text="@string/jetzt" />
+            android:text="@string/jetzt"
+            android:textSize="14dp" />
 
     </LinearLayout>
 
@@ -230,10 +242,10 @@
             android:id="@+id/tEndzeit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
+            android:layout_weight="5"
             android:text="@string/endzeit"
             android:textColor="@color/black"
-            android:textSize="16dp" />
+            android:textSize="14dp" />
 
         <EditText
             android:id="@+id/timeEndzeit"
@@ -241,7 +253,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="4"
-            android:inputType="time" />
+            android:inputType="time"
+            android:textSize="14dp" />
 
         <Button
             android:id="@+id/bEndzeit"
@@ -249,6 +262,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_weight="2"
-            android:text="@string/jetzt" />
+            android:text="@string/jetzt"
+            android:textSize="14dp" />
     </LinearLayout>
 </LinearLayout>

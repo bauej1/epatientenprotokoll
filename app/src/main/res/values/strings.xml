@@ -11,11 +11,8 @@
     <string-array name="operation_array">
         <item>Krankheit</item>
         <item>Unfall</item>
-        <item>Verlegung</item>
-        <item>Psychiatrie</item>
         <item>Isolette</item>
-        <item>SUVA</item>
-        <item>Andere</item>
+        <item>Psychiatrie</item>
     </string-array>
     <string-array name="accident_array">
         <item>UV</item>
@@ -57,6 +54,11 @@
         <item>nicht</item>
     </string-array>
 
+    <string name="spontan">spontan</string>
+    <string name="anruf">auf Anruf</string>
+    <string name="schmerzreiz">nach Schmerzreiz</string>
+    <string name="nicht">nicht</string>
+
     <string name="response1">keine</string>
     <string name="response2">unverständlich</string>
     <string name="response3">verworren</string>
@@ -67,7 +69,7 @@
     <string name="antworten">Antworten</string>
     <string-array name="response_array">
         <item>voll orientiert</item>
-        <item>unvollständig orientiert</item>
+        <item>unvollständig \norientiert</item>
         <item>verworren</item>
         <item>unverständlich</item>
         <item>keine</item>
@@ -83,8 +85,8 @@
     <string name="motorischeReak">Motorische Reaktionen</string>
     <string-array name="reaction_array">
         <item>adäquat</item>
-        <item>gezielt auf Schmerzen</item>
-        <item>ungezielt auf Schmerzen</item>
+        <item>gezielt auf \nSchmerzen</item>
+        <item>ungezielt auf \nSchmerzen</item>
         <item>Beugung</item>
         <item>Streckung</item>
         <item>keine</item>
@@ -92,6 +94,11 @@
 
     <string name="gsc">Glasgow Coma Scale</string>
     <string name="materialundlagerung">Material und Lagerung</string>
+    <string name="anamnese">Anamnese</string>
+
+    <string name="halskragen">Halskragen</string>
+    <string name="rettungsbrett">Rettungsbrett</string>
+    <string name="wundversorgung">Wundversorgung</string>
 
     <string-array name="material_array1">
         <item>Vaakummatratze</item>
@@ -99,14 +106,15 @@
         <item>Schaufelbahre</item>
         <item>Fernostuhl</item>
         <item>Beckengurt</item>
+        <item>Eisbeutel</item>
+        <item>KED</item>
+        <item>Warm Up</item>
     </string-array>
 
     <string-array name="material_array2">
         <item>Halskragen</item>
         <item>Rettungsbrett</item>
         <item>Wundversorgung</item>
-        <item>Eisbeutel</item>
-        <item>KED</item>
     </string-array>
     
     <string-array name="halskragen_array">
@@ -136,8 +144,9 @@
         <item>Effekten</item>
         <item>Medikamente</item>
         <item>Wertsachen</item>
-        <item>RX-Bilder</item>
         <item>Arzt-/Pflegebericht</item>
+        <item>RX-Bilder</item>
+        <item>AED Firstresponder</item>
     </string-array>
 
     <string name="ventilation">Beatmung</string>
@@ -164,6 +173,12 @@
     <string-array name="lagerung_seitenlage">
         <item>Links</item>
         <item>Rechts</item>
+    </string-array>
+
+    <string-array name="onetothree">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>
 
     <string name="temperature">Temp °C</string>

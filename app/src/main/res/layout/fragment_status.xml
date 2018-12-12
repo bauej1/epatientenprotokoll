@@ -8,25 +8,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
         android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:background="@color/grey"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:text="@string/status"
-                android:textColor="@color/black"
-                android:textSize="30dp" />
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -43,15 +26,16 @@
                 android:layout_weight="1"
                 android:text="@string/verdacht"
                 android:textColor="@color/black"
-                android:textSize="16dp" />
+                android:textSize="14dp" />
 
             <EditText
                 android:id="@+id/etSuspected"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_weight="2.5"
                 android:ems="10"
-                android:inputType="number" />
+                android:inputType="number"
+                android:textSize="14dp" />
 
             <ImageButton
                 android:id="@+id/suspected_information"
@@ -70,7 +54,8 @@
                 android:layout_weight="1"
                 android:paddingLeft="40dp"
                 android:text="@string/naca"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="14dp" />
 
             <EditText
                 android:id="@+id/etNaca"
@@ -78,7 +63,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:ems="4"
-                android:inputType="number" />
+                android:inputType="number"
+                android:textSize="14dp" />
 
             <ImageButton
                 android:id="@+id/naca_information"
@@ -99,6 +85,7 @@
             android:orientation="vertical"
             android:paddingLeft="7dp"
             android:paddingBottom="7dp"
+            android:visibility="gone"
             android:weightSum="30">
 
             <LinearLayout
@@ -114,7 +101,7 @@
                     android:layout_weight="1"
                     android:text="@string/gsc"
                     android:textColor="@color/black"
-                    android:textSize="22dp"
+                    android:textSize="18dp"
                     android:textStyle="normal" />
             </LinearLayout>
 
@@ -130,7 +117,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/oeffnenAugen"
                     android:textColor="@color/black"
-                    android:textSize="16dp" />
+                    android:textSize="14dp" />
 
                 <org.honorato.multistatetogglebutton.MultiStateToggleButton
                     android:id="@+id/mstb_eyes"
@@ -160,7 +147,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/antworten"
                     android:textColor="@color/black"
-                    android:textSize="16dp" />
+                    android:textSize="14dp" />
 
                 <org.honorato.multistatetogglebutton.MultiStateToggleButton
                     android:id="@+id/mstb_response"
@@ -187,7 +174,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/motorischeReak"
                     android:textColor="@color/black"
-                    android:textSize="16dp" />
+                    android:textSize="14dp" />
 
                 <org.honorato.multistatetogglebutton.MultiStateToggleButton
                     android:id="@+id/mstb_reaction"
@@ -200,6 +187,652 @@
                     mstb:mstbSecondaryColor="@color/grey"
                     mstb:values="@array/reaction_array" />
             </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/lightGrey"
+            android:orientation="vertical"
+            android:paddingLeft="7dp"
+            android:paddingBottom="7dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="@string/gsc"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+
+                <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
+                    android:id="@+id/group_choices"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
+                    mstb:tbgCheckedButton="@+id/choice_a">
+
+                    <com.nex3z.togglebuttongroup.button.CircularToggle
+                        android:id="@+id/choice_a"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        mstb:tbgMarkerColor="@color/darkGrey" />
+
+                    <com.nex3z.togglebuttongroup.button.CircularToggle
+                        android:id="@+id/choice_b"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        mstb:tbgMarkerColor="@color/darkGrey" />
+
+                    <com.nex3z.togglebuttongroup.button.CircularToggle
+                        android:id="@+id/choice_c"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        mstb:tbgMarkerColor="@color/darkGrey" />
+                </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/oeffnenAugen"
+                    android:textColor="@color/black" />
+
+                <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
+                    android:id="@+id/tbgAugen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    mstb:tbgChildSpacingForLastRow="align"
+                    mstb:tbgFlow="false"
+                    mstb:tbgMaxSelect="1"
+                    mstb:tbgRowSpacing="8dp">
+
+
+                </com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="7dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/antworten"
+                    android:textColor="@color/black" />
+
+                <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
+                    android:id="@+id/tbgAntwort"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    mstb:tbgChildSpacingForLastRow="align"
+                    mstb:tbgFlow="false"
+                    mstb:tbgMaxSelect="1"
+                    mstb:tbgRowSpacing="8dp">
+
+
+                </com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="7dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/motorischeReak"
+                    android:textColor="@color/black" />
+
+                <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
+                    android:id="@+id/tbgMotorisch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    mstb:tbgChildSpacing="auto"
+                    mstb:tbgChildSpacingForLastRow="auto"
+                    mstb:tbgFlow="false"
+                    mstb:tbgMaxSelect="1"
+                    mstb:tbgRowSpacing="8dp">
+
+
+                </com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/lightGrey"
+            android:orientation="vertical"
+            android:paddingLeft="7dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/gsc"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/oeffnenAugen"
+                    android:textColor="@color/black" />
+
+                <RadioGroup
+                    android:id="@+id/toggleGroup"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">>
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textOff="@string/spontan"
+                        android:textOn="@string/spontan"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="ToggleButton"
+                        android:textOff="@string/anruf"
+                        android:textOn="@string/anruf"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="ToggleButton"
+                        android:textOff="@string/schmerzreiz"
+                        android:textOn="@string/schmerzreiz"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="ToggleButton"
+                        android:textOff="@string/nicht"
+                        android:textOn="@string/nicht"
+                        android:textSize="10dp" />
+                </RadioGroup>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical"
+                android:weightSum="10">
+
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/antworten"
+                    android:textColor="@color/black" />
+
+                <RadioGroup
+                    android:id="@+id/toggleGroup2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">>
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:textOff="@string/response5"
+                        android:textOn="@string/response5"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:text="ToggleButton"
+                        android:textOff="@string/response4"
+                        android:textOn="@string/response4"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton7"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:text="ToggleButton"
+                        android:textOff="@string/response3"
+                        android:textOn="@string/response3"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton8"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="ToggleButton"
+                        android:textOff="@string/response2"
+                        android:textOn="@string/response2"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton9"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="ToggleButton"
+                        android:textOff="@string/response1"
+                        android:textOn="@string/response1"
+                        android:textSize="10dp" />
+                </RadioGroup>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/motorischeReak"
+                    android:textColor="@color/black" />
+
+                <RadioGroup
+                    android:id="@+id/toggleGroup3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">>
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton10"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:textOff="@string/reaction6"
+                        android:textOn="@string/reaction6"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton11"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="ToggleButton"
+                        android:textOff="@string/reaction5"
+                        android:textOn="@string/reaction5"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton12"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="ToggleButton"
+                        android:textOff="@string/reaction4"
+                        android:textOn="@string/reaction4"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton13"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="ToggleButton"
+                        android:textOff="@string/reaction3"
+                        android:textOn="@string/reaction3"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton14"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="ToggleButton"
+                        android:textOff="@string/reaction2"
+                        android:textOn="@string/reaction2"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton15"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="ToggleButton"
+                        android:textOff="@string/reaction1"
+                        android:textOn="@string/reaction1"
+                        android:textSize="10dp" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/lightGrey"
+            android:orientation="vertical"
+            android:paddingLeft="7dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/gsc"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView33"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/oeffnenAugen"
+                    android:textColor="@color/black" />
+
+                <RadioGroup
+                    android:id="@+id/toggleGroup1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">>
+
+                    <ToggleButton
+                        android:id="@+id/tbEyes1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/grey"
+                        android:textOff="@string/spontan"
+                        android:textOn="@string/spontan"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/tbEyes2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/grey"
+                        android:text="ToggleButton"
+                        android:textOff="@string/anruf"
+                        android:textOn="@string/anruf"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/tbEyes3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/grey"
+                        android:text="ToggleButton"
+                        android:textOff="@string/schmerzreiz"
+                        android:textOn="@string/schmerzreiz"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/tbEyes4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/grey"
+                        android:text="ToggleButton"
+                        android:textOff="@string/nicht"
+                        android:textOn="@string/nicht"
+                        android:textSize="10dp" />
+                </RadioGroup>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical"
+                android:weightSum="10">
+
+                <TextView
+                    android:id="@+id/textView34"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/antworten"
+                    android:textColor="@color/black" />
+
+                <RadioGroup
+                    android:id="@+id/toggleGroup9"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">>
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton32"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:background="@color/grey"
+                        android:textOff="@string/response5"
+                        android:textOn="@string/response5"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton33"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:background="@color/grey"
+                        android:text="ToggleButton"
+                        android:textOff="@string/response4"
+                        android:textOn="@string/response4"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton34"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:background="@color/grey"
+                        android:text="ToggleButton"
+                        android:textOff="@string/response3"
+                        android:textOn="@string/response3"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton35"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@color/grey"
+                        android:text="ToggleButton"
+                        android:textOff="@string/response2"
+                        android:textOn="@string/response2"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton36"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/grey"
+                        android:text="ToggleButton"
+                        android:textOff="@string/response1"
+                        android:textOn="@string/response1"
+                        android:textSize="10dp" />
+                </RadioGroup>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView29"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/motorischeReak"
+                    android:textColor="@color/black" />
+
+                <RadioGroup
+                    android:id="@+id/toggleGroup7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">>
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton37"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:background="@color/grey"
+                        android:textOff="@string/reaction6"
+                        android:textOn="@string/reaction6"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton38"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@color/grey"
+                        android:text="ToggleButton"
+                        android:textOff="@string/reaction5"
+                        android:textOn="@string/reaction5"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton39"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@color/grey"
+                        android:text="ToggleButton"
+                        android:textOff="@string/reaction4"
+                        android:textOn="@string/reaction4"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton40"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@color/grey"
+                        android:text="ToggleButton"
+                        android:textOff="@string/reaction3"
+                        android:textOn="@string/reaction3"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton41"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@color/grey"
+                        android:text="ToggleButton"
+                        android:textOff="@string/reaction2"
+                        android:textOn="@string/reaction2"
+                        android:textSize="10dp" />
+
+                    <ToggleButton
+                        android:id="@+id/toggleButton42"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/grey"
+                        android:text="ToggleButton"
+                        android:textOff="@string/reaction1"
+                        android:textOn="@string/reaction1"
+                        android:textSize="10dp" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/lightGrey"
+            android:orientation="vertical"
+            android:paddingLeft="7dp"
+            android:paddingBottom="7dp">
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/anamnese"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <EditText
+                android:id="@+id/etAnamnese"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textMultiLine|textPersonName" />
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>

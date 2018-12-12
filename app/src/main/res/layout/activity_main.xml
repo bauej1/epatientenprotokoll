@@ -15,25 +15,45 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorAccent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
             android:orientation="horizontal"
             android:weightSum="100">
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="15"
-                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/colorAccent"
+                android:orientation="horizontal"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp">
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/measure_values_toolbar"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="15"
-                android:background="@drawable/measurevalues" />
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="49dp"
+                    android:layout_height="49dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/tools" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:background="@color/colorAccent"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/measure_values_toolbar"
+                    android:layout_width="39dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/measurevalues"
+                    android:paddingLeft="5dp" />
+            </LinearLayout>
+
         </LinearLayout>
 
         <com.epatientenprotokoll.epatientenprotokoll.activities.MeasuresGrid
@@ -54,14 +74,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="10"
+            android:layout_weight="7"
             android:gravity="right"
             android:orientation="horizontal"
             android:weightSum="100">
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="60dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="5dp"
                 android:layout_weight="55"
@@ -110,7 +130,7 @@
             <Button
                 android:id="@+id/bUrgency1"
                 android:layout_width="0dp"
-                android:layout_height="60dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="15"
                 android:background="@color/colorAccent"
@@ -121,7 +141,7 @@
             <Button
                 android:id="@+id/bUrgency2"
                 android:layout_width="0dp"
-                android:layout_height="60dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="15"
@@ -132,9 +152,8 @@
             <ImageButton
                 android:id="@+id/ibTime"
                 android:layout_width="0dp"
-                android:layout_height="60dp"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
                 android:layout_weight="15"
                 android:background="@color/colorAccent"
                 mstb:srcCompat="@drawable/clock" />
@@ -144,7 +163,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="90"
+            android:layout_weight="93"
             android:orientation="horizontal"
             android:weightSum="100">
 
@@ -160,6 +179,7 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
                 android:layout_weight="10"
                 android:orientation="vertical"
                 android:weightSum="100">
@@ -169,6 +189,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="30"
+                    android:background="@color/colorAccent"
+                    android:textColor="@color/white"
                     android:textColorHint="@color/colorAccent"
                     android:textColorLink="@color/black"
                     android:textOff="@string/patient"
@@ -178,8 +200,11 @@
                     android:id="@+id/tbStatus"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_marginTop="5dp"
                     android:layout_weight="30"
+                    android:background="@color/colorAccent"
                     android:text="ToggleButton"
+                    android:textColor="@color/white"
                     android:textOff="@string/status"
                     android:textOn="@string/status" />
 
@@ -187,15 +212,21 @@
                     android:id="@+id/tbMaterial"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_marginTop="5dp"
                     android:layout_weight="30"
-                    android:text="ToggleButton" />
+                    android:background="@color/colorAccent"
+                    android:text="ToggleButton"
+                    android:textColor="@color/white" />
 
                 <ToggleButton
                     android:id="@+id/tbFinish"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_marginTop="5dp"
                     android:layout_weight="10"
-                    android:text="ToggleButton" />
+                    android:background="@color/colorAccent"
+                    android:text="ToggleButton"
+                    android:textColor="@color/white" />
             </LinearLayout>
         </LinearLayout>
 

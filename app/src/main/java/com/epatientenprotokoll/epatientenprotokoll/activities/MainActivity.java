@@ -22,6 +22,7 @@ import com.epatientenprotokoll.epatientenprotokoll.R;
 import com.epatientenprotokoll.epatientenprotokoll.fragments.MasterDataFragment;
 import com.epatientenprotokoll.epatientenprotokoll.fragments.MaterialFragment;
 import com.epatientenprotokoll.epatientenprotokoll.fragments.StatusFragment;
+import com.epatientenprotokoll.epatientenprotokoll.fragments.FinalFragment;
 import com.epatientenprotokoll.epatientenprotokoll.model.ActionMeasurement;
 import com.epatientenprotokoll.epatientenprotokoll.model.Measurement;
 import com.epatientenprotokoll.epatientenprotokoll.model.ValueMeasurement;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     ToggleButton tbMasterData;
     ToggleButton tbStatus;
     ToggleButton tbMaterial;
+    ToggleButton tbFinish;
     TextView tDate;
     TextView tWeekday;
     Button urgencyOne;
@@ -118,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
         tbMasterData = findViewById(R.id.tbMasterData);
         tbStatus = findViewById(R.id.tbStatus);
         tbMaterial = findViewById(R.id.tbMaterial);
+        tbFinish = findViewById(R.id.tbFinish);
         tDate = findViewById(R.id.tDate);
         tWeekday = findViewById(R.id.tWeekday);
         urgencyOne = findViewById(R.id.bUrgency1);
@@ -131,6 +134,11 @@ public class MainActivity extends AppCompatActivity {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.layout_placeholder, new MasterDataFragment());
             transaction.commit();
+            tbMasterData.setBackgroundResource(R.color.darkGrey);
+
+            tbStatus.setBackgroundResource(R.color.colorAccent);
+            tbMaterial.setBackgroundResource(R.color.colorAccent);
+            tbFinish.setBackgroundResource(R.color.colorAccent);
         });
 
         // Opens StatusFragment if Status button is clicked
@@ -138,6 +146,12 @@ public class MainActivity extends AppCompatActivity {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.layout_placeholder, new StatusFragment());
             transaction.commit();
+
+            tbStatus.setBackgroundResource(R.color.darkGrey);
+
+            tbMasterData.setBackgroundResource(R.color.colorAccent);
+            tbMaterial.setBackgroundResource(R.color.colorAccent);
+            tbFinish.setBackgroundResource(R.color.colorAccent);
         });
 
         // Opens MaterialFragment if Material button is clicked
@@ -145,6 +159,24 @@ public class MainActivity extends AppCompatActivity {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.layout_placeholder, new MaterialFragment());
             transaction.commit();
+
+            tbMaterial.setBackgroundResource(R.color.darkGrey);
+
+            tbStatus.setBackgroundResource(R.color.colorAccent);
+            tbMasterData.setBackgroundResource(R.color.colorAccent);
+            tbFinish.setBackgroundResource(R.color.colorAccent);
+        });
+
+        tbFinish.setOnClickListener(i -> {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.layout_placeholder, new FinalFragment());
+            transaction.commit();
+
+            tbFinish.setBackgroundResource(R.color.darkGrey);
+
+            tbStatus.setBackgroundResource(R.color.colorAccent);
+            tbMasterData.setBackgroundResource(R.color.colorAccent);
+            tbMaterial.setBackgroundResource(R.color.colorAccent);
         });
 
         // Sets the current date

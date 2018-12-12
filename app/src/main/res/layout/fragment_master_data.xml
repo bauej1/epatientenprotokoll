@@ -13,57 +13,50 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:background="@color/grey"
-            android:orientation="horizontal">
+            android:background="@color/lightGrey"
+            android:orientation="horizontal"
+            android:paddingLeft="7dp">
 
-            <TextView
-                android:id="@+id/textView2"
+            <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
+                android:id="@+id/language"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:text="@string/patient"
-                android:textColor="@color/black"
-                android:textSize="30dp" />
+                android:layout_height="25dp"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="5dp"
+                mstb:tbgChildSpacingForLastRow="align"
+                mstb:tbgFlow="true"
+                mstb:tbgRowSpacing="8dp"
+                mstb:tbgChildSpacing="8dp"
+                mstb:tbgMaxSelect="1"></com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
 
-            <org.honorato.multistatetogglebutton.MultiStateToggleButton
-                android:id="@+id/mstb_language"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="50dp"
-                android:visibility="visible"
-                mstb:mstbColorNotPressedText="@color/grey"
-                mstb:mstbColorPressedText="@color/grey"
-                mstb:mstbPrimaryColor="@color/black"
-                mstb:mstbSecondaryColor="@color/grey"
-                mstb:values="@array/language_array">
-
-            </org.honorato.multistatetogglebutton.MultiStateToggleButton>
-
-            <org.honorato.multistatetogglebutton.MultiStateToggleButton
-                android:id="@+id/mstb_gender"
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="40dp"
-                android:visibility="visible"
-                mstb:mstbColorNotPressedText="@color/grey"
-                mstb:mstbColorPressedText="@color/grey"
-                mstb:mstbPrimaryColor="@color/black"
-                mstb:mstbSecondaryColor="@color/grey"
-                mstb:values="@array/gender_array" />
+            <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
+                android:id="@+id/gender"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="5dp"
+                mstb:tbgChildSpacingForLastRow="align"
+                mstb:tbgFlow="true"
+                mstb:tbgRowSpacing="8dp"
+                mstb:tbgChildSpacing="8dp"
+                mstb:tbgMaxSelect="1"></com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
 
             <com.mikhaellopez.lazydatepicker.LazyDatePicker
                 android:id="@+id/lazyDatePicker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="50dp"/>
+                android:layout_marginLeft="30dp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:background="@color/lightGrey"
             android:orientation="horizontal"
             android:paddingLeft="7dp"
@@ -71,34 +64,36 @@
 
             <TextView
                 android:id="@+id/tName"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="@string/name"
                 android:textColor="@color/black"
-                android:textSize="16dp" />
+                android:textSize="14dp" />
 
             <EditText
                 android:id="@+id/etLastname"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:ems="10"
-                android:inputType="textCapWords|textPersonName" />
+                android:inputType="textCapWords|textPersonName"
+                android:textSize="14dp" />
 
             <TextView
                 android:id="@+id/tVorname"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:text="@string/vorname"
                 android:textColor="@color/black"
-                android:textSize="16dp" />
+                android:textSize="14dp" />
 
             <EditText
                 android:id="@+id/etName"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:ems="10"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:textSize="14dp" />
 
         </LinearLayout>
 
@@ -112,34 +107,36 @@
 
             <TextView
                 android:id="@+id/textView4"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="@string/strasse"
                 android:textColor="@color/black"
-                android:textSize="16dp" />
+                android:textSize="14dp" />
 
             <EditText
                 android:id="@+id/editText3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:ems="10"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/textView5"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:text="@string/telefon"
                 android:textColor="@color/black"
-                android:textSize="16dp" />
+                android:textSize="14dp" />
 
             <EditText
                 android:id="@+id/editText6"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:ems="10"
-                android:inputType="number" />
+                android:inputType="number"
+                android:textSize="14dp" />
 
         </LinearLayout>
 
@@ -154,34 +151,36 @@
 
             <TextView
                 android:id="@+id/textView6"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="@string/plz"
                 android:textColor="@color/black"
-                android:textSize="16dp" />
+                android:textSize="14dp" />
 
             <EditText
                 android:id="@+id/editText7"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:ems="10"
-                android:inputType="number|phone" />
+                android:inputType="number|phone"
+                android:textSize="14dp" />
 
             <TextView
                 android:id="@+id/textView7"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:text="@string/ort"
                 android:textColor="@color/black"
-                android:textSize="16dp" />
+                android:textSize="14dp" />
 
             <EditText
                 android:id="@+id/editText8"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textSize="14dp" />
 
         </LinearLayout>
 
@@ -196,34 +195,36 @@
 
             <TextView
                 android:id="@+id/textView8"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="@string/einsatzort"
                 android:textColor="@color/black"
-                android:textSize="16dp" />
+                android:textSize="14dp" />
 
             <EditText
                 android:id="@+id/editText4"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textSize="14dp" />
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:text="@string/zielort"
                 android:textColor="@color/black"
-                android:textSize="16dp" />
+                android:textSize="14dp" />
 
             <EditText
                 android:id="@+id/editText"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:ems="10"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:textSize="14dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -237,56 +238,43 @@
 
             <TextView
                 android:id="@+id/tvRechnung"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="@string/rechnung"
                 android:textColor="@color/black"
-                android:textSize="16dp" />
+                android:textSize="14dp" />
 
             <EditText
                 android:id="@+id/etRechnung"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:ems="10"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:textSize="14dp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:orientation="horizontal">
+            android:background="@color/lightGrey"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="10dp">
 
-            <org.honorato.multistatetogglebutton.MultiStateToggleButton
-                android:id="@+id/mstb_multi_id"
+            <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
+                android:id="@+id/group_dummy"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                mstb:mstbColorNotPressedText="@color/grey"
-                mstb:mstbColorPressedText="@color/grey"
-                mstb:mstbPrimaryColor="@color/black"
-                mstb:mstbSecondaryColor="@color/lightGrey"
-                mstb:values="@array/operation_array">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                mstb:tbgChildSpacingForLastRow="align"
+                mstb:tbgFlow="true"
+                mstb:tbgRowSpacing="8dp"
+                mstb:tbgChildSpacing="8dp">
 
-            </org.honorato.multistatetogglebutton.MultiStateToggleButton>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <org.honorato.multistatetogglebutton.MultiStateToggleButton
-                android:id="@+id/mstb_multi_id2"
-                android:layout_width="296dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="98.5dp"
-                android:visibility="invisible"
-                mstb:mstbColorNotPressedText="@color/grey"
-                mstb:mstbColorPressedText="@color/grey"
-                mstb:mstbPrimaryColor="@color/black"
-                mstb:mstbSecondaryColor="@color/lightGrey"
-                mstb:values="@array/accident_array" />
+            </com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
         </LinearLayout>
 
     </LinearLayout>
