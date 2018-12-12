@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
     private int ventilationStart;
     private int ventilationEnd;
     private int row;
+    private int rowEnd;
 
     //Toolbox
     Toolbox toolbox;
@@ -315,10 +316,10 @@ public class MainActivity extends AppCompatActivity {
 
         measuresGrid.setOnDragListener(new MeasuresGrid.OnDragListener() {
             @Override
-            void onDrag(View view, int columnStart, int columnEnd, int row) {
+            void onDrag(View view, int columnStart, int columnEnd, int rowStart, int rowEnd) {
                 if(tool.checkIfToolIsSelected()){
                     if(tool.getCurrentTool().isMultiMeasure()){
-                        onMeasuresGridDrag(columnStart, columnEnd, row);
+                        onMeasuresGridDrag(columnStart, columnEnd, rowStart, rowEnd);
                     }
                 }
             }
@@ -352,14 +353,24 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param columnStart - first tap
      * @param columnEnd - last tap
-     * @param row - row tapped
+     * @param rowStart - row tapped
      */
-    private void onMeasuresGridDrag(int columnStart, int columnEnd, int row) {
+    private void onMeasuresGridDrag(int columnStart, int columnEnd, int rowStart, int rowEnd) {
         System.out.println("click-event--> drag: " + columnStart + " " + columnEnd);
 
         ventilationStart = columnStart;
         ventilationEnd = columnEnd;
-        this.row = row;
+        this.row = rowStart;
+        this.rowEnd = rowEnd;
+
+        tool.getCurrentTool().setX1(columnStart);
+        tool.getCurrentTool().setY1(rowStart);
+        tool.getCurrentTool().setX2(columnEnd);
+        tool.getCurrentTool().setY2(rowEnd);
+
+        System.out.println("JANI:" + row + " | " + columnStart);
+
+        table[row][columnStart] = tool.getCurrentTool();
 
         setMeasuresGrid();
     }
@@ -375,7 +386,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void setMeasuresGrid() {
         measuresGrid.setTable(table);
-        measuresGrid.setVentilation(ventilationStart, ventilationEnd, row);
+        measuresGrid.setVentilation(ventilationStart, ventilationEnd, row, rowEnd);
     }
 
     /**

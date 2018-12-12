@@ -64,8 +64,8 @@ public class Tool {
         Measurement inextubation = new ActionMeasurement(2, 1, false, R.drawable.intubation_extubation, 0, 0, 0, 0);
         Measurement defibrilation = new ActionMeasurement(3, 1, false, R.drawable.defibrilation, 0, 0, 0, 0);
         Measurement extPacing = new ActionMeasurement(4, 1, false, R.drawable.pacing, 0, 0, 0, 0);
-        Measurement heartMassage = new ActionMeasurement(5, 1, false, R.drawable.heart_massage, 0, 0, 0, 0);
-        Measurement bloodPressure = new ActionMeasurement(6, 1, false, R.drawable.heart_massage, 0, 0, 0, 0);
+        Measurement heartMassage = new ActionMeasurement(5, 1, true, R.drawable.heart_massage, 0, 0, 0, 0);
+        Measurement bloodPressure = new ActionMeasurement(6, 1, true, R.drawable.heart_massage, 0, 0, 0, 0);
         Measurement pulse = new ActionMeasurement(7, 1, false, R.drawable.pulse, 0, 0, 0, 0);
 
         Measurement breath_frequency = new ValueMeasurement(8, 2, false, 0.0, "/min", 0,0,0,0);

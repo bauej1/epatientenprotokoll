@@ -6,14 +6,16 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Typeface;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
+
+import com.epatientenprotokoll.epatientenprotokoll.R;
 import com.epatientenprotokoll.epatientenprotokoll.model.ActionMeasurement;
 import com.epatientenprotokoll.epatientenprotokoll.model.Measurement;
+import com.epatientenprotokoll.epatientenprotokoll.model.Tool;
 import com.epatientenprotokoll.epatientenprotokoll.model.ValueMeasurement;
 
 public class MeasuresGrid extends View {
@@ -23,7 +25,7 @@ public class MeasuresGrid extends View {
     }
 
     abstract static class OnDragListener {
-        abstract void onDrag(View view, int columnStart, int columnEnd, int row);
+        abstract void onDrag(View view, int columnStart, int columnEnd, int rowStart, int rowEnd);
     }
 
     abstract static class OnLongClickListener {
@@ -45,6 +47,7 @@ public class MeasuresGrid extends View {
     private int ventilationStart;
     private int ventilationEnd;
     private int row;
+    private int rowEnd;
 
     //LongClick
     private final Handler handler = new Handler();
@@ -90,10 +93,11 @@ public class MeasuresGrid extends View {
         invalidate();
     }
 
-    public void setVentilation(int ventilationStart, int ventilationEnd, int row) {
+    public void setVentilation(int ventilationStart, int ventilationEnd, int rowStart, int rowEnd) {
         this.ventilationStart = ventilationStart;
         this.ventilationEnd = ventilationEnd;
-        this.row = row;
+        this.row = rowStart;
+        this.rowEnd = rowEnd;
     }
 
     void setOnClickListener(OnClickListener onClickListener) {
@@ -118,7 +122,7 @@ public class MeasuresGrid extends View {
 
         drawGrid(canvas);
         drawCells(canvas);
-        drawVentilation(canvas);
+        //drawVentilation(canvas);
     }
 
     private void drawGrid(Canvas canvas) {
@@ -135,8 +139,16 @@ public class MeasuresGrid extends View {
 
                 if(table[row][column] instanceof ActionMeasurement){
 
-                    Bitmap bitmap = BitmapFactory.decodeResource(getResources(), (int)table[row][column].getStoredValue());
-                    if(bitmap != null) canvas.drawBitmap(bitmap, x, y, paint);
+                    if(table[row][column].isMultiMeasure()){
+                        if(table[row][column].getId() == 1){
+                            drawVentilation(canvas, table[row][column].getX1(), table[row][column].getX2(), table[row][column].getY1());
+                        } else {
+                            drawDragLine(canvas, table[row][column]);
+                        }
+                    } else {
+                        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), (int)table[row][column].getStoredValue());
+                        if(bitmap != null) canvas.drawBitmap(bitmap, x, y, paint);
+                    }
 
                 } else if(table[row][column] instanceof ValueMeasurement) {
 
@@ -147,16 +159,19 @@ public class MeasuresGrid extends View {
         }
     }
 
-    private void drawVentilation(Canvas canvas) {
-        if(ventilationEnd == 0) {
+    private void drawVentilation(Canvas canvas, int columnStart, int columnEnd, int row) {
+        if(columnEnd == 0) {
             return;
         }
 
-        int row = this.row;
         System.out.println("row : " + row);
         boolean upwards = true;
 
-        for(int column = ventilationStart; column < ventilationEnd; ++column) {
+        //Start-Bullet
+        canvas.drawCircle(getWidth() / getColumnCount() * columnStart, getHeight() / getRowCount() * (upwards ? row : row + 1), 8, paint);
+
+        //Ventilation-Line
+        for(int column = columnStart; column < columnEnd; ++column) {
             int startX = getWidth() / getColumnCount() * column;
             int endX = getWidth() / getColumnCount() * (column + 1);
             int startY = getHeight() / getRowCount() * (upwards ? row : row + 1);
@@ -165,9 +180,45 @@ public class MeasuresGrid extends View {
 
             upwards = !upwards;
         }
+
+        //End-Bullet
+        canvas.drawCircle(getWidth() / getColumnCount() * columnEnd, getHeight() / getRowCount() * (upwards ? row : row + 1), 8, paint);
+    }
+
+    private void drawDragLine(Canvas canvas, Measurement m){
+        Bitmap bitmap;
+        Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(), R.drawable.arrowdown);
+        boolean bloodPressureActive = false;
+        int columnStart = m.getX1();
+        int columnEnd = m.getX2();
+        int rowStart = m.getY1();
+        int rowEnd = m.getY2();
+
+        switch(m.getId()){
+            case 5: //heart massage
+                bitmap = BitmapFactory.decodeResource(getResources(), (int)m.getStoredValue());
+                break;
+            case 6: //blood pressure
+                bloodPressureActive = true;
+                bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.arrowup);
+                break;
+            default:
+                bitmap = null;
+        }
+
+        if(bitmap != null){
+            if(bloodPressureActive){
+                canvas.drawBitmap(bitmap,getWidth() / getColumnCount() * columnStart,  getHeight() / getRowCount() * rowStart, paint);
+                canvas.drawBitmap(bitmap2, getWidth() / getColumnCount() * columnEnd, getHeight() / getRowCount() * rowEnd, paint);
+            } else {
+                canvas.drawBitmap(bitmap,getWidth() / getColumnCount() * columnStart,  getHeight() / getRowCount() * rowStart, paint);
+                canvas.drawBitmap(bitmap, getWidth() / getColumnCount() * columnEnd, getHeight() / getRowCount() * rowEnd, paint);
+            }
+        }
     }
 
     int dragStartColumn = -1;
+    int dragStartRow = -1;
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -176,8 +227,6 @@ public class MeasuresGrid extends View {
             int row = (int) (event.getY() / getHeight() * getRowCount());
             int column = (int) (event.getX() / getWidth() * getColumnCount());
 
-            System.out.println("klick row " + row);
-
             if (row < 0 || row >= getRowCount() || column < 2 || column >= getColumnCount()) {
                 return false;
             }
@@ -185,6 +234,7 @@ public class MeasuresGrid extends View {
             switch(event.getAction()){
                 case MotionEvent.ACTION_DOWN:
                     dragStartColumn = column;
+                    dragStartRow = row;
                     longClickRow = row;
                     longClickColumn = column;
                     longClickView = this;
@@ -192,9 +242,9 @@ public class MeasuresGrid extends View {
                     break;
                 case MotionEvent.ACTION_UP:
                     handler.removeCallbacks(mLongPressed);
-                    if(dragStartColumn != column) {
+                    if(dragStartColumn != column || dragStartRow != row) {
                         if (onDragListener != null) {
-                            onDragListener.onDrag(this, dragStartColumn, column + 1, row);
+                            onDragListener.onDrag(this, dragStartColumn, column, dragStartRow , row );
                         }
                     }
                     else {
