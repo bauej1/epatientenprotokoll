@@ -208,4 +208,6 @@
         <item>Français</item>
         <item>Deutsch</item>
     </string-array>
+
+    <string name="pupillen">Pupillen</string>
 </resources>

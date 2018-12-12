@@ -1,16 +1,23 @@
 package com.epatientenprotokoll.epatientenprotokoll.fragments;
 
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.InputType;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.RadioGroup;
 import android.widget.ToggleButton;
@@ -46,6 +53,12 @@ public class StatusFragment extends Fragment{
 
     RadioGroup toggleGroup;
 
+    private ImageView imageView;
+    private ImageView imageView2;
+    private final int ALPHA__LEVEL_1 = 218;
+    private final int ALPHA__LEVEL_2 = 158;
+    private final int ALPHA__LEVEL_3 = 79;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_status, container, false);
@@ -65,6 +78,9 @@ public class StatusFragment extends Fragment{
         eyes2 = getView().findViewById(R.id.tbEyes2);
         eyes3 = getView().findViewById(R.id.tbEyes3);
         eyes4 = getView().findViewById(R.id.tbEyes4);
+
+        imageView = getActivity().findViewById(R.id.imageView);
+        imageView2 = getActivity().findViewById(R.id.imageView2);
 
 
         eyes1.setOnClickListener(new View.OnClickListener() {
@@ -166,6 +182,70 @@ public class StatusFragment extends Fragment{
             int color = Color.rgb(108, 108, 108);
             toggle.setMarkerColor(color);
             gcs3.addView(toggle);
+        }
+
+        imageView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Drawable drawable = ((ImageView) v).getDrawable();
+                Bitmap bitmap = ((BitmapDrawable)drawable).getBitmap();
+
+                Matrix inverse = new Matrix();
+                ((ImageView) v).getImageMatrix().invert(inverse);
+                float[] touchPoint = new float[]{event.getX(), event.getY()};
+
+                inverse.mapPoints(touchPoint);
+                int xCoord = (int) touchPoint[0];
+                int yCoord = (int) touchPoint[1];
+                int touchedRGB = bitmap.getPixel(xCoord, yCoord);
+                int alpha = Color.alpha(touchedRGB);
+                int red = Color.red(touchedRGB);
+                int green = Color.green(touchedRGB);
+                int blue = Color.blue(touchedRGB);
+                Log.d("Colors: ", alpha + " | " + red + " | " + green + " | " + blue + " | ");
+
+                changeEye(alpha, imageView);
+                return true;
+            }
+        });
+
+        imageView2.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Drawable drawable = ((ImageView) v).getDrawable();
+                Bitmap bitmap = ((BitmapDrawable)drawable).getBitmap();
+
+                Matrix inverse = new Matrix();
+                ((ImageView) v).getImageMatrix().invert(inverse);
+                float[] touchPoint = new float[]{event.getX(), event.getY()};
+
+                inverse.mapPoints(touchPoint);
+                int xCoord = (int) touchPoint[0];
+                int yCoord = (int) touchPoint[1];
+                int touchedRGB = bitmap.getPixel(xCoord, yCoord);
+                int alpha = Color.alpha(touchedRGB);
+                int red = Color.red(touchedRGB);
+                int green = Color.green(touchedRGB);
+                int blue = Color.blue(touchedRGB);
+                Log.d("Colors: ", alpha + " | " + red + " | " + green + " | " + blue + " | ");
+
+                changeEye(alpha, imageView2);
+                return true;
+            }
+        });
+    }
+
+    private void changeEye(int alpha, ImageView iv){
+        switch (alpha) {
+            case ALPHA__LEVEL_1:
+                iv.setImageResource(R.drawable.eye_lvl1);
+                break;
+            case ALPHA__LEVEL_2:
+                iv.setImageResource(R.drawable.eye_lvl2);
+                break;
+            case ALPHA__LEVEL_3:
+                iv.setImageResource(R.drawable.eye_lvl3);
+                break;
         }
     }
 }

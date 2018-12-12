@@ -268,10 +268,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                mstb:tbgChildSpacing="8dp"
                 mstb:tbgChildSpacingForLastRow="align"
                 mstb:tbgFlow="true"
-                mstb:tbgRowSpacing="8dp"
-                mstb:tbgChildSpacing="8dp">
+                mstb:tbgRowSpacing="8dp">
 
 
             </com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
