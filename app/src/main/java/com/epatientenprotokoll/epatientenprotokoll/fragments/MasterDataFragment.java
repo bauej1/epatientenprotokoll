@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,6 +51,7 @@ public class MasterDataFragment extends Fragment{
     MultiStateToggleButton mstbAccident;
     EditText etName;
     EditText etLastname;
+    EditText etAnamnesis;
     LazyDatePicker birthday;
     String patientName;
     String patientLastname;
@@ -78,6 +80,7 @@ public class MasterDataFragment extends Fragment{
         //mstbAccident = getView().findViewById(R.id.mstb_multi_id2);
         etName = getView().findViewById(R.id.etName);
         etLastname = getView().findViewById(R.id.etLastname);
+        etAnamnesis = getView().findViewById(R.id.etAnamnese);
         birthday = getView().findViewById(R.id.lazyDatePicker);
         operationArray = Arrays.asList(getResources().getStringArray(R.array.operation_array));
         accidentArray = Arrays.asList(getResources().getStringArray(R.array.accident_array));
@@ -86,6 +89,9 @@ public class MasterDataFragment extends Fragment{
         language = getView().findViewById(R.id.language);
         gender = getView().findViewById(R.id.gender);
         mainActivity = (MainActivity) getActivity();
+
+        etAnamnesis.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        etAnamnesis.setRawInputType(InputType.TYPE_CLASS_TEXT);
 
         for (String text : languageArray){
             LabelToggle toggle = new LabelToggle(getActivity());

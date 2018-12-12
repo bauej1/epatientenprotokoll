@@ -33,7 +33,6 @@ public class StatusFragment extends Fragment{
     ImageButton naca_information;
     EditText etSuspected;
     EditText etNaca;
-    EditText etAnamnesis;
 
     MultiSelectToggleGroup gcs1;
     MultiSelectToggleGroup gcs2;
@@ -59,7 +58,6 @@ public class StatusFragment extends Fragment{
         naca_information = getView().findViewById(R.id.naca_information);
         etSuspected = getView().findViewById(R.id.etSuspected);
         etNaca = getView().findViewById(R.id.etNaca);
-        etAnamnesis = getView().findViewById(R.id.etAnamnese);
         gcs1 = getView().findViewById(R.id.tbgAugen);
         gcs2 = getView().findViewById(R.id.tbgAntwort);
         gcs3 = getView().findViewById(R.id.tbgMotorisch);
@@ -169,8 +167,5 @@ public class StatusFragment extends Fragment{
             toggle.setMarkerColor(color);
             gcs3.addView(toggle);
         }
-
-        etAnamnesis.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        etAnamnesis.setRawInputType(InputType.TYPE_CLASS_TEXT);
     }
 }
