@@ -214,7 +214,9 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3.6"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="3.5"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -228,8 +230,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.2"
+                        android:background="@color/lightGrey"
                         android:drawableStart="@drawable/lagerung_liegend"
                         android:gravity="center"
+                        android:paddingLeft="10dp"
                         android:textOff=""
                         android:textOn="" />
 
@@ -238,7 +242,9 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.2"
+                        android:background="@color/lightGrey"
                         android:drawableStart="@drawable/lagerung_obereextr"
+                        android:paddingLeft="10dp"
                         android:textOff=""
                         android:textOn="" />
 
@@ -247,7 +253,9 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.2"
+                        android:background="@color/lightGrey"
                         android:drawableStart="@drawable/lagerung_untereextr"
+                        android:paddingLeft="10dp"
                         android:textOff=""
                         android:textOn="" />
 
@@ -264,7 +272,9 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.2"
+                        android:background="@color/lightGrey"
                         android:drawableStart="@drawable/lagerung_beideextr"
+                        android:paddingLeft="10dp"
                         android:textOff=""
                         android:textOn="" />
 
@@ -273,23 +283,24 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.2"
+                        android:background="@color/lightGrey"
                         android:drawableStart="@drawable/lagerung_seitenlage"
+                        android:paddingLeft="10dp"
                         android:textOff=""
                         android:textOn="" />
 
-                    <org.honorato.multistatetogglebutton.MultiStateToggleButton
-                        android:id="@+id/mstb_Seitenlage"
+                    <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
+                        android:id="@+id/tbgSeitenlage"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="7dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginTop="5dp"
                         android:layout_weight="1.2"
                         android:visibility="gone"
-                        mstb:mstbColorNotPressedText="@color/grey"
-                        mstb:mstbColorPressedText="@color/grey"
-                        mstb:mstbPrimaryColor="@color/black"
-                        mstb:mstbSecondaryColor="@color/grey"
-                        mstb:values="@array/lagerung_seitenlage" />
+                        mstb:tbgChildSpacing="5dp"
+                        mstb:tbgChildSpacingForLastRow="align"
+                        mstb:tbgFlow="true"
+                        mstb:tbgRowSpacing="5dp"></com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
 
                 </LinearLayout>
             </LinearLayout>
@@ -303,8 +314,10 @@
                 <ToggleButton
                     android:id="@+id/tbSitzend"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="0.8"
+                    android:background="@color/lightGrey"
                     android:drawableStart="@drawable/lagerung_sitzend"
                     android:textOff=""
                     android:textOn="" />
