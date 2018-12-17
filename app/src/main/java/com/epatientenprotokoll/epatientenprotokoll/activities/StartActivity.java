@@ -1,6 +1,7 @@
 package com.epatientenprotokoll.epatientenprotokoll.activities;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.TextClock;
 import android.widget.TextView;
 
+import com.epatientenprotokoll.epatientenprotokoll.LanguageHelper;
 import com.epatientenprotokoll.epatientenprotokoll.R;
 
 import org.honorato.multistatetogglebutton.MultiStateToggleButton;
@@ -27,6 +29,7 @@ public class StartActivity extends AppCompatActivity {
     ImageButton startProtocolButton;
     MultiStateToggleButton languageToggleButton;
     List<String> languageArray;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -67,6 +70,8 @@ public class StartActivity extends AppCompatActivity {
                     SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE", Locale.FRENCH);
                     String dayOfWeek = dayFormat.format(cal.getTime());
                     weekday.setText(dayOfWeek + ", ");
+
+                    LanguageHelper.changeLocale(getResources(), "fr");
                 }
 
                 // Changes weekday to german, if language german is selected
@@ -74,6 +79,8 @@ public class StartActivity extends AppCompatActivity {
                     SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE", Locale.GERMAN);
                     String dayOfWeek = dayFormat.format(cal.getTime());
                     weekday.setText(dayOfWeek + ", ");
+
+                    LanguageHelper.changeLocale(getResources(), "de");
                 }
             }
         });

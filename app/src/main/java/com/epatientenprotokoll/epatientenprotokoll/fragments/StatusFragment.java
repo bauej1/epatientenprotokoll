@@ -1,5 +1,6 @@
 package com.epatientenprotokoll.epatientenprotokoll.fragments;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Matrix;
@@ -15,6 +16,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -40,6 +42,8 @@ public class StatusFragment extends Fragment{
     ImageButton naca_information;
     EditText etSuspected;
     EditText etNaca;
+    EditText timeEyes;
+    Button now;
 
     MultiSelectToggleGroup gcs1;
     MultiSelectToggleGroup gcs2;
@@ -71,6 +75,8 @@ public class StatusFragment extends Fragment{
         naca_information = getView().findViewById(R.id.naca_information);
         etSuspected = getView().findViewById(R.id.etSuspected);
         etNaca = getView().findViewById(R.id.etNaca);
+        timeEyes = getView().findViewById(R.id.timeEyes);
+        now = getView().findViewById(R.id.now_button);
         gcs1 = getView().findViewById(R.id.tbgAugen);
         gcs2 = getView().findViewById(R.id.tbgAntwort);
         gcs3 = getView().findViewById(R.id.tbgMotorisch);
@@ -82,6 +88,7 @@ public class StatusFragment extends Fragment{
         imageView = getActivity().findViewById(R.id.imageView);
         imageView2 = getActivity().findViewById(R.id.imageView2);
 
+        MainActivity activity = (MainActivity) getActivity();
 
         eyes1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,8 +102,6 @@ public class StatusFragment extends Fragment{
                 }
             }
         });
-
-
 
 
         toggleGroup = getView().findViewById(R.id.toggleGroup);
@@ -183,6 +188,13 @@ public class StatusFragment extends Fragment{
             toggle.setMarkerColor(color);
             gcs3.addView(toggle);
         }
+
+        now.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                timeEyes.setText(activity.setActualTime());
+            }
+        });
 
         imageView.setOnTouchListener(new View.OnTouchListener() {
             @Override

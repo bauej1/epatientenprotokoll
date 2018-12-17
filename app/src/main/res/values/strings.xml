@@ -14,11 +14,6 @@
         <item>Isolette</item>
         <item>Psychiatrie</item>
     </string-array>
-    <string-array name="accident_array">
-        <item>UV</item>
-        <item>Arbeit</item>
-        <item>Sport</item>
-    </string-array>
     <string-array name="language_array">
         <item>D</item>
         <item>F</item>
@@ -28,8 +23,7 @@
         <item>Frau</item>
         <item>Kind</item>
     </string-array>
-    <string name="speichern">Speichern</string>
-    <string name="abbrechen">Abbrechen</string>
+
     <string name="name">Name</string>
     <string name="vorname">Vorname</string>
     <string name="strasse">Strasse</string>
@@ -116,7 +110,7 @@
         <item>Rettungsbrett</item>
         <item>Wundversorgung</item>
     </string-array>
-    
+
     <string-array name="halskragen_array">
         <item>Erwachsene</item>
         <item>Kinder</item>
@@ -151,28 +145,15 @@
 
     <string name="ventilation">Beatmung</string>
     <string name="intubation_extubation">In- / Extubation</string>
-    <string name="defibrilation">Defibrilation</string>
+    <string name="defibrilation">Defibrillation</string>
     <string name="pacing">Ext. Pacing</string>
     <string name="heart_massage">Herzmassage</string>
     <string name="bloodpressure">BD</string>
     <string name="pulse">Puls</string>
 
-    <string-array name="lagerung_array">
-        <item>Liegend</item>
-        <item>Seitenlage</item>
-        <item>Sitzend</item>
-    </string-array>
-
-    <string-array name="lagerung_liegend">
-        <item>Normal</item>
-        <item>Obere Extremität angew.</item>
-        <item>Untere Extremität angew.</item>
-        <item>Bede Extremitäten angew.</item>
-    </string-array>
-
     <string-array name="lagerung_seitenlage">
-        <item>Links</item>
-        <item>Rechts</item>
+        <item>gauche</item>
+        <item>droite</item>
     </string-array>
 
     <string-array name="onetothree">
@@ -201,7 +182,6 @@
     <string name="percent">%</string>
     <string name="mmHg"> mmHg</string>
     <string name="mmol"> mmol/l</string>
-    <string name="gutenTag">Guten Tag!</string>
     <string name="einsatzmeldung1">Trauma Extremität/RQW</string>
     <string name="einsatzmeldung2">Alter: 37; Männlich; Verletzung/RQW; unbekannt ob Arbeitsunfall. Verletzung am Kopf unklare Ursache. \nPolizei ist unterwegs. </string>
     <string-array name="lang_array">
@@ -216,4 +196,17 @@
     <string name="glukose_input">Geben Sie die Menge an Glukose an.</string>
 
     <string name="pupillen">Pupillen</string>
+    <string name="pupillen1">+</string>
+    <string name="pupillen2">(+)</string>
+    <string name="pupillen3">-</string>
+
+    <string-array name="urgency_array">
+        <item>P1</item>
+        <item>P2</item>
+        <item>P3</item>
+        <item>S1</item>
+        <item>S2</item>
+        <item>S3</item>
+        <item>Dienstfahrt</item>
+    </string-array>
 </resources>

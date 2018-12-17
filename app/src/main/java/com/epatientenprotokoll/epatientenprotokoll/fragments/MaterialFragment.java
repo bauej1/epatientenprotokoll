@@ -1,10 +1,15 @@
 package com.epatientenprotokoll.epatientenprotokoll.fragments;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.graphics.drawable.Drawable;
 import android.opengl.Visibility;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.util.Log;
 import android.view.View;
@@ -39,7 +44,6 @@ public class MaterialFragment extends Fragment{
     MultiStateToggleButton mstbRettungsbrett;
     MultiStateToggleButton mstbWundversorgung;
     MultiStateToggleButton mstbAbgegebenesMaterial;
-    MultiStateToggleButton mstbSeitenlage;
     List<String> materialArray1;
     List<String> materialArray2;
     List<String> halskragenArray;
@@ -48,12 +52,20 @@ public class MaterialFragment extends Fragment{
     List<String> abgegebenesMaterialArray;
     List<String> seitenlageArray;
     android.widget.ToggleButton tbSeitenlage;
+    android.widget.ToggleButton tbLiegend;
+    android.widget.ToggleButton tbObereExtr;
+    android.widget.ToggleButton tbUntereExtr;
+    android.widget.ToggleButton tbSitzend;
+    android.widget.ToggleButton tbBeideExtr;
 
     MultiSelectToggleGroup tbgMaterialAbgegeben;
     MultiSelectToggleGroup tbgMaterial1;
     MultiSelectToggleGroup tbgHalskragen;
     MultiSelectToggleGroup tbgRettungsbrett;
     MultiSelectToggleGroup tbgWundversorgung;
+    MultiSelectToggleGroup tbgSeitenlage;
+
+    Drawable dLiegend;
 
     View separator;
 
@@ -72,7 +84,7 @@ public class MaterialFragment extends Fragment{
 //        mstbRettungsbrett = getView().findViewById(R.id.mstb_rettungsbrett);
 //        mstbWundversorgung = getView().findViewById(R.id.mstb_wundversorgung);
         mstbAbgegebenesMaterial = getView().findViewById(R.id.mstb_abgegebenMaterial);
-        mstbSeitenlage = getView().findViewById(R.id.mstb_Seitenlage);
+        tbSeitenlage = getView().findViewById(R.id.tbSeitenlage);
         materialArray1 = Arrays.asList(getResources().getStringArray(R.array.material_array1));
         materialArray2 = Arrays.asList(getResources().getStringArray(R.array.material_array2));
         halskragenArray = Arrays.asList(getResources().getStringArray(R.array.halskragen_array));
@@ -85,7 +97,17 @@ public class MaterialFragment extends Fragment{
         tbgHalskragen = getView().findViewById(R.id.tbgHalskragen);
         tbgRettungsbrett = getView().findViewById(R.id.tbgRettungsbrett);
         tbgWundversorgung = getView().findViewById(R.id.tbgWundversorgung);
+        tbgSeitenlage = getView().findViewById(R.id.tbgSeitenlage);
         separator = getView().findViewById(R.id.separator);
+
+        dLiegend = ContextCompat.getDrawable(getContext(), R.drawable.lagerung_liegend);
+        tbLiegend = getView().findViewById(R.id.tbLiegend);
+        tbObereExtr = getView().findViewById(R.id.tbObereExtr);
+        tbUntereExtr = getView().findViewById(R.id.tbUntereExtr);
+        tbSitzend = getView().findViewById(R.id.tbSitzend);
+        tbBeideExtr = getView().findViewById(R.id.tbBeideExtr);
+        tbSeitenlage = getView().findViewById(R.id.tbSeitenlage);
+
 
         String[] materialAbgegebenArray = getResources().getStringArray(R.array.abgegebenMaterial_array);
         int countAbgegeben = 0;
@@ -133,6 +155,8 @@ public class MaterialFragment extends Fragment{
             ++countHalskragen;
         }
 
+        tbgHalskragen.setMaxSelectCount(1);
+
         for (String text : rettungsbrettArray){
             LabelToggle toggle = new LabelToggle(getActivity());
             toggle.setText(text);
@@ -142,6 +166,8 @@ public class MaterialFragment extends Fragment{
             tbgRettungsbrett.addView(toggle);
             ++countRettungsbrett;
         }
+
+        tbgRettungsbrett.setMaxSelectCount(1);
 
         for (String text : wundversorgungArray){
             LabelToggle toggle = new LabelToggle(getActivity());
@@ -153,148 +179,100 @@ public class MaterialFragment extends Fragment{
             ++countWundversorgung;
         }
 
-        tbgMaterial1.setOnCheckedChangeListener(new MultiSelectToggleGroup.OnCheckedStateChangeListener() {
+        tbgWundversorgung.setMaxSelectCount(1);
+
+        tbLiegend.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedStateChanged(MultiSelectToggleGroup group, int position, boolean isChecked) {
-                Log.d("IDabcd", "IDabcd: " + position);
-                Log.d("IDabcd", "IDabcd:" + group.getCheckedIds());
+            public void onClick(View v) {
+                tbLiegend.setBackgroundResource(R.color.darkGrey);
+                tbObereExtr.setBackgroundResource(R.color.lightGrey);
+                tbUntereExtr.setBackgroundResource(R.color.lightGrey);
+                tbSitzend.setBackgroundResource(R.color.lightGrey);
+                tbBeideExtr.setBackgroundResource(R.color.lightGrey);
+                tbSeitenlage.setBackgroundResource(R.color.lightGrey);
 
-                if (position == 8){
-                    separator.setVisibility(View.VISIBLE);
-                    tbgHalskragen.setVisibility(View.VISIBLE);
-
-                    tbgHalskragen.setOnCheckedChangeListener(new MultiSelectToggleGroup.OnCheckedStateChangeListener() {
-                        @Override
-                        public void onCheckedStateChanged(MultiSelectToggleGroup group, int checkedId, boolean isChecked) {
-                            materialArray1.set(position, "Halskragen " + halskragenArray.get(checkedId));
-                            Log.d("halskragen", "Halskragen" + halskragenArray.get(checkedId));
-                            int countHalskragenNew = 0;
-
-
-                            tbgMaterial1.removeAllViews();
-                            separator.setVisibility(View.GONE);
-                            tbgHalskragen.setVisibility(View.GONE);
-
-                            for (String text : materialArray1) {
-                                LabelToggle toggle = new LabelToggle(getActivity());
-                                toggle.setText(text);
-                                toggle.setId(countHalskragenNew);
-                                tbgMaterial1.addView(toggle);
-                                ++countHalskragenNew;
-                            }
-
-                            // tbgMaterial1.check(8);
-                            tbgMaterial1.check(8);
-                            return;
-
-                        }
-                    });
-                }
-
-                if (position == 9) {
-                    separator.setVisibility(View.VISIBLE);
-                    tbgRettungsbrett.setVisibility(View.VISIBLE);
-                    tbgRettungsbrett.setOnCheckedChangeListener(new MultiSelectToggleGroup.OnCheckedStateChangeListener() {
-                        @Override
-                        public void onCheckedStateChanged(MultiSelectToggleGroup group, int checkedId, boolean isChecked) {
-                            rettungsbrettArray.set(checkedId, "Rettungsbrett" + rettungsbrettArray.get(checkedId));
-                            separator.setVisibility(View.GONE);
-                            tbgRettungsbrett.setVisibility(View.GONE);
-                        }
-                    });
-                }
-
-                if (position == 10) {
-                    separator.setVisibility(View.VISIBLE);
-                    tbgWundversorgung.setVisibility(View.VISIBLE);
-                    tbgWundversorgung.setOnCheckedChangeListener(new MultiSelectToggleGroup.OnCheckedStateChangeListener() {
-                        @Override
-                        public void onCheckedStateChanged(MultiSelectToggleGroup group, int checkedId, boolean isChecked) {
-                            wundversorgungArray.set(checkedId, "Wundversorgung" + wundversorgungArray.get(checkedId));
-                            separator.setVisibility(View.GONE);
-                            tbgWundversorgung.setVisibility(View.GONE);
-                        }
-                    });
-                }
+                tbgSeitenlage.setVisibility(View.GONE);
             }
         });
 
-        tbSeitenlage = getView().findViewById(R.id.tbSeitenlage);
+        tbObereExtr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tbLiegend.setBackgroundResource(R.color.lightGrey);
+                tbObereExtr.setBackgroundResource(R.color.darkGrey);
+                tbUntereExtr.setBackgroundResource(R.color.lightGrey);
+                tbSitzend.setBackgroundResource(R.color.lightGrey);
+                tbBeideExtr.setBackgroundResource(R.color.lightGrey);
+                tbSeitenlage.setBackgroundResource(R.color.lightGrey);
 
-        // Enables multiple choice for multi state toggle buttons
-//        mstbMaterial1.enableMultipleChoice(true);
-//        mstbMaterial2.enableMultipleChoice(true);
-//        mstbAbgegebenesMaterial.enableMultipleChoice(true);
-//
-//        mstbMaterial2.setOnValueChangedListener(new org.honorato.multistatetogglebutton.ToggleButton.OnValueChangedListener() {
-//            @Override
-//            public void onValueChanged(int position) {
-//                // Checks if position 0 is selected
-//                if (position == 0){
-//                    // Sets multi state button Halskragen visible
-//                    mstbHalskragen.setVisibility(View.VISIBLE);
-//                    mstbHalskragen.setOnValueChangedListener(new org.honorato.multistatetogglebutton.ToggleButton.OnValueChangedListener() {
-//                        @Override
-//                        public void onValueChanged(int value) {
-//                            // Sets position 0 as selected and overwrites position 0 of materialArray2 with selected position of halskragenArray
-//                            materialArray2.set(position, "Halskragen " + halskragenArray.get(value));
-//                            // Resets element of materialArray2 and set position 0 as selected
-//                            mstbMaterial2.setElements(materialArray2, materialArray2.get(position));
-//                            // Sets multi state toggle button Halskragen gone
-//                            mstbHalskragen.setVisibility(View.GONE);
-//                        }
-//                    });
-//                }
-//
-//                // Checks if position 1 is selected
-//                if (position == 1){
-//                    // Sets multi state button Rettungsbrett visible
-//                    mstbRettungsbrett.setVisibility(View.VISIBLE);
-//                    mstbRettungsbrett.setOnValueChangedListener(new org.honorato.multistatetogglebutton.ToggleButton.OnValueChangedListener() {
-//                        @Override
-//                        public void onValueChanged(int value) {
-//                            // Sets position 1 as selected and overwrites position 1 of materialArray2 with selected position of rettungsbrettArray
-//                            materialArray2.set(position, "Rettungsbrett " + rettungsbrettArray.get(value));
-//                            // Resets element of materialArray2 and set position 1 as selected
-//                            mstbMaterial2.setElements(materialArray2, materialArray2.get(position));
-//                            // Sets multi state toggle button Halskragen gone
-//                            mstbRettungsbrett.setVisibility(View.GONE);
-//                        }
-//                    });
-//                }
-//
-//                // Checks if position 2 is selected
-//                if (position == 2) {
-//                    // Sets multi state button Wundversorgung visible
-//                    mstbWundversorgung.setVisibility(View.VISIBLE);
-//                    mstbWundversorgung.setOnValueChangedListener(new org.honorato.multistatetogglebutton.ToggleButton.OnValueChangedListener() {
-//                        @Override
-//                        public void onValueChanged(int value) {
-//                            // Sets position 2 as selected and overwrites position 2 of materialArray2 with selected position of wundversorgungArray
-//                            materialArray2.set(position, "Wundversorgung " + wundversorgungArray.get(value));
-//                            // Resets element of materialArray2 and set position 2 as selected
-//                            mstbMaterial2.setElements(materialArray2, materialArray2.get(position));
-//                            // Sets multi state toggle button Halskragen gone
-//                            mstbWundversorgung.setVisibility(View.GONE);
-//                        }
-//                    });
-//                }
-//            }
-//        });
-//
-//        tbSeitenlage.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                // Checks if toggleButton Seitenlage is checked
-//                if (tbSeitenlage.isChecked()){
-//                    // Sets multi state toggle button as visible
-//                    mstbSeitenlage.setVisibility(View.VISIBLE);
-//                } else {
-//                    // Sets multi state toggle button as gone
-//                    mstbSeitenlage.setVisibility(View.GONE);
-//                }
-//            }
-//        });
+                tbgSeitenlage.setVisibility(View.GONE);
+            }
+        });
+
+        tbUntereExtr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tbLiegend.setBackgroundResource(R.color.lightGrey);
+                tbObereExtr.setBackgroundResource(R.color.lightGrey);
+                tbUntereExtr.setBackgroundResource(R.color.darkGrey);
+                tbSitzend.setBackgroundResource(R.color.lightGrey);
+                tbBeideExtr.setBackgroundResource(R.color.lightGrey);
+                tbSeitenlage.setBackgroundResource(R.color.lightGrey);
+
+                tbgSeitenlage.setVisibility(View.GONE);
+            }
+        });
+
+        tbSitzend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tbLiegend.setBackgroundResource(R.color.lightGrey);
+                tbObereExtr.setBackgroundResource(R.color.lightGrey);
+                tbUntereExtr.setBackgroundResource(R.color.lightGrey);
+                tbSitzend.setBackgroundResource(R.color.darkGrey);
+                tbBeideExtr.setBackgroundResource(R.color.lightGrey);
+                tbSeitenlage.setBackgroundResource(R.color.lightGrey);
+
+                tbgSeitenlage.setVisibility(View.GONE);
+            }
+        });
+
+        tbBeideExtr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tbLiegend.setBackgroundResource(R.color.lightGrey);
+                tbObereExtr.setBackgroundResource(R.color.lightGrey);
+                tbUntereExtr.setBackgroundResource(R.color.lightGrey);
+                tbSitzend.setBackgroundResource(R.color.lightGrey);
+                tbBeideExtr.setBackgroundResource(R.color.darkGrey);
+                tbSeitenlage.setBackgroundResource(R.color.lightGrey);
+
+                tbgSeitenlage.setVisibility(View.GONE);
+            }
+        });
+
+        tbSeitenlage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tbLiegend.setBackgroundResource(R.color.lightGrey);
+                tbObereExtr.setBackgroundResource(R.color.lightGrey);
+                tbUntereExtr.setBackgroundResource(R.color.lightGrey);
+                tbSitzend.setBackgroundResource(R.color.lightGrey);
+                tbBeideExtr.setBackgroundResource(R.color.lightGrey);
+                tbSeitenlage.setBackgroundResource(R.color.darkGrey);
+
+                tbgSeitenlage.setVisibility(View.VISIBLE);
+                tbgSeitenlage.setMaxSelectCount(1);
+                for (String text : seitenlageArray) {
+                    LabelToggle toggle = new LabelToggle(getActivity());
+                    toggle.setText(text);
+
+                    int color = Color.rgb(108, 108, 108);
+                    toggle.setMarkerColor(color);
+                    tbgSeitenlage.addView(toggle);
+                }
+            }
+        });
 
     }
 }
