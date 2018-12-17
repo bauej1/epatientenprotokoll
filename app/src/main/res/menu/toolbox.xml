@@ -5,9 +5,11 @@
         android:icon="@drawable/ventilation"
         android:title="@string/ventilation" />
     <item android:id="@+id/tool_intubation"
-        android:icon="@drawable/intubation_extubation"
-        android:title="@string/intubation_extubation"
-        app:showAsAction="ifRoom" />
+        android:icon="@drawable/intubation"
+        android:title="@string/intubation" />
+    <item android:id="@+id/tool_extubation"
+        android:icon="@drawable/extubation"
+        android:title="@string/extubation" />
     <item android:id="@+id/tool_defibrilation"
         android:icon="@drawable/defibrilation"
         android:title="@string/defibrilation" />
@@ -18,7 +20,7 @@
         android:icon="@drawable/heart_massage"
         android:title="@string/heart_massage" />
     <item android:id="@+id/tool_blood_pressure"
-        android:icon="@drawable/defibrilation"
+        android:icon="@drawable/bloodpressure"
         android:title="@string/bloodpressure" />
     <item android:id="@+id/tool_pulse"
         android:icon="@drawable/pulse"

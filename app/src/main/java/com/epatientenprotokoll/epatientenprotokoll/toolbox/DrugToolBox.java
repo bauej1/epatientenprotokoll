@@ -54,15 +54,15 @@ public class DrugToolBox extends Toolbox {
         int toolId = -1;
         switch(m.getItemId()){
             case R.id.tool_fentanyl:
-                toolId = 17;
+                toolId = 18;
                 new FentanylDialog(activity, R.layout.dialog_fentanyl);
                 break;
             case R.id.tool_adrenalin:
-                toolId = 18;
+                toolId = 19;
                 new AdrenalinDialog(activity, R.layout.dialog_adrenalin);
                 break;
             case R.id.tool_glucose:
-                toolId = 19;
+                toolId = 20;
                 new GlucoseDialog(activity, R.layout.dialog_glucose);
                 break;
         }
