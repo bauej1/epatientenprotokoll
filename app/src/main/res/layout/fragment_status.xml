@@ -288,7 +288,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    mstb:tbgChildSpacingForLastRow="align"
+                    mstb:tbgChildSpacingForLastRow="auto"
                     mstb:tbgFlow="false"
                     mstb:tbgMaxSelect="1"
                     mstb:tbgRowSpacing="8dp">

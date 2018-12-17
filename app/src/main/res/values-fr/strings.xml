@@ -1,0 +1,205 @@
+<resources>
+    <string name="app_name">epatientenprotokoll</string>
+    <string name="jetzt">Maintenant</string>
+    <string name="ausgeruckt">Départ</string>
+    <string name="einsatzort">Sur site</string>
+    <string name="abfahrt">Départ site</string>
+    <string name="spital">Hôpital</string>
+    <string name="einsatzbereit">Opérat</string>
+    <string name="endzeit">Fin</string>
+    <string name="zielort">Destination</string>
+    <string-array name="operation_array">
+        <item>Maladie</item>
+        <item>Accident</item>
+        <item>Isolette</item>
+        <item>Psychiatrie</item>
+    </string-array>
+    <string-array name="language_array">
+        <item>D</item>
+        <item>F</item>
+    </string-array>
+    <string-array name="gender_array">
+        <item>Homme</item>
+        <item>Femme</item>
+        <item>Enfant</item>
+    </string-array>
+    <string name="name">Nom</string>
+    <string name="vorname">Prénom</string>
+    <string name="strasse">Rue</string>
+    <string name="plz">NPA</string>
+    <string name="ort">Lieu</string>
+    <string name="telefon">Téléphone</string>
+    <string name="rechnung">Facture à</string>
+    <string name="patient">Patient</string>
+    <string name="status">Situation</string>
+    <string name="verdacht">Suspecté</string>
+    <string name="naca">NACA</string>
+    <string name="oeffnenAugen">Ouverture des yeux</string>
+    <string name="eyes1">pas du tout</string>
+    <string name="eyes2">à la douleur</string>
+    <string name="eyes3">sur appel</string>
+    <string name="eyes4">spntanément</string>
+
+    <string-array name="eyes_array">
+        <item>spontanément</item>
+        <item>sur appel</item>
+        <item>à la douleur</item>
+        <item>pas du tout</item>
+    </string-array>
+
+    <string name="spontan">spontanément</string>
+    <string name="anruf">sur appel</string>
+    <string name="schmerzreiz">à la douleur</string>
+    <string name="nicht">pas du tout</string>
+
+    <string name="response1">pas de résponse</string>
+    <string name="response2">incompréhen.</string>
+    <string name="response3">désorientée</string>
+    <string name="response4">partiellement</string>
+    <string name="response5">bien orientée</string>
+
+
+    <string name="antworten">Reponses verbales</string>
+    <string-array name="response_array">
+        <item>bien orien.</item>
+        <item>partiellement</item>
+        <item>désorientée</item>
+        <item>incompréhen.</item>
+        <item>pas de résponse</item>
+    </string-array>
+
+    <string name="reaction1">pas de réaction</string>
+    <string name="reaction2">en extension</string>
+    <string name="reaction3">en flexion</string>
+    <string name="reaction4">non dirigée à la douleur</string>
+    <string name="reaction5">dirigée à la douleur</string>
+    <string name="reaction6">adéquate</string>
+
+    <string name="motorischeReak">Réponse motrice</string>
+    <string-array name="reaction_array">
+        <item>adéq.</item>
+        <item>dirigée doul.</item>
+        <item>non dirigée doul.</item>
+        <item>flexion</item>
+        <item>extension</item>
+        <item>pas de réac.</item>
+    </string-array>
+
+    <string name="gsc">Glasgow Coma Scale</string>
+    <string name="materialundlagerung">Matériel et positionnement</string>
+    <string name="anamnese">Anamnèse</string>
+
+    <string name="halskragen">Minerve</string>
+    <string name="rettungsbrett">Planche</string>
+    <string name="wundversorgung">Pansement</string>
+
+    <string-array name="material_array1">
+        <item>Matelas vacuum</item>
+        <item>Attelles vacuum</item>
+        <item>Civière à aubes</item>
+        <item>Chaise Ferno</item>
+        <item>Ceinture pelvienne</item>
+        <item>Coldpack</item>
+        <item>KED</item>
+        <item>Warm Up</item>
+    </string-array>
+
+    <string-array name="material_array2">
+        <item>Minerve</item>
+        <item>Planche</item>
+        <item>Pansement</item>
+    </string-array>
+
+    <string-array name="halskragen_array">
+        <item>Adulte</item>
+        <item>Enfant</item>
+    </string-array>
+
+    <string-array name="rettungsbrett_array">
+        <item>Transport</item>
+        <item>Relevage</item>
+    </string-array>
+
+    <string-array name="wundversorgung_array">
+        <item>petit</item>
+        <item>grand</item>
+    </string-array>
+
+    <string name="weitereMat">Autres matériaux utilisés:</string>
+    <string name="zielortAbgegeben">Matériel transmis à destination</string>
+    <string name="effekten">Affaires personnelles</string>
+    <string name="medikamente">Médicaments</string>
+    <string name="wertsachen">Objets de valeurs</string>
+    <string name="rxBilder">Rx-Bilder</string>
+    <string name="arztpflegebericht">Dossier médical/infirmier</string>
+
+    <string-array name="abgegebenMaterial_array">
+        <item>Affaires personnelles</item>
+        <item>Médicaments</item>
+        <item>Objets de valeurs</item>
+        <item>Dossier médical/infirmier</item>
+        <item>RX-Bilder</item>
+        <item>AED Firstresponder</item>
+    </string-array>
+
+    <string name="ventilation">Ventilation</string>
+    <string name="intubation_extubation">In- / Extubation</string>
+    <string name="defibrilation">Defibrillation</string>
+    <string name="pacing">Ext. Pacing</string>
+    <string name="heart_massage">Massage cardiaque</string>
+    <string name="bloodpressure">TA</string>
+    <string name="pulse">Pouls</string>
+
+    <string-array name="lagerung_seitenlage">
+        <item>Links</item>
+        <item>Rechts</item>
+    </string-array>
+
+    <string-array name="onetothree">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string name="temperature">Temp °C</string>
+    <string name="breath_frequency">Fréquence respiratoire</string>
+    <string name="breath_frequency_input">Entrer la fréquence respiratoire par minute.</string>
+    <string name="pulsox_input">Entrer la saturation en oxygène en %.</string>
+    <string name="pain_input">Entrez la douleur du patient (10 = Max, 0 = Min).</string>
+    <string name="hgt_input">Entrer le résultat du test d\'hémoglucose en mmol / l.</string>
+    <string name="co2_input">Entrer la pression partielle expiratoire finale de CO2 en mmHg.</string>
+    <string name="pulsox">Sp02 Pulsox %</string>
+    <string name="co2">Et CO2 mmHg</string>
+    <string name="hgt">HGT mmol / l</string>
+    <string name="pain">Douleurs</string>
+    <string name="ekg">EKG I, II, III, 12er, Pads</string>
+    <string name="venous_canule">Canule veineuse</string>
+    <string name="nacl">NaCl 0.9% ml</string>
+    <string name="point">.</string>
+    <string name="celcius">°C</string>
+    <string name="breath_per_minute"> / min</string>
+    <string name="percent">%</string>
+    <string name="mmHg"> mmHg</string>
+    <string name="mmol"> mmol/l</string>
+    <string name="einsatzmeldung1">Traumatisme aux extrémités/Blessure par écrasement de fissure</string>
+    <string name="einsatzmeldung2">Age: 37; Masculin; Blessure par écrasement de fissure; inconnu s\'il s\'agit d\'un accident du travail. La cause du traumatisme crânien n\'est pas claire. \nLa police est en route. </string>
+    <string-array name="lang_array">
+        <item>Français</item>
+        <item>Deutsch</item>
+    </string-array>
+
+    <string name="pupillen">Pupilles</string>
+    <string name="pupillen1">+</string>
+    <string name="pupillen2">(+)</string>
+    <string name="pupillen3">-</string>
+
+    <string-array name="urgency_array">
+        <item>P1</item>
+        <item>P2</item>
+        <item>P3</item>
+        <item>S1</item>
+        <item>S2</item>
+        <item>S3</item>
+        <item>Course de service</item>
+    </string-array>
+</resources>

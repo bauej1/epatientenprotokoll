@@ -57,7 +57,6 @@ public class MasterDataFragment extends Fragment{
     String patientLastname;
     String patientBirthdate;
     List<String> operationArray;
-    List<String> accidentArray;
     List<String> genderArray;
     List<String> languageArray;
     Activity mainActivity;
@@ -83,7 +82,6 @@ public class MasterDataFragment extends Fragment{
         etAnamnesis = getView().findViewById(R.id.etAnamnese);
         birthday = getView().findViewById(R.id.lazyDatePicker);
         operationArray = Arrays.asList(getResources().getStringArray(R.array.operation_array));
-        accidentArray = Arrays.asList(getResources().getStringArray(R.array.accident_array));
         genderArray = Arrays.asList(getResources().getStringArray(R.array.gender_array));
         languageArray = Arrays.asList(getResources().getStringArray(R.array.language_array));
         language = getView().findViewById(R.id.language);
@@ -176,72 +174,6 @@ public class MasterDataFragment extends Fragment{
                 Log.d(TAG, "PatientBirthdate: " + patientBirthdate);
             }
         });
-
-//        mstbOperation.setOnValueChangedListener(new org.honorato.multistatetogglebutton.ToggleButton.OnValueChangedListener() {
-//            @Override
-//            public void onValueChanged(int position) {
-//                // Checks if position 1 is selected
-//                if (position == 1) {
-//                    // Sets accident multi state toggle as visible
-//                    mstbAccident.setVisibility(View.VISIBLE);
-//
-//                    mstbAccident.setOnValueChangedListener(new org.honorato.multistatetogglebutton.ToggleButton.OnValueChangedListener() {
-//                        @Override
-//                        public void onValueChanged(int position) {
-//                            // Sets position 1 as selected and overwrite position 1 of operationArray with selected position of accidentArray
-//                            operationArray.set(1, accidentArray.get(position));
-//                            // Resets element of operationArray and set position 1 as selected
-//                            mstbOperation.setElements(operationArray, operationArray.get(1));
-//                            // Sets accident multi state toggle as invisible
-//                            mstbAccident.setVisibility(View.INVISIBLE);
-//                        }
-//                    });
-//                }
-//
-//                // Checks if position 6 is selected
-//                if (position == 6){
-//                    // Sets accident multi state toggle to invisible
-//                    mstbAccident.setVisibility(View.INVISIBLE);
-//
-//                    // Builds a new alert dialog and its components
-//                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//                    final EditText input = new EditText(getActivity());
-//                    input.setInputType(InputType.TYPE_CLASS_TEXT);
-//                    builder.setView(input);
-//
-//                    builder.setPositiveButton(R.string.speichern, new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialogInterface, int i) {
-//                            // Checks if any input is made
-//                            if (input.getText().toString().trim().length() > 0) {
-//                                // Sets position 6 as selected and overwrite position 6 with inserted string
-//                                operationArray.set(6, input.getText().toString());
-//                                // Resets operation multi state toggle button with operation and set position 6 as selected
-//                                mstbOperation.setElements(operationArray, operationArray.get(6));
-//                            } else {
-//                                return;
-//                            }
-//                        }
-//                    })
-//                            .setNegativeButton(R.string.abbrechen, new DialogInterface.OnClickListener() {
-//                                @Override
-//                                public void onClick(DialogInterface dialogInterface, int i) {
-//                                    return;
-//                                }
-//                            });
-//
-//                    // Shows the dialogBox
-//                    AlertDialog dialog = builder.create();
-//                    dialog.show();
-//
-//                    // Sets styling of negative button
-//                    Button negativeButton = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
-//                    negativeButton.setTextColor(Color.parseColor("#838182"));
-//                }
-//
-//                Log.d(TAG, "Position: " + position);
-//            }
-//        });
 
     }
 }
