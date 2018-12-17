@@ -102,6 +102,13 @@ public class Measurement {
 
     public void setUnit(String unit){
     }
+
+    public String getDrugName(){
+        return "";
+    }
+
+    public void setDrugName(String drugName){
+    }
 }
 
 

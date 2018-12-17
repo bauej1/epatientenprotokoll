@@ -208,6 +208,12 @@
         <item>Français</item>
         <item>Deutsch</item>
     </string-array>
+    <string name="fentanyl">Fentanyl</string>
+    <string name="fentanyl_input">Geben Sie die Menge an Fentanyl an.</string>
+    <string name="adrenalin">Adrenalin</string>
+    <string name="adrenalin_input">Geben Sie die Menge an Adrenalin an.</string>
+    <string name="glukose">Glukose</string>
+    <string name="glukose_input">Geben Sie die Menge an Glukose an.</string>
 
     <string name="pupillen">Pupillen</string>
 </resources>

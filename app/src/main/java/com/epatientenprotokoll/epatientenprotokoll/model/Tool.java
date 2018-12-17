@@ -78,6 +78,10 @@ public class Tool {
         Measurement nacl = new ValueMeasurement(15, 2, false, 0.0, "", 0,0,0,0);
         Measurement temp = new ValueMeasurement(16, 2, false, 0.0, "°C", 0,0,0,0);
 
+        Measurement fentanyl = new DrugMeasurement(17, 3, false, 0.0, "ml", "Fentanyl", 0,0,0,0);
+        Measurement adrenalin = new DrugMeasurement(18, 3, false, 0.0, "ml", "Adrenalin", 0,0,0,0);
+        Measurement glucose = new DrugMeasurement(19, 3, false, 0.0, "ml", "Glukose", 0,0,0,0);
+
         measurements.add(ventilation);
         measurements.add(inextubation);
         measurements.add(defibrilation);
@@ -94,5 +98,8 @@ public class Tool {
         measurements.add(ekg);
         measurements.add(venous_canule);
         measurements.add(nacl);
+        measurements.add(fentanyl);
+        measurements.add(adrenalin);
+        measurements.add(glucose);
     }
 }

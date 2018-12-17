@@ -28,6 +28,7 @@ import com.epatientenprotokoll.epatientenprotokoll.model.Measurement;
 import com.epatientenprotokoll.epatientenprotokoll.model.ValueMeasurement;
 import com.epatientenprotokoll.epatientenprotokoll.toolbox.ActionToolbox;
 import com.epatientenprotokoll.epatientenprotokoll.model.Tool;
+import com.epatientenprotokoll.epatientenprotokoll.toolbox.DrugToolBox;
 import com.epatientenprotokoll.epatientenprotokoll.toolbox.ValueToolBox;
 import com.epatientenprotokoll.epatientenprotokoll.toolbox.Toolbox;
 import java.text.SimpleDateFormat;
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar valueChooser;
 
     //DrugToolBox
+    private Toolbar drugChooser;
 
     /**
      * Sets the inserted patient name from MasterDataFragment.
@@ -327,6 +329,7 @@ public class MainActivity extends AppCompatActivity {
 
         initActionToolChooser();
         initValueToolChooser();
+        initDrugToolChooser();
         initMeasuresGrid();
     }
 
@@ -400,8 +403,6 @@ public class MainActivity extends AppCompatActivity {
         tool.getCurrentTool().setX2(columnEnd);
         tool.getCurrentTool().setY2(rowEnd);
 
-        System.out.println("JANI:" + row + " | " + columnStart);
-
         table[row][columnStart] = tool.getCurrentTool();
 
         setMeasuresGrid();
@@ -447,5 +448,10 @@ public class MainActivity extends AppCompatActivity {
      * Initializes the tool chooser element on top left screen corner. It allows the user to handle different drug tools.
      */
     private void initDrugToolChooser(){
+        drugChooser = findViewById(R.id.drugs_toolbar);
+        drugChooser.setOnClickListener(v -> {
+            toolbox = new DrugToolBox(this);
+            toolbox.showToolbox(v, R.menu.drug_toolbox);
+        });
     }
 }

@@ -1,6 +1,7 @@
 package com.epatientenprotokoll.epatientenprotokoll.activities;
 
 import android.content.Context;
+import android.drm.DrmStore;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -14,6 +15,7 @@ import android.view.ViewConfiguration;
 
 import com.epatientenprotokoll.epatientenprotokoll.R;
 import com.epatientenprotokoll.epatientenprotokoll.model.ActionMeasurement;
+import com.epatientenprotokoll.epatientenprotokoll.model.DrugMeasurement;
 import com.epatientenprotokoll.epatientenprotokoll.model.Measurement;
 import com.epatientenprotokoll.epatientenprotokoll.model.Tool;
 import com.epatientenprotokoll.epatientenprotokoll.model.ValueMeasurement;
@@ -137,7 +139,7 @@ public class MeasuresGrid extends View {
                 int x = getWidth() / getColumnCount() * column;
                 int y = getHeight() / getRowCount() * row;
 
-                if(table[row][column] instanceof ActionMeasurement){
+                if(table[row][column] instanceof ActionMeasurement){                                                        //Action Measurements
 
                     if(table[row][column].isMultiMeasure()){
                         if(table[row][column].getId() == 1){
@@ -150,9 +152,14 @@ public class MeasuresGrid extends View {
                         if(bitmap != null) canvas.drawBitmap(bitmap, x, y, paint);
                     }
 
-                } else if(table[row][column] instanceof ValueMeasurement) {
+                } else if(table[row][column] instanceof ValueMeasurement) {                                                //Value Measurements
 
                     String text = table[row][column].getStoredValue() + table[row][column].getUnit();
+                    if(text != null) canvas.drawText(text, x, y + (getHeight() / getRowCount()) - 10, paint);   //+ (getHeight() / getRowCount()) - 10 is to align the text in the middle of the cell
+
+                } else if(table[row][column] instanceof DrugMeasurement){                                                  //Drug Measurements
+
+                    String text = table[row][column].getDrugName() + ": " + table[row][column].getStoredValue() + table[row][column].getUnit();
                     if(text != null) canvas.drawText(text, x, y + (getHeight() / getRowCount()) - 10, paint);   //+ (getHeight() / getRowCount()) - 10 is to align the text in the middle of the cell
                 }
             }
