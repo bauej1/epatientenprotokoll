@@ -109,6 +109,11 @@ public class MainActivity extends AppCompatActivity {
         patientInformation.setText(lastname + " " + name + ", " + birthdate);
     }
 
+    public String setActualTime(){
+        actualTime = findViewById(R.id.textClock);
+        return actualTime.getText().toString();
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

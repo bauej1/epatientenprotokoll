@@ -210,4 +210,8 @@
     </string-array>
 
     <string name="pupillen">Pupillen</string>
+    <string name="pupillen1">+</string>
+    <string name="pupillen2">(+)</string>
+    <string name="pupillen3">-</string>
+
 </resources>

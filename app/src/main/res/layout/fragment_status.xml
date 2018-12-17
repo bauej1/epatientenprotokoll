@@ -215,7 +215,7 @@
                 <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
                     android:id="@+id/group_choices"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
+                    android:layout_height="25dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="5dp"
                     mstb:tbgCheckedButton="@+id/choice_a">
@@ -836,7 +836,7 @@
                 <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
                     android:id="@+id/group_choice"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
+                    android:layout_height="25dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="5dp"
                     mstb:tbgCheckedButton="@+id/one1">
@@ -875,11 +875,96 @@
                     android:layout_height="150dp"
                     android:src="@drawable/eye_lvl1" />
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/timeEyes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:ems="4"
+                        android:inputType="time"
+                        android:textSize="16dp" />
+
+                    <Button
+                        android:id="@+id/now_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/jetzt" />
+                </LinearLayout>
+
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="200dp"
                     android:layout_height="150dp"
                     android:src="@drawable/eye_lvl1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
+                    android:id="@+id/leftEye"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="5dp">
+
+                    <com.nex3z.togglebuttongroup.button.CircularToggle
+                        android:id="@+id/l_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pupillen1"
+                        mstb:tbgMarkerColor="@color/darkGrey" />
+
+                    <com.nex3z.togglebuttongroup.button.CircularToggle
+                        android:id="@+id/l_middle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pupillen2"
+                        mstb:tbgMarkerColor="@color/darkGrey" />
+
+                    <com.nex3z.togglebuttongroup.button.CircularToggle
+                        android:id="@+id/l_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pupillen3"
+                        mstb:tbgMarkerColor="@color/darkGrey" />
+                </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
+
+                <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
+                    android:id="@+id/rightEye"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="170dp"
+                    android:layout_marginTop="5dp">
+
+                    <com.nex3z.togglebuttongroup.button.CircularToggle
+                        android:id="@+id/r_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pupillen1"
+                        mstb:tbgMarkerColor="@color/darkGrey" />
+
+                    <com.nex3z.togglebuttongroup.button.CircularToggle
+                        android:id="@+id/r_middle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pupillen2"
+                        mstb:tbgMarkerColor="@color/darkGrey" />
+
+                    <com.nex3z.togglebuttongroup.button.CircularToggle
+                        android:id="@+id/r_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pupillen3"
+                        mstb:tbgMarkerColor="@color/darkGrey" />
+                </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
             </LinearLayout>
 
         </LinearLayout>
