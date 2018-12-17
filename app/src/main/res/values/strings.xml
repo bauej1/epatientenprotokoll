@@ -116,7 +116,7 @@
         <item>Rettungsbrett</item>
         <item>Wundversorgung</item>
     </string-array>
-    
+
     <string-array name="halskragen_array">
         <item>Erwachsene</item>
         <item>Kinder</item>
@@ -214,4 +214,13 @@
     <string name="pupillen2">(+)</string>
     <string name="pupillen3">-</string>
 
+    <string-array name="urgency_array">
+        <item>P1</item>
+        <item>P2</item>
+        <item>P3</item>
+        <item>S1</item>
+        <item>S2</item>
+        <item>S3</item>
+        <item>Dienstfahrt</item>
+    </string-array>
 </resources>

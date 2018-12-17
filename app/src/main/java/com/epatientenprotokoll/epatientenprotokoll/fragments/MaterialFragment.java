@@ -133,6 +133,8 @@ public class MaterialFragment extends Fragment{
             ++countHalskragen;
         }
 
+        tbgHalskragen.setMaxSelectCount(1);
+
         for (String text : rettungsbrettArray){
             LabelToggle toggle = new LabelToggle(getActivity());
             toggle.setText(text);
@@ -143,6 +145,8 @@ public class MaterialFragment extends Fragment{
             ++countRettungsbrett;
         }
 
+        tbgRettungsbrett.setMaxSelectCount(1);
+
         for (String text : wundversorgungArray){
             LabelToggle toggle = new LabelToggle(getActivity());
             toggle.setText(text);
@@ -152,6 +156,8 @@ public class MaterialFragment extends Fragment{
             tbgWundversorgung.addView(toggle);
             ++countWundversorgung;
         }
+
+        tbgWundversorgung.setMaxSelectCount(1);
 
         tbgMaterial1.setOnCheckedChangeListener(new MultiSelectToggleGroup.OnCheckedStateChangeListener() {
             @Override
