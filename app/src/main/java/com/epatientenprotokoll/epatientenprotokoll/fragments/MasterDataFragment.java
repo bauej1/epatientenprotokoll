@@ -100,6 +100,7 @@ public class MasterDataFragment extends Fragment{
             language.addView(toggle);
         }
 
+        gender.setMaxSelectCount(2);
         for (String text : genderArray){
             LabelToggle toggle = new LabelToggle(getActivity());
             toggle.setText(text);

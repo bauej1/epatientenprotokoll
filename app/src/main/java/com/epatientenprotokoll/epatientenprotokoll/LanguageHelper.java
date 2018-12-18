@@ -6,9 +6,9 @@ import android.content.res.Resources;
 import java.util.Locale;
 
 public class LanguageHelper {
+    private static Configuration config = null;
 
     public static void changeLocale(Resources res, String locale){
-        Configuration config;
         config = new Configuration(res.getConfiguration());
 
         if (locale.equals("fr")){
@@ -18,5 +18,20 @@ public class LanguageHelper {
         }
 
         res.updateConfiguration(config, res.getDisplayMetrics());
+    }
+
+    public static Locale getCurrentLocale(){
+        return config.locale;
+    }
+
+    public static boolean isLocaleSet(){
+        if(config == null)
+            return false;
+
+        if(config.locale != null){
+            return true;
+        } else {
+            return false;
+        }
     }
 }
