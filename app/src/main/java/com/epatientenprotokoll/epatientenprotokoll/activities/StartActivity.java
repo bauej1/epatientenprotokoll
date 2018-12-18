@@ -72,6 +72,7 @@ public class StartActivity extends AppCompatActivity {
                     weekday.setText(dayOfWeek + ", ");
 
                     LanguageHelper.changeLocale(getResources(), "fr");
+                    recreate();
                 }
 
                 // Changes weekday to german, if language german is selected
@@ -81,6 +82,7 @@ public class StartActivity extends AppCompatActivity {
                     weekday.setText(dayOfWeek + ", ");
 
                     LanguageHelper.changeLocale(getResources(), "de");
+                    recreate();
                 }
             }
         });

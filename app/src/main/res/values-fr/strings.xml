@@ -182,7 +182,7 @@
     <string name="mmHg"> mmHg</string>
     <string name="mmol"> mmol/l</string>
     <string name="einsatzmeldung1">Traumatisme aux extrémités/Blessure par écrasement de fissure</string>
-    <string name="einsatzmeldung2">Age: 37; Masculin; Blessure par écrasement de fissure; inconnu s\'il s\'agit d\'un accident du travail. La cause du traumatisme crânien n\'est pas claire. \nLa police est en route. </string>
+    <string name="einsatzmeldung2">Age: 37; Masculin; Blessure par écrasement de fissure; inconnu s\'il s\'agit d\'un accident du travail. \nLa cause du traumatisme crânien n\'est pas claire. La police est en route. </string>
     <string-array name="lang_array">
         <item>Français</item>
         <item>Deutsch</item>
