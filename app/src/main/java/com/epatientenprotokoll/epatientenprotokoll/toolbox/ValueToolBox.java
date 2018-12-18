@@ -58,36 +58,36 @@ public class ValueToolBox extends Toolbox {
         int toolId = -1;
         switch(m.getItemId()){
             case R.id.tool_breath_frequency:
-                toolId = 8;
+                toolId = 9;
                 new BreathFrequencyDialog(activity, R.layout.dialog_breath_frequency);
                 break;
             case R.id.tool_pulsox:
-                toolId = 9;
+                toolId = 10;
                 new PulsoxDialog(activity, R.layout.dialog_pulsox);
                 break;
             case R.id.tool_co2:
-                toolId = 10;
+                toolId = 11;
                 new Co2Dialog(activity, R.layout.dialog_co2);
                 break;
             case R.id.tool_hgt:
-                toolId = 11;
+                toolId = 12;
                 new HgtDialog(activity, R.layout.dialog_hgt);
                 break;
             case R.id.tool_pain:
-                toolId = 12;
+                toolId = 13;
                 new PainDialog(activity, R.layout.dialog_pain);
                 break;
             case R.id.tool_ekg:
-                toolId = 13;
-                break;
-            case R.id.tool_venous_canula:
                 toolId = 14;
                 break;
-            case R.id.tool_nacl:
+            case R.id.tool_venous_canula:
                 toolId = 15;
                 break;
-            case R.id.tool_temperature:
+            case R.id.tool_nacl:
                 toolId = 16;
+                break;
+            case R.id.tool_temperature:
+                toolId = 17;
                 new TemperatureDialog(activity, R.layout.dialog_temperature);
                 break;
         }

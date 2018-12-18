@@ -51,20 +51,23 @@ public class ActionToolbox extends Toolbox {
             case R.id.tool_intubation:
                 toolId = 2;
                 break;
-            case R.id.tool_defibrilation:
+            case R.id.tool_extubation:
                 toolId = 3;
                 break;
-            case R.id.tool_pacing:
+            case R.id.tool_defibrilation:
                 toolId = 4;
                 break;
-            case R.id.tool_heart_massage:
+            case R.id.tool_pacing:
                 toolId = 5;
                 break;
-            case R.id.tool_blood_pressure:
+            case R.id.tool_heart_massage:
                 toolId = 6;
                 break;
-            case R.id.tool_pulse:
+            case R.id.tool_blood_pressure:
                 toolId = 7;
+                break;
+            case R.id.tool_pulse:
+                toolId = 8;
                 break;
         }
         setTool(toolId);

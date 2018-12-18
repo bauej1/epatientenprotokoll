@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class Tool {
 
     private static Tool instance = new Tool();
+    private static boolean isIntubated = false;
     ArrayList<Measurement> measurements = new ArrayList<>();
     private Measurement currentTool;
 
@@ -51,6 +52,14 @@ public class Tool {
         return null;
     }
 
+    public boolean getIntubationStatus(){
+        return isIntubated;
+    }
+
+    public void setIntubationStatus(boolean intubationStatus){
+        isIntubated = intubationStatus;
+    }
+
     /**
      * Checks if a tool is selected before drawing on the grid.
      * @return true if a tool is selected
@@ -61,25 +70,31 @@ public class Tool {
 
     public void initMeasurements(){
         Measurement ventilation = new ActionMeasurement(1, 1, true, R.drawable.ventilation, 0, 0, 0, 0);
-        Measurement inextubation = new ActionMeasurement(2, 1, false, R.drawable.intubation_extubation, 0, 0, 0, 0);
-        Measurement defibrilation = new ActionMeasurement(3, 1, false, R.drawable.defibrilation, 0, 0, 0, 0);
-        Measurement extPacing = new ActionMeasurement(4, 1, false, R.drawable.pacing, 0, 0, 0, 0);
-        Measurement heartMassage = new ActionMeasurement(5, 1, true, R.drawable.heart_massage, 0, 0, 0, 0);
-        Measurement bloodPressure = new ActionMeasurement(6, 1, true, R.drawable.heart_massage, 0, 0, 0, 0);
-        Measurement pulse = new ActionMeasurement(7, 1, false, R.drawable.pulse, 0, 0, 0, 0);
+        Measurement intubation = new ActionMeasurement(2, 1, false, R.drawable.intubation, 0, 0, 0, 0);
+        Measurement extubation = new ActionMeasurement(3, 1, false, R.drawable.extubation, 0, 0, 0, 0);
+        Measurement defibrilation = new ActionMeasurement(4, 1, false, R.drawable.defibrilation, 0, 0, 0, 0);
+        Measurement extPacing = new ActionMeasurement(5, 1, false, R.drawable.pacing, 0, 0, 0, 0);
+        Measurement heartMassage = new ActionMeasurement(6, 1, true, R.drawable.heart_massage, 0, 0, 0, 0);
+        Measurement bloodPressure = new ActionMeasurement(7, 1, true, R.drawable.bloodpressure, 0, 0, 0, 0);
+        Measurement pulse = new ActionMeasurement(8, 1, false, R.drawable.pulse, 0, 0, 0, 0);
 
-        Measurement breath_frequency = new ValueMeasurement(8, 2, false, 0.0, "/min", 0,0,0,0);
-        Measurement pulsox = new ValueMeasurement(9, 2, false, 0.0, "%", 0,0,0,0);
-        Measurement co2 = new ValueMeasurement(10, 2, false, 0.0, "mmHg", 0,0,0,0);
-        Measurement hgt = new ValueMeasurement(11, 2, false, 0.0, "mmol/l", 0,0,0,0);
-        Measurement pain = new ValueMeasurement(12, 2, false, 0.0, "", 0,0,0,0);
-        Measurement ekg = new ValueMeasurement(13, 2, false, 0.0, "", 0,0,0,0);
-        Measurement venous_canule = new ValueMeasurement(14, 2, false, 0.0, "", 0,0,0,0);
-        Measurement nacl = new ValueMeasurement(15, 2, false, 0.0, "", 0,0,0,0);
-        Measurement temp = new ValueMeasurement(16, 2, false, 0.0, "°C", 0,0,0,0);
+        Measurement breath_frequency = new ValueMeasurement(9, 2, false, 0.0, "/min", 0,0,0,0);
+        Measurement pulsox = new ValueMeasurement(10, 2, false, 0.0, "%", 0,0,0,0);
+        Measurement co2 = new ValueMeasurement(11, 2, false, 0.0, "mmHg", 0,0,0,0);
+        Measurement hgt = new ValueMeasurement(12, 2, false, 0.0, "mmol/l", 0,0,0,0);
+        Measurement pain = new ValueMeasurement(13, 2, false, 0.0, "", 0,0,0,0);
+        Measurement ekg = new ValueMeasurement(14, 2, false, 0.0, "", 0,0,0,0);
+        Measurement venous_canule = new ValueMeasurement(15, 2, false, 0.0, "", 0,0,0,0);
+        Measurement nacl = new ValueMeasurement(16, 2, false, 0.0, "", 0,0,0,0);
+        Measurement temp = new ValueMeasurement(17, 2, false, 0.0, "°C", 0,0,0,0);
+
+        Measurement fentanyl = new DrugMeasurement(18, 3, false, 0.0, "ml", "Fentanyl", 0,0,0,0);
+        Measurement adrenalin = new DrugMeasurement(19, 3, false, 0.0, "ml", "Adrenalin", 0,0,0,0);
+        Measurement glucose = new DrugMeasurement(20, 3, false, 0.0, "ml", "Glukose", 0,0,0,0);
 
         measurements.add(ventilation);
-        measurements.add(inextubation);
+        measurements.add(intubation);
+        measurements.add(extubation);
         measurements.add(defibrilation);
         measurements.add(extPacing);
         measurements.add(heartMassage);
@@ -94,5 +109,8 @@ public class Tool {
         measurements.add(ekg);
         measurements.add(venous_canule);
         measurements.add(nacl);
+        measurements.add(fentanyl);
+        measurements.add(adrenalin);
+        measurements.add(glucose);
     }
 }

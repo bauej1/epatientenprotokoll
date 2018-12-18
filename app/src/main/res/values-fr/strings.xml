@@ -143,7 +143,8 @@
     </string-array>
 
     <string name="ventilation">Ventilation</string>
-    <string name="intubation_extubation">In- / Extubation</string>
+    <string name="intubation">Intubation</string>
+    <string name="extubation">Extubation</string>
     <string name="defibrilation">Defibrillation</string>
     <string name="pacing">Ext. Pacing</string>
     <string name="heart_massage">Massage cardiaque</string>
@@ -187,6 +188,12 @@
         <item>Français</item>
         <item>Deutsch</item>
     </string-array>
+    <string name="fentanyl">Fentanyl</string>
+    <string name="fentanyl_input">Préciser la quantité de fentanyl.</string>
+    <string name="adrenalin">Adrenalin</string>
+    <string name="adrenalin_input">Préciser la quantité d\'adrenalin.</string>
+    <string name="glukose">Glucose</string>
+    <string name="glukose_input">Préciser la quantité de glucose.</string>
 
     <string name="pupillen">Pupilles</string>
     <string name="pupillen1">+</string>

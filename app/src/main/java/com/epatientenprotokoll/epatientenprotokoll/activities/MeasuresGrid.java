@@ -1,6 +1,7 @@
 package com.epatientenprotokoll.epatientenprotokoll.activities;
 
 import android.content.Context;
+import android.drm.DrmStore;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -14,6 +15,7 @@ import android.view.ViewConfiguration;
 
 import com.epatientenprotokoll.epatientenprotokoll.R;
 import com.epatientenprotokoll.epatientenprotokoll.model.ActionMeasurement;
+import com.epatientenprotokoll.epatientenprotokoll.model.DrugMeasurement;
 import com.epatientenprotokoll.epatientenprotokoll.model.Measurement;
 import com.epatientenprotokoll.epatientenprotokoll.model.Tool;
 import com.epatientenprotokoll.epatientenprotokoll.model.ValueMeasurement;
@@ -137,7 +139,7 @@ public class MeasuresGrid extends View {
                 int x = getWidth() / getColumnCount() * column;
                 int y = getHeight() / getRowCount() * row;
 
-                if(table[row][column] instanceof ActionMeasurement){
+                if(table[row][column] instanceof ActionMeasurement){                                                        //Action Measurements
 
                     if(table[row][column].isMultiMeasure()){
                         if(table[row][column].getId() == 1){
@@ -146,13 +148,25 @@ public class MeasuresGrid extends View {
                             drawDragLine(canvas, table[row][column]);
                         }
                     } else {
+//                        boolean overStepDrawing = false;
                         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), (int)table[row][column].getStoredValue());
-                        if(bitmap != null) canvas.drawBitmap(bitmap, x, y, paint);
+
+//                        if(Tool.getInstance().getCurrentTool().getId() == 2 && checkIfIntubated() || Tool.getInstance().getCurrentTool().getId() == 3 && !checkIfIntubated()) {
+//                            overStepDrawing = true;
+//                        }
+//                        if(!overStepDrawing){
+                            if(bitmap != null) canvas.drawBitmap(bitmap, x, y, paint);
+//                        }
                     }
 
-                } else if(table[row][column] instanceof ValueMeasurement) {
+                } else if(table[row][column] instanceof ValueMeasurement) {                                                //Value Measurements
 
                     String text = table[row][column].getStoredValue() + table[row][column].getUnit();
+                    if(text != null) canvas.drawText(text, x, y + (getHeight() / getRowCount()) - 10, paint);   //+ (getHeight() / getRowCount()) - 10 is to align the text in the middle of the cell
+
+                } else if(table[row][column] instanceof DrugMeasurement){                                                  //Drug Measurements
+
+                    String text = table[row][column].getDrugName() + ": " + table[row][column].getStoredValue() + table[row][column].getUnit();
                     if(text != null) canvas.drawText(text, x, y + (getHeight() / getRowCount()) - 10, paint);   //+ (getHeight() / getRowCount()) - 10 is to align the text in the middle of the cell
                 }
             }
@@ -195,10 +209,10 @@ public class MeasuresGrid extends View {
         int rowEnd = m.getY2();
 
         switch(m.getId()){
-            case 5: //heart massage
+            case 6: //heart massage
                 bitmap = BitmapFactory.decodeResource(getResources(), (int)m.getStoredValue());
                 break;
-            case 6: //blood pressure
+            case 7: //blood pressure
                 bloodPressureActive = true;
                 bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.arrowup);
                 break;
@@ -316,4 +330,16 @@ public class MeasuresGrid extends View {
             canvas.drawLine(x, 0, x, getHeight(), paint);
         }
     }
+
+//    private boolean checkIfIntubated(){
+//        return Tool.getInstance().getIntubationStatus() ? true : false;
+//    }
+//
+//    private void setIntubationStatus(){
+//        if(Tool.getInstance().getCurrentTool().getId() == 2){
+//            Tool.getInstance().setIntubationStatus(true);
+//        } else if (Tool.getInstance().getCurrentTool().getId() == 3){
+//            Tool.getInstance().setIntubationStatus(false);
+//        }
+//    }
 }

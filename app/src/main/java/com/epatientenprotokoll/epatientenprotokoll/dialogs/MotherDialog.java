@@ -71,7 +71,15 @@ public class MotherDialog {
      * Submits the data collected from the motherDialog and writes it into the grid-table.
      */
     protected void submitData(String tValueInt, String tValuePoint){
-        double value = Double.parseDouble(tValueInt + "." + tValuePoint);
+
+        double value;
+
+        if(tValuePoint == null || tValuePoint.equals("")){
+            value = Double.parseDouble(tValueInt);
+        } else {
+            value = Double.parseDouble(tValueInt + "." + tValuePoint);
+        }
+
         Tool.getInstance().getCurrentTool().setStoredValue(value);
         closeDialog();
     }
