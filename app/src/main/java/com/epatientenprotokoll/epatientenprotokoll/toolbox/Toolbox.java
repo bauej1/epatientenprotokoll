@@ -21,20 +21,14 @@ public class Toolbox {
 
     protected void setTool(int id){
         Measurement tool = Tool.getInstance().getToolById(id);
-        boolean intubationStatus = Tool.getInstance().getIntubationStatus();
-        boolean overStepToolSetting = false;
+//        boolean intubationStatus = Tool.getInstance().getIntubationStatus();
+//        boolean overStepToolSetting = false;
 
-        if(tool.getId() == 2 && intubationStatus || tool.getId() == 3 && !intubationStatus) {
-            overStepToolSetting = true;
-        }
-        if(!overStepToolSetting){
+//        if(tool.getId() == 2 && intubationStatus || tool.getId() == 3 && !intubationStatus) {
+//            overStepToolSetting = true;
+//        }
+//        if(!overStepToolSetting){
             Tool.getInstance().setCurrentTool(tool);
-        }
-
-        if(tool.getId() == 2){
-            Tool.getInstance().setIntubationStatus(true);
-        } else if (tool.getId() == 3){
-            Tool.getInstance().setIntubationStatus(false);
-        }
+//        }
     }
 }
