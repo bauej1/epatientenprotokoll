@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/tool_ventilation"
+        android:icon="@drawable/ventilation"
+        android:title="@string/ventilation" />
+    <item android:id="@+id/tool_intubation"
+        android:icon="@drawable/intubation_extubation"
+        android:title="@string/intubation_extubation"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/tool_defibrilation"
+        android:icon="@drawable/defibrilation"
+        android:title="@string/defibrilation" />
+    <item android:id="@+id/tool_pacing"
+        android:icon="@drawable/pacing"
+        android:title="@string/pacing" />
+    <item android:id="@+id/tool_heart_massage"
+        android:icon="@drawable/heart_massage"
+        android:title="@string/heart_massage" />
+    <item android:id="@+id/tool_blood_pressure"
+        android:icon="@drawable/defibrilation"
+        android:title="@string/bloodpressure" />
+    <item android:id="@+id/tool_pulse"
+        android:icon="@drawable/pulse"
+        android:title="@string/pulse" />
+</menu>
