@@ -209,5 +209,25 @@
         <item>S2</item>
         <item>S3</item>
         <item>Dienstfahrt</item>
+        <item>PVS2/3 - P51</item>
     </string-array>
+    
+    <string-array name="present_array">
+        <item>Arzt</item>
+        <item>Polizei</item>
+        <item>FW</item>
+        <item>REGA</item>
+        <item>SZB</item>
+        <item>Angehörige</item>
+        <item>Andere</item>
+    </string-array>
+
+    <string name="L">L</string>
+    <string name="F">F</string>
+    <string name="H1">H1</string>
+    <string name="H2">H2</string>
+    
+    <string name="carNb">BE Nr.</string>
+    <string name="kmDeparture">Km Abfahrt</string>
+    <string name="kmArrival">Km Ankunft</string>
 </resources>

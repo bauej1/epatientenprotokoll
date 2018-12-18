@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/tool_fentanyl"
+        android:icon="@drawable/drugs_tool"
+        android:title="@string/fentanyl" />
+    <item android:id="@+id/tool_adrenalin"
+        android:icon="@drawable/drugs_tool"
+        android:title="@string/adrenalin"/>
+    <item android:id="@+id/tool_glucose"
+        android:icon="@drawable/drugs_tool"
+        android:title="@string/glukose" />
+</menu>

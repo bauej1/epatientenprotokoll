@@ -208,5 +208,25 @@
         <item>S2</item>
         <item>S3</item>
         <item>Course de service</item>
+        <item>PVS2/3 - P51</item>
     </string-array>
+
+    <string-array name="present_array">
+        <item>Médcin</item>
+        <item>Police</item>
+        <item>SP</item>
+        <item>REGA</item>
+        <item>CHB</item>
+        <item>Parenté</item>
+        <item>Autre</item>
+    </string-array>
+
+    <string name="L">L</string>
+    <string name="F">CH</string>
+    <string name="H1">H1</string>
+    <string name="H2">H2</string>
+
+    <string name="carNb">BE Nr.</string>
+    <string name="kmDeparture">Km départ</string>
+    <string name="kmArrival">Km arrivée</string>
 </resources>
