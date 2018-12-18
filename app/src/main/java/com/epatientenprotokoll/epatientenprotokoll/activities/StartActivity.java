@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextClock;
@@ -29,12 +30,24 @@ public class StartActivity extends AppCompatActivity {
     ImageButton startProtocolButton;
     MultiStateToggleButton languageToggleButton;
     List<String> languageArray;
-
+    SimpleDateFormat dayFormat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+
+        // prepare the language and the date format depending on the locale
+        if(LanguageHelper.isLocaleSet()){
+            if(LanguageHelper.getCurrentLocale().equals(new Locale("fr"))){
+                dayFormat = new SimpleDateFormat("EEEE", Locale.FRENCH);
+            } else {
+                dayFormat = new SimpleDateFormat("EEEE", Locale.GERMAN);
+            }
+        } else {
+            LanguageHelper.changeLocale(getResources(), "de");
+            dayFormat = new SimpleDateFormat("EEEE", Locale.GERMAN);
+        }
 
         // Assigns all variables to view
         weekday = findViewById(R.id.tvWeekday);
@@ -55,7 +68,6 @@ public class StartActivity extends AppCompatActivity {
         date.setText(dayOfMonthString + "." + monthString + "." + yearString);
 
         // Sets the current weekday
-        SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE");
         String dayOfWeek = dayFormat.format(cal.getTime());
         weekday.setText(dayOfWeek + ", ");
 
@@ -67,20 +79,13 @@ public class StartActivity extends AppCompatActivity {
             public void onValueChanged(int value) {
                 // Changes weekday to french, if language french is selected
                 if (value == 0){
-                    SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE", Locale.FRENCH);
-                    String dayOfWeek = dayFormat.format(cal.getTime());
-                    weekday.setText(dayOfWeek + ", ");
-
                     LanguageHelper.changeLocale(getResources(), "fr");
+                    recreate();
                 }
-
                 // Changes weekday to german, if language german is selected
                 if (value == 1) {
-                    SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE", Locale.GERMAN);
-                    String dayOfWeek = dayFormat.format(cal.getTime());
-                    weekday.setText(dayOfWeek + ", ");
-
                     LanguageHelper.changeLocale(getResources(), "de");
+                    recreate();
                 }
             }
         });

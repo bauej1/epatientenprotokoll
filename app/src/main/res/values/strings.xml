@@ -153,8 +153,8 @@
     <string name="pulse">Puls</string>
 
     <string-array name="lagerung_seitenlage">
-        <item>gauche</item>
-        <item>droite</item>
+        <item>links</item>
+        <item>rechts</item>
     </string-array>
 
     <string-array name="onetothree">

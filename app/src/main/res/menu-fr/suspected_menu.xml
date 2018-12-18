@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/one"
+        android:title="1. Trauma facial"/>
+
+    <item
+        android:id="@+id/two"
+        android:title="2. Trauma cranio-cérébral"/>
+
+    <item
+        android:id="@+id/three"
+        android:title="3. Trauma de la nuque"/>
+
+    <item
+        android:id="@+id/four"
+        android:title="4. Trauma rachidien"/>
+
+    <item
+        android:id="@+id/five"
+        android:title="5. Trauma thoracique"/>
+
+    <item
+        android:id="@+id/six"
+        android:title="6. Trauma abdominal"/>
+
+    <item
+        android:id="@+id/seven"
+        android:title="7. Trauma du bassin"/>
+
+    <item
+        android:id="@+id/eigh"
+        android:title="8. Trauma des membres"/>
+
+    <item
+        android:id="@+id/nine"
+        android:title="9. Polytraumatisme"/>
+
+    <item
+        android:id="@+id/ten"
+        android:title="10. Déficit neurologique"/>
+
+    <item
+        android:id="@+id/eleven"
+        android:title="11. Accident vasculaire cérébral"/>
+
+    <item
+        android:id="@+id/twelve"
+        android:title="12. Perte de connaissance"/>
+
+    <item
+        android:id="@+id/thirteen"
+        android:title="13. Coma"/>
+
+    <item
+        android:id="@+id/fourteen"
+        android:title="14. Problème cardio circulatoire"/>
+
+    <item
+        android:id="@+id/fifteen"
+        android:title="15. Etat de choc"/>
+
+    <item
+        android:id="@+id/sixteen"
+        android:title="16. Arrêt cardio-respiratoire"/>
+
+    <item
+        android:id="@+id/seventeen"
+        android:title="17. Détresse respiratoire"/>
+
+    <item
+        android:id="@+id/eightteen"
+        android:title="18. Problème abdominal"/>
+
+    <item
+        android:id="@+id/nineteen"
+        android:title="19. Intoxication"/>
+
+    <item
+        android:id="@+id/twenty"
+        android:title="20. Grossesse / Accouchement inopiné"/>
+
+    <item
+        android:id="@+id/twentyone"
+        android:title="21. Brûlures"/>
+
+    <item
+        android:id="@+id/twentytwo"
+        android:title="22. Pathologie psychiatrie"/>
+
+    <item
+        android:id="@+id/twentythree"
+        android:title="23. Noyade"/>
+
+    <item
+        android:id="@+id/twentyfour"
+        android:title="24. Soins impossible à domicile"/>
+
+    <item
+        android:id="@+id/twentyfive"
+        android:title="25. Contrôle médical"/>
+
+
+    <item
+        android:id="@+id/twentysix"
+        android:title="26. Gynécologie"/>
+
+    <item
+        android:id="@+id/twentyseven"
+        android:title="27. Hémorragies"/>
+</menu>
