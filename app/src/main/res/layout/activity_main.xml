@@ -15,7 +15,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="53dp"
             android:layout_weight="0"
             android:orientation="horizontal"
             android:weightSum="100">
@@ -81,8 +81,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
                 android:background="@color/colorAccent"
-                android:orientation="horizontal">
-            </LinearLayout>
+                android:orientation="horizontal"></LinearLayout>
 
         </LinearLayout>
 
@@ -110,11 +109,11 @@
             android:weightSum="100">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="5dp"
-                android:layout_weight="55"
+                android:layout_weight="70"
                 android:background="@color/colorAccent"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
@@ -154,6 +153,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="10"
+                    android:gravity="right"
+                    android:paddingRight="10dp"
                     android:textColor="@color/white" />
             </LinearLayout>
 
@@ -162,7 +163,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="15"
+                android:layout_weight="10"
                 android:background="@color/colorAccent"
                 android:text="A1"
                 android:textColor="@color/white"
@@ -174,7 +175,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="5dp"
-                android:layout_weight="15"
+                android:layout_weight="10"
                 android:background="@color/colorAccent"
                 android:text="B"
                 android:textColor="@color/white" />
@@ -184,7 +185,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
-                android:layout_weight="15"
+                android:layout_weight="10"
                 android:background="@color/colorAccent"
                 mstb:srcCompat="@drawable/clock" />
 
