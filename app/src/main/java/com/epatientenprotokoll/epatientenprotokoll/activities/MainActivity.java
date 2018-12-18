@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
     //MeasuresGrid
     private MeasuresGrid measuresGrid;
+    private StaticTimeline staticTimeline;
     private Tool tool;
     private Measurement[][] table = new Measurement[25][15];
     private int ventilationStart;
@@ -336,6 +337,7 @@ public class MainActivity extends AppCompatActivity {
         initValueToolChooser();
         initDrugToolChooser();
         initMeasuresGrid();
+        initStaticTimeline();
     }
 
     /**
@@ -458,5 +460,9 @@ public class MainActivity extends AppCompatActivity {
             toolbox = new DrugToolBox(this);
             toolbox.showToolbox(v, R.menu.drug_toolbox);
         });
+    }
+
+    private void initStaticTimeline(){
+        staticTimeline = findViewById(R.id.staticTimeline);
     }
 }

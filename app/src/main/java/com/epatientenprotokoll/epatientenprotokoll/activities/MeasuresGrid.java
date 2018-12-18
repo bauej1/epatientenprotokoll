@@ -1,7 +1,6 @@
 package com.epatientenprotokoll.epatientenprotokoll.activities;
 
 import android.content.Context;
-import android.drm.DrmStore;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -17,7 +16,6 @@ import com.epatientenprotokoll.epatientenprotokoll.R;
 import com.epatientenprotokoll.epatientenprotokoll.model.ActionMeasurement;
 import com.epatientenprotokoll.epatientenprotokoll.model.DrugMeasurement;
 import com.epatientenprotokoll.epatientenprotokoll.model.Measurement;
-import com.epatientenprotokoll.epatientenprotokoll.model.Tool;
 import com.epatientenprotokoll.epatientenprotokoll.model.ValueMeasurement;
 
 public class MeasuresGrid extends View {
