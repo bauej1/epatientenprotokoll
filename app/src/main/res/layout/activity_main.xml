@@ -85,6 +85,11 @@
 
         </LinearLayout>
 
+        <com.epatientenprotokoll.epatientenprotokoll.activities.StaticTimeline
+            android:id="@+id/staticTimeline"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
         <com.epatientenprotokoll.epatientenprotokoll.activities.MeasuresGrid
             android:id="@+id/measuresGrid"
             android:layout_width="match_parent"
