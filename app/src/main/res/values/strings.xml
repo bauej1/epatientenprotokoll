@@ -209,5 +209,42 @@
         <item>S2</item>
         <item>S3</item>
         <item>Dienstfahrt</item>
+        <item>PVS2/3 - P51</item>
     </string-array>
+    
+    <string-array name="present_array">
+        <item>Arzt</item>
+        <item>Polizei</item>
+        <item>FW</item>
+        <item>REGA</item>
+        <item>SZB</item>
+        <item>Angehörige</item>
+        <item>Andere</item>
+    </string-array>
+
+    <string name="L">L</string>
+    <string name="F">F</string>
+    <string name="H1">H1</string>
+    <string name="H2">H2</string>
+    
+    <string name="carNb">BE Nr.</string>
+    <string name="kmDeparture">Km Abfahrt</string>
+    <string name="kmArrival">Km Ankunft</string>
+
+    <string name="patientDescr">Noa Marti; Korngasse 25; 2502 Biel; 079 999 99 99; M; 04.12.1981</string>
+    <string name="reason">Grund</string>
+    <string name="reasonAccident">Unfall</string>
+    <string name="anamnesisDescr">RQW am Hinterkopf. Baustellenplatte hat den Patienten auf dem Hinterkopf getroffen. Orientierung bzgl. Person, Ort und Zeit vorhanden. Keine Amnesie. Keine relevanten bestehenden Erkrankungen.</string>
+    <string name="suspicionDescr">Schädel-Hirn-Trauma</string>
+    <string name="three">3</string>
+    <string name="GCSdescr">15 / 11 / 11</string>
+    <string name="pupilsDescr1">13:15 li klein +, re klein +</string>
+    <string name="pupilsDescr2">13:23 li mittel (+), re klein +</string>
+    <string name="pupilsDescr3">13:26 li mittel (+), re klein</string>
+    <string name="material">Materialien</string>
+    <string name="materialDescr">Wundversorgung gross</string>
+    <string name="submittedMaterial">Am Zielort abgegeben</string>
+    <string name="submittedMaterialDescr">Effekten, Wertsachen</string>
+    <string name="positioning">Lagerung</string>
+    <string name="positioningDescr">Liegend, Oberkörper angewinkelt</string>
 </resources>

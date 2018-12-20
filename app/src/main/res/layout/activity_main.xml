@@ -15,7 +15,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="53.5dp"
             android:layout_weight="0"
             android:orientation="horizontal"
             android:weightSum="100">
@@ -81,8 +81,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
                 android:background="@color/colorAccent"
-                android:orientation="horizontal">
-            </LinearLayout>
+                android:orientation="horizontal"></LinearLayout>
 
         </LinearLayout>
 
@@ -115,11 +114,11 @@
             android:weightSum="100">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="5dp"
-                android:layout_weight="55"
+                android:layout_weight="70"
                 android:background="@color/colorAccent"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
@@ -159,6 +158,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="10"
+                    android:gravity="right"
+                    android:paddingRight="10dp"
                     android:textColor="@color/white" />
             </LinearLayout>
 
@@ -167,9 +168,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="15"
+                android:layout_weight="10"
                 android:background="@color/colorAccent"
-                android:text="A1"
+                android:text="Einsatz"
                 android:textColor="@color/white"
                 android:textColorLink="@color/colorAccent" />
 
@@ -179,9 +180,9 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="5dp"
-                android:layout_weight="15"
+                android:layout_weight="10"
                 android:background="@color/colorAccent"
-                android:text="B"
+                android:text="Spital"
                 android:textColor="@color/white" />
 
             <ImageButton
@@ -189,7 +190,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
-                android:layout_weight="15"
+                android:layout_weight="10"
                 android:background="@color/colorAccent"
                 mstb:srcCompat="@drawable/clock" />
 
@@ -225,11 +226,13 @@
                     android:layout_height="0dp"
                     android:layout_weight="30"
                     android:background="@color/colorAccent"
+                    android:drawableStart="@drawable/patient"
+                    android:paddingLeft="5dp"
                     android:textColor="@color/white"
                     android:textColorHint="@color/colorAccent"
                     android:textColorLink="@color/black"
-                    android:textOff="@string/patient"
-                    android:textOn="@string/patient" />
+                    android:textOff=""
+                    android:textOn="" />
 
                 <ToggleButton
                     android:id="@+id/tbStatus"
@@ -238,10 +241,11 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="30"
                     android:background="@color/colorAccent"
-                    android:text="ToggleButton"
+                    android:drawableStart="@drawable/documentation"
+                    android:paddingLeft="5dp"
                     android:textColor="@color/white"
-                    android:textOff="@string/status"
-                    android:textOn="@string/status" />
+                    android:textOff=""
+                    android:textOn="" />
 
                 <ToggleButton
                     android:id="@+id/tbMaterial"
@@ -250,8 +254,11 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="30"
                     android:background="@color/colorAccent"
-                    android:text="ToggleButton"
-                    android:textColor="@color/white" />
+                    android:drawableStart="@drawable/material"
+                    android:paddingLeft="6dp"
+                    android:textColor="@color/white"
+                    android:textOff=""
+                    android:textOn="" />
 
                 <ToggleButton
                     android:id="@+id/tbFinish"
@@ -260,8 +267,12 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="10"
                     android:background="@color/colorAccent"
+                    android:drawableStart="@drawable/next"
+                    android:paddingLeft="5dp"
                     android:text="ToggleButton"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:textOff=""
+                    android:textOn="" />
             </LinearLayout>
         </LinearLayout>
 

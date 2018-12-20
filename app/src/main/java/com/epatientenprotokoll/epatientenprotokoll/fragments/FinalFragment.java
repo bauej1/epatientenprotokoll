@@ -17,7 +17,9 @@ import java.util.List;
 public class FinalFragment extends Fragment {
 
     MultiSelectToggleGroup tbgUrgency;
+    MultiSelectToggleGroup tbgPresent;
     List<String> urgencyArray;
+    List<String> presentArray;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -28,7 +30,9 @@ public class FinalFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
         tbgUrgency = getActivity().findViewById(R.id.tbgDringlichkeit);
+        tbgPresent = getActivity().findViewById(R.id.tbgAnwesend);
         urgencyArray = Arrays.asList(getResources().getStringArray(R.array.urgency_array));
+        presentArray = Arrays.asList(getResources().getStringArray(R.array.present_array));
 
         for (String text : urgencyArray){
             LabelToggle toggle = new LabelToggle(getActivity());
@@ -37,6 +41,15 @@ public class FinalFragment extends Fragment {
             int color = Color.rgb(108, 108, 108);
             toggle.setMarkerColor(color);
             tbgUrgency.addView(toggle);
+        }
+
+        for (String text : presentArray) {
+            LabelToggle toggle = new LabelToggle(getActivity());
+            toggle.setText(text);
+
+            int color = Color.rgb(108, 108, 108);
+            toggle.setMarkerColor(color);
+            tbgPresent.addView(toggle);
         }
 
     }

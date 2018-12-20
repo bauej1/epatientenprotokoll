@@ -1,4 +1,4 @@
-package com.epatientenprotokoll.epatientenprotokoll;
+package com.epatientenprotokoll.epatientenprotokoll.components;
 
 import android.content.res.Configuration;
 import android.content.res.Resources;

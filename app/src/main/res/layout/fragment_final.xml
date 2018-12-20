@@ -7,21 +7,526 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/lightGrey"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
-            android:id="@+id/tbgDringlichkeit"
-            mstb:tbgChildSpacingForLastRow="align"
-            mstb:tbgFlow="false"
-            mstb:tbgMaxSelect="1"
-            mstb:tbgRowSpacing="8dp"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp">
+            android:background="@color/lightGrey"
+            android:orientation="horizontal">
+
+            <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
+                android:id="@+id/tbgDringlichkeit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:paddingLeft="7dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                mstb:tbgChildSpacing="3dp"
+                mstb:tbgChildSpacingForLastRow="align"
+                mstb:tbgFlow="false"
+                mstb:tbgMaxSelect="1"
+                mstb:tbgRowSpacing="8dp">
 
 
-        </com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
+            </com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/lightGrey"
+            android:orientation="vertical">
+
+            <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
+                android:id="@+id/tbgAnwesend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:paddingLeft="7dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                mstb:tbgChildSpacing="3dp"
+                mstb:tbgChildSpacingForLastRow="align"
+                mstb:tbgFlow="false"
+                mstb:tbgMaxSelect="1"
+                mstb:tbgRowSpacing="8dp">
+
+
+            </com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
+
+            <EditText
+                android:id="@+id/editText9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:imeOptions="actionDone"
+                android:inputType="textPersonName"
+                android:paddingLeft="7dp"
+                android:paddingRight="7dp"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/lightGrey"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:weightSum="20">
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:paddingLeft="8dp"
+                android:text="@string/L"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/editText10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="7"
+                android:imeOptions="actionDone"
+                android:inputType="textPersonName"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:paddingLeft="10dp"
+                android:text="@string/F"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/editText11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="7"
+                android:imeOptions="actionDone"
+                android:inputType="textPersonName"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:paddingLeft="10dp"
+                android:text="@string/H1"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/editText12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="7"
+                android:imeOptions="actionDone"
+                android:inputType="textPersonName"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:paddingLeft="10dp"
+                android:text="@string/H2"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/editText13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="7"
+                android:imeOptions="actionDone"
+                android:inputType="textPersonName"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/lightGrey"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:weightSum="10">
+
+            <TextView
+                android:id="@+id/textView35"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/carNb"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/editText14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:ems="6"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/textView36"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:paddingLeft="15dp"
+                android:text="@string/kmDeparture"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/editText15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:ems="6"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/textView37"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:paddingLeft="15dp"
+                android:text="@string/kmArrival"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/editText16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:ems="6"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/lightGrey"
+            android:orientation="vertical"
+            android:paddingLeft="7dp"
+            android:paddingBottom="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/textView41"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:text="@string/patient"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/textView42"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.4"
+                    android:text="Noa Marti; Korngasse 25; 2502 Biel; 079 999 99 99; M; 04.12.1981"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/textView39"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:text="@string/rechnung"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/textView40"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.4"
+                    android:text="@string/patient"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/textView43"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:text="@string/reason"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/textView44"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.4"
+                    android:text="@string/reasonAccident"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/textView45"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:text="@string/anamnese"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/textView46"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.4"
+                    android:text="@string/anamnesisDescr"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/textView47"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:text="@string/verdacht"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/textView48"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.4"
+                    android:text="@string/suspicionDescr"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/textView49"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:text="@string/naca"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/textView50"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.4"
+                    android:text="@string/three"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/textView51"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:text="@string/gsc"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/textView52"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.4"
+                    android:text="@string/GCSdescr"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/textView53"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:text="@string/pupillen"
+                    android:textColor="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:id="@+id/textView54"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/pupilsDescr1"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/textView38"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/pupilsDescr2"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/textView55"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/pupilsDescr3"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/textView56"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:text="@string/material"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/textView57"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.4"
+                    android:text="@string/materialDescr"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/textView58"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:text="@string/submittedMaterial"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/textView59"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.4"
+                    android:text="@string/submittedMaterialDescr"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/textView60"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:text="@string/positioning"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/textView61"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.4"
+                    android:text="@string/positioningDescr"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+        </LinearLayout>
+
     </LinearLayout>
+
 </FrameLayout>
