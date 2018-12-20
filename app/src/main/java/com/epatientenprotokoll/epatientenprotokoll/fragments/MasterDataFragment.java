@@ -4,7 +4,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,6 +23,8 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ToggleButton;
 
 import com.epatientenprotokoll.epatientenprotokoll.R;
@@ -68,12 +74,12 @@ public class MasterDataFragment extends Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         return inflater.inflate(R.layout.fragment_master_data, container, false);
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+
         // Assigns all values to view
         //mstbOperation = getView().findViewById(R.id.mstb_multi_id);
         //mstbAccident = getView().findViewById(R.id.mstb_multi_id2);
@@ -175,6 +181,5 @@ public class MasterDataFragment extends Fragment{
                 Log.d(TAG, "PatientBirthdate: " + patientBirthdate);
             }
         });
-
     }
 }

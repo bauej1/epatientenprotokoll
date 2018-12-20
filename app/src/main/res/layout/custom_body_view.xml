@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:mstb="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="100">
+
+    <ImageView
+        android:id="@+id/imageBody"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="90"
+        app:srcCompat="@drawable/body" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginRight="5dp"
+        android:layout_weight="10"
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <ImageButton
+            android:id="@+id/ibTrauma"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:layout_weight="33.3"
+            android:background="@color/colorAccent"
+            android:padding="5dp"
+            app:srcCompat="@drawable/traumaoval"/>
+
+        <ImageButton
+            android:id="@+id/ibBroken"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:layout_weight="33.3"
+            android:background="@color/colorAccent"
+            android:padding="5dp"
+            app:srcCompat="@drawable/paincross"/>
+
+        <ImageButton
+            android:id="@+id/ibPain"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="33.3"
+            android:background="@color/colorAccent"
+            android:padding="5dp"
+            app:srcCompat="@drawable/brokenlines"/>
+    </LinearLayout>
+
+</LinearLayout>

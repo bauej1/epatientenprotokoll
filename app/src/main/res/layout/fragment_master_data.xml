@@ -279,28 +279,43 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@color/lightGrey"
-            android:orientation="vertical"
-            android:paddingLeft="7dp"
-            android:paddingBottom="7dp">
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="100">
 
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/anamnese"
-                android:textColor="@color/black"
-                android:textSize="18dp" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_weight="50"
+                android:background="@color/lightGrey"
+                android:orientation="vertical"
+                android:paddingLeft="7dp"
+                android:paddingBottom="7dp">
 
-            <EditText
-                android:id="@+id/etAnamnese"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textMultiLine|textPersonName"
-                android:textSize="14dp" />
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/anamnese"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <EditText
+                    android:id="@+id/etAnamnese"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textMultiLine|textPersonName"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
+
+            <com.epatientenprotokoll.epatientenprotokoll.activities.Body
+                android:id="@+id/body"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="50" />
         </LinearLayout>
 
     </LinearLayout>
