@@ -75,6 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:ems="10"
+                android:imeOptions="actionDone"
                 android:inputType="textCapWords|textPersonName"
                 android:textSize="14dp" />
 
@@ -92,6 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:ems="10"
+                android:imeOptions="actionDone"
                 android:inputType="textCapWords"
                 android:textSize="14dp" />
 
@@ -114,10 +116,11 @@
                 android:textSize="14dp" />
 
             <EditText
-                android:id="@+id/editText3"
+                android:id="@+id/etStreet"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:ems="10"
+                android:imeOptions="actionDone"
                 android:inputType="textCapWords"
                 android:textSize="14sp" />
 
@@ -131,10 +134,11 @@
                 android:textSize="14dp" />
 
             <EditText
-                android:id="@+id/editText6"
+                android:id="@+id/etPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:ems="10"
+                android:imeOptions="actionDone"
                 android:inputType="number"
                 android:textSize="14dp" />
 
@@ -158,10 +162,11 @@
                 android:textSize="14dp" />
 
             <EditText
-                android:id="@+id/editText7"
+                android:id="@+id/etPLZ"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:ems="10"
+                android:imeOptions="actionDone"
                 android:inputType="number|phone"
                 android:textSize="14dp" />
 
@@ -175,10 +180,11 @@
                 android:textSize="14dp" />
 
             <EditText
-                android:id="@+id/editText8"
+                android:id="@+id/etPlace"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:ems="10"
+                android:imeOptions="actionDone"
                 android:inputType="textPersonName"
                 android:textSize="14dp" />
 
@@ -202,10 +208,11 @@
                 android:textSize="14dp" />
 
             <EditText
-                android:id="@+id/editText4"
+                android:id="@+id/etEinsatzort"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:ems="10"
+                android:imeOptions="actionDone"
                 android:inputType="textPersonName"
                 android:textSize="14dp" />
 
@@ -219,10 +226,11 @@
                 android:textSize="14dp" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/etZielort"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:ems="10"
+                android:imeOptions="actionDone"
                 android:inputType="textCapWords"
                 android:textSize="14dp" />
         </LinearLayout>
@@ -249,6 +257,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:ems="10"
+                android:imeOptions="actionDone"
                 android:inputType="textCapWords"
                 android:textSize="14dp" />
         </LinearLayout>
@@ -299,6 +308,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:imeOptions="actionDone"
                 android:inputType="textMultiLine|textPersonName"
                 android:textSize="14dp" />
         </LinearLayout>

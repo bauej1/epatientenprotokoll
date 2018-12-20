@@ -63,6 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:imeOptions="actionDone"
                 android:inputType="textPersonName"
                 android:paddingLeft="7dp"
                 android:paddingRight="7dp"
@@ -93,6 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="7"
+                android:imeOptions="actionDone"
                 android:inputType="textPersonName"
                 android:textSize="14dp" />
 
@@ -111,6 +113,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="7"
+                android:imeOptions="actionDone"
                 android:inputType="textPersonName"
                 android:textSize="14dp" />
 
@@ -129,6 +132,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="7"
+                android:imeOptions="actionDone"
                 android:inputType="textPersonName"
                 android:textSize="14dp" />
 
@@ -147,6 +151,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="7"
+                android:imeOptions="actionDone"
                 android:inputType="textPersonName"
                 android:textSize="14dp" />
         </LinearLayout>
@@ -175,6 +180,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:ems="6"
+                android:imeOptions="actionDone"
                 android:inputType="number"
                 android:textColor="@color/black"
                 android:textSize="14dp" />
@@ -195,6 +201,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:ems="6"
+                android:imeOptions="actionDone"
                 android:inputType="number"
                 android:textColor="@color/black"
                 android:textSize="14dp" />
@@ -215,9 +222,212 @@
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:ems="6"
+                android:imeOptions="actionDone"
                 android:inputType="number"
                 android:textColor="@color/black"
                 android:textSize="14dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/lightGrey"
+            android:orientation="vertical"
+            android:paddingLeft="7dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <TextView
+                    android:id="@+id/textView41"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/patient"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/textView42"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="Noa Marti; Korngasse 25; 2502 Biel; 079 999 99 99; M; 04.12.1981"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/textView39"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/rechnung"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/textView40"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Patient"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/textView43"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Grund"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/textView44"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Unfall"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/textView45"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/anamnese"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/textView46"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="XXXXXX"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/textView47"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/verdacht"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/textView48"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Schädel-Hirn-Trauma"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/textView49"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/naca"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/textView50"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="3"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/textView51"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/gsc"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/textView52"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="15 / 11 / 11"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/textView53"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/pupillen"
+                    android:textColor="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView54"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="13:15 li klein +, re klein +"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>

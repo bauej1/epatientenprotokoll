@@ -1,16 +1,14 @@
 package com.epatientenprotokoll.epatientenprotokoll.activities;
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextClock;
 import android.widget.TextView;
 
-import com.epatientenprotokoll.epatientenprotokoll.LanguageHelper;
+import com.epatientenprotokoll.epatientenprotokoll.components.LanguageHelper;
 import com.epatientenprotokoll.epatientenprotokoll.R;
 
 import org.honorato.multistatetogglebutton.MultiStateToggleButton;

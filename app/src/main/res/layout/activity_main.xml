@@ -226,11 +226,13 @@
                     android:layout_height="0dp"
                     android:layout_weight="30"
                     android:background="@color/colorAccent"
+                    android:drawableStart="@drawable/patient"
+                    android:paddingLeft="5dp"
                     android:textColor="@color/white"
                     android:textColorHint="@color/colorAccent"
                     android:textColorLink="@color/black"
-                    android:textOff="@string/patient"
-                    android:textOn="@string/patient" />
+                    android:textOff=""
+                    android:textOn="" />
 
                 <ToggleButton
                     android:id="@+id/tbStatus"
@@ -239,10 +241,11 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="30"
                     android:background="@color/colorAccent"
-                    android:text="ToggleButton"
+                    android:drawableStart="@drawable/documentation"
+                    android:paddingLeft="5dp"
                     android:textColor="@color/white"
-                    android:textOff="@string/status"
-                    android:textOn="@string/status" />
+                    android:textOff=""
+                    android:textOn="" />
 
                 <ToggleButton
                     android:id="@+id/tbMaterial"
@@ -251,8 +254,11 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="30"
                     android:background="@color/colorAccent"
-                    android:text="ToggleButton"
-                    android:textColor="@color/white" />
+                    android:drawableStart="@drawable/material"
+                    android:paddingLeft="6dp"
+                    android:textColor="@color/white"
+                    android:textOff=""
+                    android:textOn="" />
 
                 <ToggleButton
                     android:id="@+id/tbFinish"
@@ -261,8 +267,12 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="10"
                     android:background="@color/colorAccent"
+                    android:drawableStart="@drawable/next"
+                    android:paddingLeft="5dp"
                     android:text="ToggleButton"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:textOff=""
+                    android:textOn="" />
             </LinearLayout>
         </LinearLayout>
 

@@ -47,8 +47,6 @@ public class MasterDataFragment extends Fragment{
     // Sets the date format
     private static final String DATE_FORMAT = "dd.MM.yyyy";
 
-    MultiStateToggleButton mstbOperation;
-    MultiStateToggleButton mstbAccident;
     EditText etName;
     EditText etLastname;
     EditText etAnamnesis;
@@ -87,9 +85,6 @@ public class MasterDataFragment extends Fragment{
         language = getView().findViewById(R.id.language);
         gender = getView().findViewById(R.id.gender);
         mainActivity = (MainActivity) getActivity();
-
-        etAnamnesis.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        etAnamnesis.setRawInputType(InputType.TYPE_CLASS_TEXT);
 
         for (String text : languageArray){
             LabelToggle toggle = new LabelToggle(getActivity());
