@@ -15,7 +15,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="53dp"
+            android:layout_height="53.5dp"
             android:layout_weight="0"
             android:orientation="horizontal"
             android:weightSum="100">
@@ -170,7 +170,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="10"
                 android:background="@color/colorAccent"
-                android:text="A1"
+                android:text="Einsatz"
                 android:textColor="@color/white"
                 android:textColorLink="@color/colorAccent" />
 
@@ -182,7 +182,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_weight="10"
                 android:background="@color/colorAccent"
-                android:text="B"
+                android:text="Spital"
                 android:textColor="@color/white" />
 
             <ImageButton
