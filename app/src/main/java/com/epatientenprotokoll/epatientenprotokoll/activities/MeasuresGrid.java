@@ -122,7 +122,6 @@ public class MeasuresGrid extends View {
 
         drawGrid(canvas);
         drawCells(canvas);
-        //drawVentilation(canvas);
     }
 
     private void drawGrid(Canvas canvas) {
@@ -140,21 +139,72 @@ public class MeasuresGrid extends View {
                 if(table[row][column] instanceof ActionMeasurement){                                                        //Action Measurements
 
                     if(table[row][column].isMultiMeasure()){
+
                         if(table[row][column].getId() == 1){
-                            drawVentilation(canvas, table[row][column].getX1(), table[row][column].getX2(), table[row][column].getY1());
+
+                            if(table[row][column].getX2() == 0) {
+                                return;
+                            }
+
+                            System.out.println("row : " + row + " column: " + column);
+                            boolean upwards = true;
+
+                            //Start-Bullet
+                            canvas.drawCircle(getWidth() / getColumnCount() * table[row][column].getX1(), getHeight() / getRowCount() * (upwards ? row : row + 1), 8, paint);
+
+                            //Ventilation-Line
+
+                            System.out.println("TEST: " +table[row][column].getX1() + " " + table[row][column].getX2() );
+                            for(int i = table[row][column].getX1(); i < table[row][column].getX2(); ++i) {
+                                int startX = getWidth() / getColumnCount() * i;
+                                int endX = getWidth() / getColumnCount() * (i + 1);
+                                int startY = getHeight() / getRowCount() * (upwards ? row : row + 1);
+                                int endY = getHeight() / getRowCount() * (upwards ? row + 1 : row);
+                                canvas.drawLine(startX, startY, endX, endY, paint);
+
+                                upwards = !upwards;
+                            }
+
+                            //End-Bullet
+                            canvas.drawCircle(getWidth() / getColumnCount() * table[row][column].getX2(), getHeight() / getRowCount() * (upwards ? row : row + 1), 8, paint);
+
+                            //drawVentilation(canvas, table[row][column].getX1(), table[row][column].getX2(), table[row][column].getY1());
                         } else {
-                            drawDragLine(canvas, table[row][column]);
+                            Measurement m = table[row][column];
+                            Bitmap bitmap;
+                            Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(), R.drawable.arrowdown);
+                            boolean bloodPressureActive = false;
+                            int columnStart = m.getX1();
+                            int columnEnd = m.getX2();
+                            int rowStart = m.getY1();
+                            int rowEnd = m.getY2();
+
+                            switch(m.getId()){
+                                case 6: //heart massage
+                                    bitmap = BitmapFactory.decodeResource(getResources(), (int)m.getStoredValue());
+                                    break;
+                                case 7: //blood pressure
+                                    bloodPressureActive = true;
+                                    bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.arrowup);
+                                    break;
+                                default:
+                                    bitmap = null;
+                            }
+
+                            if(bitmap != null){
+                                if(bloodPressureActive){
+                                    canvas.drawBitmap(bitmap,getWidth() / getColumnCount() * columnStart,  getHeight() / getRowCount() * rowStart, paint);
+                                    canvas.drawBitmap(bitmap2, getWidth() / getColumnCount() * columnEnd, getHeight() / getRowCount() * rowEnd, paint);
+                                } else {
+                                    canvas.drawBitmap(bitmap,getWidth() / getColumnCount() * columnStart,  getHeight() / getRowCount() * rowStart, paint);
+                                    canvas.drawBitmap(bitmap, getWidth() / getColumnCount() * columnEnd, getHeight() / getRowCount() * rowEnd, paint);
+                                }
+                            }
+                            //drawDragLine(canvas, table[row][column]);
                         }
                     } else {
-//                        boolean overStepDrawing = false;
                         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), (int)table[row][column].getStoredValue());
-
-//                        if(Tool.getInstance().getCurrentTool().getId() == 2 && checkIfIntubated() || Tool.getInstance().getCurrentTool().getId() == 3 && !checkIfIntubated()) {
-//                            overStepDrawing = true;
-//                        }
-//                        if(!overStepDrawing){
                             if(bitmap != null) canvas.drawBitmap(bitmap, x, y, paint);
-//                        }
                     }
 
                 } else if(table[row][column] instanceof ValueMeasurement) {                                                //Value Measurements
@@ -172,6 +222,7 @@ public class MeasuresGrid extends View {
     }
 
     private void drawVentilation(Canvas canvas, int columnStart, int columnEnd, int row) {
+
         if(columnEnd == 0) {
             return;
         }
@@ -294,10 +345,6 @@ public class MeasuresGrid extends View {
         return maxYValue - (row * 10) + "";
     }
 
-    private String getXGridValues(){
-        return "";
-    }
-
     /**
      * Draws all horizontal lines in the grid.
      * @param canvas
@@ -314,7 +361,6 @@ public class MeasuresGrid extends View {
                 paint.setStrokeWidth(2f);
             }
             canvas.drawLine(getHeight() / getRowCount() * 2, y, getWidth(), y, paint);
-            //canvas.drawLine(0, y, getWidth(), y, paint);
         }
     }
 
@@ -328,16 +374,4 @@ public class MeasuresGrid extends View {
             canvas.drawLine(x, 0, x, getHeight(), paint);
         }
     }
-
-//    private boolean checkIfIntubated(){
-//        return Tool.getInstance().getIntubationStatus() ? true : false;
-//    }
-//
-//    private void setIntubationStatus(){
-//        if(Tool.getInstance().getCurrentTool().getId() == 2){
-//            Tool.getInstance().setIntubationStatus(true);
-//        } else if (Tool.getInstance().getCurrentTool().getId() == 3){
-//            Tool.getInstance().setIntubationStatus(false);
-//        }
-//    }
 }

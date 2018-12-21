@@ -410,7 +410,22 @@ public class MainActivity extends AppCompatActivity {
         tool.getCurrentTool().setX2(columnEnd);
         tool.getCurrentTool().setY2(rowEnd);
 
-        table[row][columnStart] = tool.getCurrentTool();
+        Measurement m;
+
+        switch(tool.getCurrentTool().getId()){
+            case 1:
+                m = new ActionMeasurement(tool.getCurrentTool().getId(), tool.getCurrentTool().getOrigin(), tool.getCurrentTool().isMultiMeasure(), 1, tool.getCurrentTool().getX1(), tool.getCurrentTool().getY1(), tool.getCurrentTool().getX2(), tool.getCurrentTool().getY2());
+                break;
+            case 6:
+                m = new ActionMeasurement(tool.getCurrentTool().getId(), tool.getCurrentTool().getOrigin(), tool.getCurrentTool().isMultiMeasure(), R.drawable.heart_massage, tool.getCurrentTool().getX1(), tool.getCurrentTool().getY1(), tool.getCurrentTool().getX2(), tool.getCurrentTool().getY2());
+                break;
+            case 7:
+                m = new ActionMeasurement(tool.getCurrentTool().getId(), tool.getCurrentTool().getOrigin(), tool.getCurrentTool().isMultiMeasure(), R.drawable.bloodpressure, tool.getCurrentTool().getX1(), tool.getCurrentTool().getY1(), tool.getCurrentTool().getX2(), tool.getCurrentTool().getY2());
+                break;
+            default:
+                m = null;
+        }
+        table[rowStart][columnStart] = m;
 
         setMeasuresGrid();
     }
@@ -425,8 +440,8 @@ public class MainActivity extends AppCompatActivity {
      * Actualizes the data table behind the grid.
      */
     private void setMeasuresGrid() {
-        measuresGrid.setTable(table);
         measuresGrid.setVentilation(ventilationStart, ventilationEnd, row, rowEnd);
+        measuresGrid.setTable(table);
     }
 
     /**
