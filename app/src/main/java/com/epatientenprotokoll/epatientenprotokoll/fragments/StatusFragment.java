@@ -199,24 +199,7 @@ public class StatusFragment extends Fragment{
         imageView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                Drawable drawable = ((ImageView) v).getDrawable();
-                Bitmap bitmap = ((BitmapDrawable)drawable).getBitmap();
-
-                Matrix inverse = new Matrix();
-                ((ImageView) v).getImageMatrix().invert(inverse);
-                float[] touchPoint = new float[]{event.getX(), event.getY()};
-
-                inverse.mapPoints(touchPoint);
-                int xCoord = (int) touchPoint[0];
-                int yCoord = (int) touchPoint[1];
-                int touchedRGB = bitmap.getPixel(xCoord, yCoord);
-                int alpha = Color.alpha(touchedRGB);
-                int red = Color.red(touchedRGB);
-                int green = Color.green(touchedRGB);
-                int blue = Color.blue(touchedRGB);
-                Log.d("Colors: ", alpha + " | " + red + " | " + green + " | " + blue + " | ");
-
-                changeEye(alpha, imageView);
+                createEyeAnimation(v, event, imageView);
                 return true;
             }
         });
@@ -224,27 +207,36 @@ public class StatusFragment extends Fragment{
         imageView2.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                Drawable drawable = ((ImageView) v).getDrawable();
-                Bitmap bitmap = ((BitmapDrawable)drawable).getBitmap();
-
-                Matrix inverse = new Matrix();
-                ((ImageView) v).getImageMatrix().invert(inverse);
-                float[] touchPoint = new float[]{event.getX(), event.getY()};
-
-                inverse.mapPoints(touchPoint);
-                int xCoord = (int) touchPoint[0];
-                int yCoord = (int) touchPoint[1];
-                int touchedRGB = bitmap.getPixel(xCoord, yCoord);
-                int alpha = Color.alpha(touchedRGB);
-                int red = Color.red(touchedRGB);
-                int green = Color.green(touchedRGB);
-                int blue = Color.blue(touchedRGB);
-                Log.d("Colors: ", alpha + " | " + red + " | " + green + " | " + blue + " | ");
-
-                changeEye(alpha, imageView2);
+                createEyeAnimation(v, event, imageView2);
                 return true;
             }
         });
+    }
+
+    private void createEyeAnimation(View v, MotionEvent event, ImageView imageView){
+        Drawable drawable = ((ImageView) v).getDrawable();
+        Bitmap bitmap = ((BitmapDrawable)drawable).getBitmap();
+
+        Matrix inverse = new Matrix();
+        ((ImageView) v).getImageMatrix().invert(inverse);
+        float[] touchPoint = new float[]{event.getX(), event.getY()};
+
+        inverse.mapPoints(touchPoint);
+        int xCoord = (int) touchPoint[0];
+        int yCoord = (int) touchPoint[1];
+
+        if(xCoord > bitmap.getWidth() || xCoord < 0 || yCoord > bitmap.getHeight() || yCoord < 0){
+            return;
+        }
+
+        int touchedRGB = bitmap.getPixel(xCoord, yCoord);
+        int alpha = Color.alpha(touchedRGB);
+        int red = Color.red(touchedRGB);
+        int green = Color.green(touchedRGB);
+        int blue = Color.blue(touchedRGB);
+        Log.d("Colors: ", alpha + " | " + red + " | " + green + " | " + blue + " | ");
+
+        changeEye(alpha, imageView);
     }
 
     private void changeEye(int alpha, ImageView iv){
