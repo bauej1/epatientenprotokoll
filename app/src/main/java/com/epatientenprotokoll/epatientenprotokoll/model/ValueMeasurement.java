@@ -7,6 +7,7 @@ public class ValueMeasurement extends Measurement {
 
     public ValueMeasurement(int id, int origin, boolean multimeasure, double value, String unit, int x1, int y1, int x2, int y2){
         super(id, origin, multimeasure, x1, y1, x2, y2);
+        this.value = value;
         this.unit = unit;
     }
 

@@ -386,7 +386,14 @@ public class MainActivity extends AppCompatActivity {
     private void onMeasuresGridClick(int row, int column) {
         System.out.println("click-event--> clicked: " + row + " " + column);
 
-        table[row][column] = tool.getCurrentTool();
+        if(tool.getCurrentTool().getOrigin() == 2){
+            double value = (double) tool.getCurrentTool().getStoredValue();
+            System.out.println("value : " + value);
+            Measurement m = new ValueMeasurement(tool.getCurrentTool().getId(), tool.getCurrentTool().getOrigin(), tool.getCurrentTool().isMultiMeasure(), value, tool.getCurrentTool().getUnit(), tool.getCurrentTool().getX1(), tool.getCurrentTool().getY1(), tool.getCurrentTool().getX2(), tool.getCurrentTool().getY2());
+            table[row][column] = m;
+        } else {
+            table[row][column] = tool.getCurrentTool();
+        }
         setMeasuresGrid();
     }
 
