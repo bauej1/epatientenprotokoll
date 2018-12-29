@@ -40,7 +40,7 @@
             android:layout_weight="33.3"
             android:background="@color/colorAccent"
             android:padding="5dp"
-            app:srcCompat="@drawable/paincross"/>
+            app:srcCompat="@drawable/brokenlines" />
 
         <ImageButton
             android:id="@+id/ibPain"
@@ -49,7 +49,7 @@
             android:layout_weight="33.3"
             android:background="@color/colorAccent"
             android:padding="5dp"
-            app:srcCompat="@drawable/brokenlines"/>
+            app:srcCompat="@drawable/paincross" />
     </LinearLayout>
 
 </LinearLayout>

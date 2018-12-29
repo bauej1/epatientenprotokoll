@@ -59,15 +59,36 @@ public class Body extends LinearLayout {
         paint.setAntiAlias(true);
 
         ibBroken.setOnClickListener(event -> {
-            setMarkerType(ibBroken.getDrawable());
+
+            System.out.println("JAN: Broken");
+
+            ibBroken.setBackgroundResource(R.color.darkGrey);
+            ibPain.setBackgroundResource(R.color.colorAccent);
+            ibTrauma.setBackgroundResource(R.color.colorAccent);
+
+            setMarkerType(getResources().getDrawable( R.drawable.brokenlines_marker));
         });
 
         ibPain.setOnClickListener(event -> {
-            setMarkerType(ibPain.getDrawable());
+
+            System.out.println("JAN: Pain");
+
+            ibPain.setBackgroundResource(R.color.darkGrey);
+            ibBroken.setBackgroundResource(R.color.colorAccent);
+            ibTrauma.setBackgroundResource(R.color.colorAccent);
+
+            setMarkerType(getResources().getDrawable( R.drawable.paincross_marker));
         });
 
         ibTrauma.setOnClickListener(event -> {
-            setMarkerType(ibTrauma.getDrawable());
+
+            System.out.println("JAN: Trauma");
+
+            ibTrauma.setBackgroundResource(R.color.darkGrey);
+            ibBroken.setBackgroundResource(R.color.colorAccent);
+            ibPain.setBackgroundResource(R.color.colorAccent);
+
+            setMarkerType(getResources().getDrawable( R.drawable.traumaoval_marker));
         });
 
         body.setOnTouchListener((view, motionEvent) -> {
