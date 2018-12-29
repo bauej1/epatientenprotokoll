@@ -119,7 +119,7 @@ public class Body extends LinearLayout {
 
         for(Marker m : markers){
             Bitmap symbol = ((BitmapDrawable)m.getMarker()).getBitmap();
-            tempCanvas.drawBitmap(symbol, (float) m.getX(), (float) m.getY(), paint);
+            tempCanvas.drawBitmap(symbol, (float) m.getX() - symbol.getWidth() / 2, (float) m.getY() - symbol.getHeight() / 2, paint);
         }
         body.setImageBitmap(tempBitmap);
     }
