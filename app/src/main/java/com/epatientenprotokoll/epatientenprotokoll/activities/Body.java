@@ -83,6 +83,10 @@ public class Body extends LinearLayout {
 
     private void createNewMarker(int x, int y){
 
+        if(currentMarker == null){
+            return;
+        }
+
         System.out.println("Body: Clicked on X: " + x + " Y: " + y);
 
         Marker newMark = new Marker(currentId++, x, y, currentMarker);
