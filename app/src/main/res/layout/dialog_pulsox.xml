@@ -42,6 +42,13 @@
                 android:text="@string/percent"
                 android:textAlignment="center"
                 android:textSize="45sp" />
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="@string/child" />
         </LinearLayout>
 
         <LinearLayout
@@ -86,13 +93,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Cancel" />
+            android:text="@string/cancel" />
 
         <Button
             android:id="@+id/bSubmit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Submit" />
+            android:text="@string/submit" />
     </LinearLayout>
 </LinearLayout>
