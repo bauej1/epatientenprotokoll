@@ -43,6 +43,7 @@ public class FinalFragment extends Fragment {
             tbgUrgency.addView(toggle);
         }
 
+        tbgPresent.setMaxSelectCount(7);
         for (String text : presentArray) {
             LabelToggle toggle = new LabelToggle(getActivity());
             toggle.setText(text);
