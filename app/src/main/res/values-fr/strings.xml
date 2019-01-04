@@ -248,4 +248,11 @@
     <string name="submittedMaterialDescr">Affaires personnelles, Objet de valeurs</string>
     <string name="positioning">Position</string>
     <string name="positioningDescr">Couché, haut du corps coudé</string>
+
+    <string name="cancel">Avorter</string>
+    <string name="submit">Confirmer</string>
+
+    <string name="child">Enfant</string>
+    <string name="capillar">Capillaire</string>
+    <string name="venous">Veineux</string>
 </resources>

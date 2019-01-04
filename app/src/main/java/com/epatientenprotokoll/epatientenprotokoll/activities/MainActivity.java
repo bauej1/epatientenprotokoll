@@ -2,6 +2,7 @@ package com.epatientenprotokoll.epatientenprotokoll.activities;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -77,11 +78,15 @@ public class MainActivity extends AppCompatActivity {
     //DrugToolBox
     private Toolbar drugChooser;
 
+    private boolean nameError;
+    private boolean lastnameError;
+
     /**
      * Sets the inserted patient name from MasterDataFragment.
      * @param name
      */
-    public void setPatientName(String name){
+    public void setPatientName(String name, boolean error){
+        this.nameError = error;
         this.name = name;
         setPatientInformation();
     }
@@ -90,7 +95,8 @@ public class MainActivity extends AppCompatActivity {
      * Sets the inserted patient lastname from MasterDataFragment.
      * @param lastname
      */
-    public void setPatientLastname(String lastname){
+    public void setPatientLastname(String lastname, boolean error){
+        this.lastnameError = error;
         this.lastname = lastname;
         setPatientInformation();
     }
@@ -109,6 +115,13 @@ public class MainActivity extends AppCompatActivity {
      */
     public void setPatientInformation(){
         patientInformation = findViewById(R.id.patientInformation);
+
+        if(lastnameError || nameError){
+            patientInformation.setTextColor(Color.RED);
+        } else {
+            patientInformation.setTextColor(Color.WHITE);
+        }
+
         patientInformation.setText(lastname + " " + name + ", " + birthdate);
     }
 

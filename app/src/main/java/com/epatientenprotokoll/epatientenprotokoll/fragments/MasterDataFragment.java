@@ -141,8 +141,15 @@ public class MasterDataFragment extends Fragment{
             public void afterTextChanged(Editable s) {
                 // Gets patient name to string
                 patientName = etName.getText().toString();
-                // Calls setPatientName method from MainActivity to pass value to MainActivity
-                ((MainActivity) mainActivity).setPatientName(patientName);
+                for(int i = 0; i < patientName.length(); ++i){
+                    String c = patientName.charAt(i) + "";
+                    if(!c.matches("-?\\d+")){
+                        // Calls setPatientName method from MainActivity to pass value to MainActivity
+                        ((MainActivity) mainActivity).setPatientName(patientName, false);
+                    } else {
+                        ((MainActivity) mainActivity).setPatientName(patientName, true);
+                    }
+                }
                 Log.d(TAG, "Patientname: " + patientName);
             }
         });
@@ -160,8 +167,15 @@ public class MasterDataFragment extends Fragment{
             public void afterTextChanged(Editable s) {
                 // Gets patient lastname to string
                 patientLastname = etLastname.getText().toString();
-                // Calls setPatientLastname from MainActivity to pass value to MainActivity
-                ((MainActivity) mainActivity).setPatientLastname(patientLastname);
+                for(int i = 0; i < patientLastname.length(); ++i){
+                    String c = patientLastname.charAt(i) + "";
+                    if(!c.matches("-?\\d+")){
+                        // Calls setPatientLastname method from MainActivity to pass value to MainActivity
+                        ((MainActivity) mainActivity).setPatientLastname(patientLastname, false);
+                    } else {
+                        ((MainActivity) mainActivity).setPatientLastname(patientLastname, true);
+                    }
+                }
                 Log.d(TAG, "PatientLastname: " + patientLastname);
             }
         });

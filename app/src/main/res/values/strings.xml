@@ -249,4 +249,11 @@
     <string name="submittedMaterialDescr">Effekten, Wertsachen</string>
     <string name="positioning">Lagerung</string>
     <string name="positioningDescr">Liegend, Oberkörper angewinkelt</string>
+
+    <string name="cancel">Abbrechen</string>
+    <string name="submit">Bestätigen</string>
+
+    <string name="child">Kind</string>
+    <string name="capillar">Kapillar</string>
+    <string name="venous">Venös</string>
 </resources>
