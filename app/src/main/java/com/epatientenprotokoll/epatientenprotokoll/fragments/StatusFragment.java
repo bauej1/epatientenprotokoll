@@ -1,6 +1,5 @@
 package com.epatientenprotokoll.epatientenprotokoll.fragments;
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Matrix;
@@ -8,14 +7,12 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -38,24 +35,23 @@ import com.epatientenprotokoll.epatientenprotokoll.activities.MainActivity;
  */
 public class StatusFragment extends Fragment{
 
-    ImageButton suspected_information;
-    ImageButton naca_information;
-    EditText etSuspected;
-    EditText etNaca;
-    EditText timeEyes;
-    Button now;
+    private ImageButton suspected_information;
+    private ImageButton naca_information;
+    private EditText etSuspected;
+    private EditText etNaca;
+    private EditText timeEyes;
+    private Button now;
 
-    MultiSelectToggleGroup gcs1;
-    MultiSelectToggleGroup gcs2;
-    MultiSelectToggleGroup gcs3;
+    private MultiSelectToggleGroup gcs1;
+    private MultiSelectToggleGroup gcs2;
+    private MultiSelectToggleGroup gcs3;
 
+    private ToggleButton eyes1;
+    private ToggleButton eyes2;
+    private ToggleButton eyes3;
+    private ToggleButton eyes4;
 
-    ToggleButton eyes1;
-    ToggleButton eyes2;
-    ToggleButton eyes3;
-    ToggleButton eyes4;
-
-    RadioGroup toggleGroup;
+    private RadioGroup toggleGroup;
 
     private ImageView imageView;
     private ImageView imageView2;
@@ -213,6 +209,12 @@ public class StatusFragment extends Fragment{
         });
     }
 
+    /**
+     * This method creates the eye with 3 layers. It handles also the interaction with the user and calculates which eye layer he touched.
+     * @param v - the view
+     * @param event - the MotionEvent
+     * @param imageView - Which Imageview is touched
+     */
     private void createEyeAnimation(View v, MotionEvent event, ImageView imageView){
         Drawable drawable = ((ImageView) v).getDrawable();
         Bitmap bitmap = ((BitmapDrawable)drawable).getBitmap();
@@ -239,6 +241,11 @@ public class StatusFragment extends Fragment{
         changeEye(alpha, imageView);
     }
 
+    /**
+     * This method changes the layer queue of the eye when a specific layer is touched.
+     * @param alpha - opacity
+     * @param iv - imageView
+     */
     private void changeEye(int alpha, ImageView iv){
         switch (alpha) {
             case ALPHA__LEVEL_1:

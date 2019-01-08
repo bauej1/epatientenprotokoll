@@ -253,4 +253,6 @@
     <string name="child">Enfant</string>
     <string name="capillar">Capillaire</string>
     <string name="venous">Veineux</string>
+
+    <string name="gcsSum">GCS Somme:</string>
 </resources>

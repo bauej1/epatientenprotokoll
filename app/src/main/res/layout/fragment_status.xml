@@ -243,6 +243,28 @@
                         android:text="3"
                         mstb:tbgMarkerColor="@color/darkGrey" />
                 </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
+
+                <TextView
+                    android:id="@+id/labelGcsSum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="sans-serif-light"
+                    android:text="@string/gcsSum"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/gcsSum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_weight="1"
+                    android:text="0"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
             </LinearLayout>
 
             <LinearLayout
