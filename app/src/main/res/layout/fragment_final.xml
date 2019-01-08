@@ -29,8 +29,6 @@
                 mstb:tbgFlow="false"
                 mstb:tbgMaxSelect="1"
                 mstb:tbgRowSpacing="8dp">
-
-
             </com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
         </LinearLayout>
 

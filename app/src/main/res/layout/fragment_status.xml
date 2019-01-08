@@ -35,7 +35,7 @@
                 android:layout_weight="2.5"
                 android:ems="10"
                 android:imeOptions="actionDone"
-                android:inputType="number"
+                android:inputType="textCapWords"
                 android:textSize="14dp" />
 
             <ImageButton

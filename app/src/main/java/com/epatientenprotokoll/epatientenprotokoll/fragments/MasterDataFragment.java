@@ -92,6 +92,9 @@ public class MasterDataFragment extends Fragment{
         gender = getView().findViewById(R.id.gender);
         mainActivity = (MainActivity) getActivity();
 
+        etAnamnesis.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        etAnamnesis.setRawInputType(InputType.TYPE_CLASS_TEXT);
+
         for (String text : languageArray){
             LabelToggle toggle = new LabelToggle(getActivity());
             toggle.setText(text);

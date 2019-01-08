@@ -185,6 +185,8 @@
     <string name="mmol"> mmol/l</string>
     <string name="einsatzmeldung1">Trauma Extremität/RQW</string>
     <string name="einsatzmeldung2">Alter: 37; Männlich; Verletzung/RQW; unbekannt ob Arbeitsunfall. Verletzung am Kopf unklare Ursache. \nPolizei ist unterwegs. </string>
+    <string name="einsatzmeldung12">Bewusstlose Person</string>
+    <string name="einsatzmeldung22">Männliche bewusstlose Person. Erste Reanmationsversuche durch Passanten erfolglos.</string>
     <string-array name="lang_array">
         <item>Français</item>
         <item>Deutsch</item>
