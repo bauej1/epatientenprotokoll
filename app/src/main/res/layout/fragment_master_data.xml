@@ -321,7 +321,7 @@
 
             </LinearLayout>
 
-            <com.epatientenprotokoll.epatientenprotokoll.activities.Body
+            <com.epatientenprotokoll.epatientenprotokoll.components.Body
                 android:id="@+id/body"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"

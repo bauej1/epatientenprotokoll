@@ -1,4 +1,4 @@
-package com.epatientenprotokoll.epatientenprotokoll.activities;
+package com.epatientenprotokoll.epatientenprotokoll.components;
 
 import android.content.Context;
 import android.graphics.Canvas;

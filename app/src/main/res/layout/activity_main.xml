@@ -85,7 +85,7 @@
 
         </LinearLayout>
 
-        <com.epatientenprotokoll.epatientenprotokoll.activities.StaticTimeline
+        <com.epatientenprotokoll.epatientenprotokoll.components.StaticTimeline
             android:id="@+id/staticTimeline"
             android:layout_width="match_parent"
             android:layout_height="30dp" />
