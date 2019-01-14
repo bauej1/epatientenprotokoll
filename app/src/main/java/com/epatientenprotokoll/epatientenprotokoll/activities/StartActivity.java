@@ -22,13 +22,13 @@ import java.util.Locale;
 
 public class StartActivity extends AppCompatActivity {
 
-    TextView weekday;
-    TextView date;
-    TextClock actualTime;
-    ImageButton startProtocolButton;
-    MultiStateToggleButton languageToggleButton;
-    List<String> languageArray;
-    SimpleDateFormat dayFormat;
+   private TextView weekday;
+   private TextView date;
+   private TextClock actualTime;
+   private ImageButton startProtocolButton;
+   private MultiStateToggleButton languageToggleButton;
+   private List<String> languageArray;
+   private SimpleDateFormat dayFormat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){

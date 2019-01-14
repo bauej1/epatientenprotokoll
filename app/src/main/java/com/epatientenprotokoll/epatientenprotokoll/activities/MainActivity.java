@@ -37,34 +37,31 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
-    ToggleButton tbMasterData;
-    ToggleButton tbStatus;
-    ToggleButton tbMaterial;
-    ToggleButton tbFinish;
-    TextView tDate;
-    TextView tWeekday;
-    Button urgencyOne;
-    Button urgencyTwo;
-    ImageButton ibTime;
-    TextClock actualTime;
-    PopupWindow mpopup;
-    Context mConext;
-    LinearLayout vertLayout;
+    private ToggleButton tbMasterData;
+    private ToggleButton tbStatus;
+    private ToggleButton tbMaterial;
+    private ToggleButton tbFinish;
+    private TextView tDate;
+    private TextView tWeekday;
+    private Button urgencyOne;
+    private Button urgencyTwo;
+    private ImageButton ibTime;
+    private TextClock actualTime;
 
-    TextView patientInformation;
-    String name = "---";
-    String lastname = "";
-    String birthdate = "";
+    private TextView patientInformation;
+    private String name = "---";
+    private String lastname = "";
+    private String birthdate = "";
 
     //MeasuresGrid
     private MeasuresGrid measuresGrid;
-    private StaticTimeline staticTimeline;
     private Tool tool;
     private Measurement[][] table = new Measurement[25][15];
     private int ventilationStart;
     private int ventilationEnd;
     private int row;
     private int rowEnd;
+    private StaticTimeline staticTimeline;
 
     //Toolbox
     Toolbox toolbox;
@@ -147,19 +144,11 @@ public class MainActivity extends AppCompatActivity {
         urgencyOne = findViewById(R.id.bUrgency1);
         urgencyTwo = findViewById(R.id.bUrgency2);
         ibTime = findViewById(R.id.ibTime);
-        vertLayout = findViewById(R.id.verticalLayout);
         actualTime = findViewById(R.id.textClock);
 
         // Opens MasterDataFragment if Patient button is clicked
         tbMasterData.setOnClickListener(i -> {
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.layout_placeholder, new MasterDataFragment());
-            transaction.commit();
-            tbMasterData.setBackgroundResource(R.color.darkGrey);
-
-            tbStatus.setBackgroundResource(R.color.colorAccent);
-            tbMaterial.setBackgroundResource(R.color.colorAccent);
-            tbFinish.setBackgroundResource(R.color.colorAccent);
+            defaultFragmentOpen();
         });
 
         // Opens StatusFragment if Status button is clicked
@@ -351,7 +340,19 @@ public class MainActivity extends AppCompatActivity {
         initDrugToolChooser();
         initMeasuresGrid();
         initStaticTimeline();
+        defaultFragmentOpen();
     }
+
+    private void defaultFragmentOpen(){
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.layout_placeholder, new MasterDataFragment());
+        transaction.commit();
+        tbMasterData.setBackgroundResource(R.color.darkGrey);
+
+        tbStatus.setBackgroundResource(R.color.colorAccent);
+        tbMaterial.setBackgroundResource(R.color.colorAccent);
+        tbFinish.setBackgroundResource(R.color.colorAccent);
+    };
 
     /**
      * Initializes the grid for measurements and handels the onclick and ondrag-Listener for further actions.
