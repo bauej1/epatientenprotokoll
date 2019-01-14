@@ -19,6 +19,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.epatientenprotokoll.epatientenprotokoll.R;
@@ -40,6 +41,7 @@ public class StatusFragment extends Fragment{
     private EditText etSuspected;
     private EditText etNaca;
     private EditText timeEyes;
+    private TextView gcsSum;
     private Button now;
 
     private MultiSelectToggleGroup gcs1;
@@ -58,6 +60,8 @@ public class StatusFragment extends Fragment{
     private final int ALPHA__LEVEL_1 = 218;
     private final int ALPHA__LEVEL_2 = 158;
     private final int ALPHA__LEVEL_3 = 79;
+
+    private int uglyCounter = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -80,6 +84,7 @@ public class StatusFragment extends Fragment{
         eyes2 = getView().findViewById(R.id.tbEyes2);
         eyes3 = getView().findViewById(R.id.tbEyes3);
         eyes4 = getView().findViewById(R.id.tbEyes4);
+        gcsSum = getView().findViewById(R.id.gcsSum);
 
         imageView = getActivity().findViewById(R.id.imageView);
         imageView2 = getActivity().findViewById(R.id.imageView2);
@@ -205,6 +210,30 @@ public class StatusFragment extends Fragment{
             public boolean onTouch(View v, MotionEvent event) {
                 createEyeAnimation(v, event, imageView2);
                 return true;
+            }
+        });
+
+        gcs1.setOnCheckedChangeListener(new MultiSelectToggleGroup.OnCheckedStateChangeListener() {
+            @Override
+            public void onCheckedStateChanged(MultiSelectToggleGroup group, int checkedId, boolean isChecked) {
+                ++uglyCounter;
+            }
+        });
+
+        gcs2.setOnCheckedChangeListener(new MultiSelectToggleGroup.OnCheckedStateChangeListener() {
+            @Override
+            public void onCheckedStateChanged(MultiSelectToggleGroup group, int checkedId, boolean isChecked) {
+                ++uglyCounter;
+            }
+        });
+
+        gcs3.setOnCheckedChangeListener(new MultiSelectToggleGroup.OnCheckedStateChangeListener() {
+            @Override
+            public void onCheckedStateChanged(MultiSelectToggleGroup group, int checkedId, boolean isChecked) {
+                ++uglyCounter;
+                if(uglyCounter == 3) {
+                    gcsSum.setText(13 + "");
+                }
             }
         });
     }
