@@ -17,6 +17,9 @@ import com.epatientenprotokoll.epatientenprotokoll.model.Marker;
 
 import java.util.ArrayList;
 
+/**
+ * This Body is a specific implementation of a LinearLayout to represent the BodyMap during the anamnesis.
+ */
 public class Body extends LinearLayout {
 
     private Paint paint = new Paint();
@@ -41,6 +44,9 @@ public class Body extends LinearLayout {
         init();
     }
 
+    /**
+     * Initializes listener and controls.
+     */
     private void init() {
         setWillNotDraw(false);
 
@@ -59,9 +65,6 @@ public class Body extends LinearLayout {
         paint.setAntiAlias(true);
 
         ibBroken.setOnClickListener(event -> {
-
-            System.out.println("JAN: Broken");
-
             ibBroken.setBackgroundResource(R.color.darkGrey);
             ibPain.setBackgroundResource(R.color.colorAccent);
             ibTrauma.setBackgroundResource(R.color.colorAccent);
@@ -70,9 +73,6 @@ public class Body extends LinearLayout {
         });
 
         ibPain.setOnClickListener(event -> {
-
-            System.out.println("JAN: Pain");
-
             ibPain.setBackgroundResource(R.color.darkGrey);
             ibBroken.setBackgroundResource(R.color.colorAccent);
             ibTrauma.setBackgroundResource(R.color.colorAccent);
@@ -81,9 +81,6 @@ public class Body extends LinearLayout {
         });
 
         ibTrauma.setOnClickListener(event -> {
-
-            System.out.println("JAN: Trauma");
-
             ibTrauma.setBackgroundResource(R.color.darkGrey);
             ibBroken.setBackgroundResource(R.color.colorAccent);
             ibPain.setBackgroundResource(R.color.colorAccent);
@@ -102,6 +99,11 @@ public class Body extends LinearLayout {
         });
     }
 
+    /**
+     * Creates a new marker and add it to the markers array.
+     * @param x - Position X
+     * @param y - Position Y
+     */
     private void createNewMarker(int x, int y){
 
         if(currentMarker == null){
@@ -116,6 +118,10 @@ public class Body extends LinearLayout {
         invalidate();
     }
 
+    /**
+     * Sets the current chosen marker type.
+     * @param drawable - marker symbol
+     */
     private void setMarkerType(Drawable drawable){
         currentMarker = drawable;
     }
@@ -123,13 +129,13 @@ public class Body extends LinearLayout {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
-        System.out.println("Body: onDraw");
-
-        drawMarkers(canvas);
+        drawMarkers();
     }
 
-    private void drawMarkers(Canvas canvas){
+    /**
+     * Draws all markers who are set in the markers array.
+     */
+    private void drawMarkers(){
 
         Bitmap baseBitmap = ((BitmapDrawable)body.getDrawable()).getBitmap();                                       //Bitmap of body
         Bitmap tempBitmap = Bitmap.createBitmap(body.getWidth(), body.getHeight(), Bitmap.Config.ARGB_4444);        //Empty Bitmap with size of body image to fill with markers

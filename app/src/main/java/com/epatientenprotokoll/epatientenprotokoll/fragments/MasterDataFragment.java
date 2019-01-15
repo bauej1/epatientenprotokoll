@@ -1,15 +1,7 @@
 package com.epatientenprotokoll.epatientenprotokoll.fragments;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.drawable.BitmapDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -20,12 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ToggleButton;
 
 import com.epatientenprotokoll.epatientenprotokoll.R;
 import com.epatientenprotokoll.epatientenprotokoll.activities.MainActivity;
@@ -33,9 +20,6 @@ import com.mikhaellopez.lazydatepicker.LazyDatePicker;
 import com.nex3z.togglebuttongroup.MultiSelectToggleGroup;
 import com.nex3z.togglebuttongroup.button.LabelToggle;
 
-import org.honorato.multistatetogglebutton.MultiStateToggleButton;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -53,22 +37,21 @@ public class MasterDataFragment extends Fragment{
     // Sets the date format
     private static final String DATE_FORMAT = "dd.MM.yyyy";
 
-    EditText etName;
-    EditText etLastname;
-    EditText etAnamnesis;
-    LazyDatePicker birthday;
-    String patientName;
-    String patientLastname;
-    String patientBirthdate;
-    List<String> operationArray;
-    List<String> genderArray;
-    List<String> languageArray;
-    Activity mainActivity;
+    private EditText etName;
+    private EditText etLastname;
+    private EditText etAnamnesis;
+    private LazyDatePicker birthday;
+    private String patientName;
+    private String patientLastname;
+    private String patientBirthdate;
+    private List<String> operationArray;
+    private List<String> genderArray;
+    private List<String> languageArray;
+    private Activity mainActivity;
 
-    MultiSelectToggleGroup dummy;
-    MultiSelectToggleGroup gender;
-    MultiSelectToggleGroup language;
-
+    private MultiSelectToggleGroup dummy;
+    private MultiSelectToggleGroup gender;
+    private MultiSelectToggleGroup language;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -79,8 +62,6 @@ public class MasterDataFragment extends Fragment{
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
         // Assigns all values to view
-        //mstbOperation = getView().findViewById(R.id.mstb_multi_id);
-        //mstbAccident = getView().findViewById(R.id.mstb_multi_id2);
         etName = getView().findViewById(R.id.etName);
         etLastname = getView().findViewById(R.id.etLastname);
         etAnamnesis = getView().findViewById(R.id.etAnamnese);
@@ -90,7 +71,7 @@ public class MasterDataFragment extends Fragment{
         languageArray = Arrays.asList(getResources().getStringArray(R.array.language_array));
         language = getView().findViewById(R.id.language);
         gender = getView().findViewById(R.id.gender);
-        mainActivity = (MainActivity) getActivity();
+        mainActivity = getActivity();
 
         etAnamnesis.setImeOptions(EditorInfo.IME_ACTION_DONE);
         etAnamnesis.setRawInputType(InputType.TYPE_CLASS_TEXT);
@@ -153,7 +134,6 @@ public class MasterDataFragment extends Fragment{
                         ((MainActivity) mainActivity).setPatientName(patientName, true);
                     }
                 }
-                Log.d(TAG, "Patientname: " + patientName);
             }
         });
 
@@ -179,7 +159,6 @@ public class MasterDataFragment extends Fragment{
                         ((MainActivity) mainActivity).setPatientLastname(patientLastname, true);
                     }
                 }
-                Log.d(TAG, "PatientLastname: " + patientLastname);
             }
         });
 
@@ -190,7 +169,6 @@ public class MasterDataFragment extends Fragment{
                 patientBirthdate = birthday.dateToString(dateSelected, DATE_FORMAT);
                 // Calls setPatientBirthdate from MainActivity to pass value to MainActivity
                 ((MainActivity) mainActivity).setPatientBirthdate(patientBirthdate);
-                Log.d(TAG, "PatientBirthdate: " + patientBirthdate);
             }
         });
     }

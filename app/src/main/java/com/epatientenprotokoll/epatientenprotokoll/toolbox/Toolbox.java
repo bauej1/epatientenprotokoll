@@ -1,16 +1,12 @@
 package com.epatientenprotokoll.epatientenprotokoll.toolbox;
 
-import android.drm.DrmStore;
 import android.view.View;
-
-import com.epatientenprotokoll.epatientenprotokoll.model.ActionMeasurement;
 import com.epatientenprotokoll.epatientenprotokoll.model.Measurement;
 import com.epatientenprotokoll.epatientenprotokoll.model.Tool;
 
 public class Toolbox {
 
     public Toolbox(){
-
     }
 
     /**

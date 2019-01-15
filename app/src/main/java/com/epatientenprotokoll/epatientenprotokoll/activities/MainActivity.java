@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
     //DrugToolBox
     private Toolbar drugChooser;
 
+    //Error Handling for invalid names
     private boolean nameError;
     private boolean lastnameError;
 
@@ -125,7 +126,6 @@ public class MainActivity extends AppCompatActivity {
         actualTime = findViewById(R.id.textClock);
         return actualTime.getText().toString();
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -497,6 +497,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Initializes the static timeline above the measuregrid.
+     */
     private void initStaticTimeline(){
         staticTimeline = findViewById(R.id.staticTimeline);
     }

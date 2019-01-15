@@ -7,6 +7,9 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
+/**
+ * This Class is subclass of View. It represents the static timeline above the MeasureGrid.
+ */
 public class StaticTimeline extends View {
 
     private Paint paint = new Paint();
@@ -28,6 +31,9 @@ public class StaticTimeline extends View {
         init();
     }
 
+    /**
+     * Initializes the controls and paint.
+     */
     private void init() {
         paint.setColor(Color.BLACK);
         paint.setStrokeWidth(2f);
@@ -41,6 +47,10 @@ public class StaticTimeline extends View {
         drawTimeline(canvas);
     }
 
+    /**
+     * Draws the timeline above the MeasureGrid.
+     * @param canvas
+     */
     private void drawTimeline(Canvas canvas){
 
         int squareWidth = getWidth() / numberOfGridFields;

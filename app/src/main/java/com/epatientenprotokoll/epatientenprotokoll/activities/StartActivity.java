@@ -5,15 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.TextClock;
 import android.widget.TextView;
-
 import com.epatientenprotokoll.epatientenprotokoll.components.LanguageHelper;
 import com.epatientenprotokoll.epatientenprotokoll.R;
-
 import org.honorato.multistatetogglebutton.MultiStateToggleButton;
 import org.honorato.multistatetogglebutton.ToggleButton;
-
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -24,7 +20,6 @@ public class StartActivity extends AppCompatActivity {
 
    private TextView weekday;
    private TextView date;
-   private TextClock actualTime;
    private ImageButton startProtocolButton;
    private MultiStateToggleButton languageToggleButton;
    private List<String> languageArray;
@@ -50,7 +45,6 @@ public class StartActivity extends AppCompatActivity {
         // Assigns all variables to view
         weekday = findViewById(R.id.tvWeekday);
         date = findViewById(R.id.tvDate);
-        actualTime = findViewById(R.id.textClockStart);
         startProtocolButton = findViewById(R.id.startProtocolButton);
         languageToggleButton = findViewById(R.id.mstb_lang);
         languageArray = Arrays.asList(getResources().getStringArray(R.array.lang_array));

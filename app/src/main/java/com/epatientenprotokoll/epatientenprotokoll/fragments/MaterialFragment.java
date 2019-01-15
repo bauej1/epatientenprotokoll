@@ -1,12 +1,7 @@
 package com.epatientenprotokoll.epatientenprotokoll.fragments;
 
-import android.app.AlertDialog;
-import android.content.Context;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -14,20 +9,15 @@ import android.view.LayoutInflater;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 
 import com.epatientenprotokoll.epatientenprotokoll.R;
-import com.epatientenprotokoll.epatientenprotokoll.activities.MainActivity;
 import com.nex3z.togglebuttongroup.MultiSelectToggleGroup;
 import com.nex3z.togglebuttongroup.button.LabelToggle;
 
 import org.honorato.multistatetogglebutton.MultiStateToggleButton;
-import org.honorato.multistatetogglebutton.ToggleButton;
 
 import java.util.Arrays;
 import java.util.List;
-
-import static android.content.ContentValues.TAG;
 
 /**
  * This class contains all controls to collect the data for used materials during the mission and how the patient is positionned.
@@ -38,37 +28,31 @@ import static android.content.ContentValues.TAG;
  */
 public class MaterialFragment extends Fragment{
 
-    MultiStateToggleButton mstbMaterial1;
-    MultiStateToggleButton mstbMaterial2;
-    MultiStateToggleButton mstbHalskragen;
-    MultiStateToggleButton mstbRettungsbrett;
-    MultiStateToggleButton mstbWundversorgung;
-    MultiStateToggleButton mstbAbgegebenesMaterial;
-    List<String> materialArray1;
-    List<String> materialArray2;
-    List<String> halskragenArray;
-    List<String> rettungsbrettArray;
-    List<String> wundversorgungArray;
-    List<String> abgegebenesMaterialArray;
-    List<String> seitenlageArray;
-    android.widget.ToggleButton tbSeitenlage;
-    android.widget.ToggleButton tbLiegend;
-    android.widget.ToggleButton tbObereExtr;
-    android.widget.ToggleButton tbUntereExtr;
-    android.widget.ToggleButton tbSitzend;
-    android.widget.ToggleButton tbBeideExtr;
+    private MultiStateToggleButton mstbAbgegebenesMaterial;
+    private List<String> materialArray1;
+    private List<String> materialArray2;
+    private List<String> halskragenArray;
+    private List<String> rettungsbrettArray;
+    private List<String> wundversorgungArray;
+    private List<String> abgegebenesMaterialArray;
+    private List<String> seitenlageArray;
+    private android.widget.ToggleButton tbSeitenlage;
+    private android.widget.ToggleButton tbLiegend;
+    private android.widget.ToggleButton tbObereExtr;
+    private android.widget.ToggleButton tbUntereExtr;
+    private android.widget.ToggleButton tbSitzend;
+    private android.widget.ToggleButton tbBeideExtr;
 
-    MultiSelectToggleGroup tbgMaterialAbgegeben;
-    MultiSelectToggleGroup tbgMaterial1;
-    MultiSelectToggleGroup tbgHalskragen;
-    MultiSelectToggleGroup tbgRettungsbrett;
-    MultiSelectToggleGroup tbgWundversorgung;
-    MultiSelectToggleGroup tbgSeitenlage;
+    private MultiSelectToggleGroup tbgMaterialAbgegeben;
+    private MultiSelectToggleGroup tbgMaterial1;
+    private MultiSelectToggleGroup tbgHalskragen;
+    private MultiSelectToggleGroup tbgRettungsbrett;
+    private MultiSelectToggleGroup tbgWundversorgung;
+    private MultiSelectToggleGroup tbgSeitenlage;
 
-    Drawable dLiegend;
+    private Drawable dLiegend;
 
-    View separator;
-
+    private View separator;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -78,11 +62,6 @@ public class MaterialFragment extends Fragment{
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // Assigns all values to view
-//        mstbMaterial1 = getView().findViewById(R.id.mstb_material1);
-//        mstbMaterial2 = getView().findViewById(R.id.mstb_material2);
-//        mstbHalskragen = getView().findViewById(R.id.mstb_halskragen);
-//        mstbRettungsbrett = getView().findViewById(R.id.mstb_rettungsbrett);
-//        mstbWundversorgung = getView().findViewById(R.id.mstb_wundversorgung);
         mstbAbgegebenesMaterial = getView().findViewById(R.id.mstb_abgegebenMaterial);
         tbSeitenlage = getView().findViewById(R.id.tbSeitenlage);
         materialArray1 = Arrays.asList(getResources().getStringArray(R.array.material_array1));
@@ -107,7 +86,6 @@ public class MaterialFragment extends Fragment{
         tbSitzend = getView().findViewById(R.id.tbSitzend);
         tbBeideExtr = getView().findViewById(R.id.tbBeideExtr);
         tbSeitenlage = getView().findViewById(R.id.tbSeitenlage);
-
 
         String[] materialAbgegebenArray = getResources().getStringArray(R.array.abgegebenMaterial_array);
         int countAbgegeben = 0;
@@ -273,6 +251,5 @@ public class MaterialFragment extends Fragment{
                 }
             }
         });
-
     }
 }

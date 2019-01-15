@@ -5,9 +5,17 @@ import android.content.res.Resources;
 
 import java.util.Locale;
 
+/**
+ * This Class helps to change the Local for changing the app language.
+ */
 public class LanguageHelper {
     private static Configuration config = null;
 
+    /**
+     * Changes the language of the application.
+     * @param res
+     * @param locale
+     */
     public static void changeLocale(Resources res, String locale){
         config = new Configuration(res.getConfiguration());
 
@@ -24,6 +32,10 @@ public class LanguageHelper {
         return config.locale;
     }
 
+    /**
+     * Checks if a Locale is set.
+     * @return - boolean
+     */
     public static boolean isLocaleSet(){
         if(config == null)
             return false;

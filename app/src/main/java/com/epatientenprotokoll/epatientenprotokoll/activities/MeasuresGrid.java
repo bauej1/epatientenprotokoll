@@ -221,64 +221,64 @@ public class MeasuresGrid extends View {
         }
     }
 
-    private void drawVentilation(Canvas canvas, int columnStart, int columnEnd, int row) {
+//    private void drawVentilation(Canvas canvas, int columnStart, int columnEnd, int row) {
+//
+//        if(columnEnd == 0) {
+//            return;
+//        }
+//
+//        System.out.println("row : " + row);
+//        boolean upwards = true;
+//
+//        //Start-Bullet
+//        canvas.drawCircle(getWidth() / getColumnCount() * columnStart, getHeight() / getRowCount() * (upwards ? row : row + 1), 8, paint);
+//
+//        //Ventilation-Line
+//        for(int column = columnStart; column < columnEnd; ++column) {
+//            int startX = getWidth() / getColumnCount() * column;
+//            int endX = getWidth() / getColumnCount() * (column + 1);
+//            int startY = getHeight() / getRowCount() * (upwards ? row : row + 1);
+//            int endY = getHeight() / getRowCount() * (upwards ? row + 1 : row);
+//            canvas.drawLine(startX, startY, endX, endY, paint);
+//
+//            upwards = !upwards;
+//        }
+//
+//        //End-Bullet
+//        canvas.drawCircle(getWidth() / getColumnCount() * columnEnd, getHeight() / getRowCount() * (upwards ? row : row + 1), 8, paint);
+//    }
 
-        if(columnEnd == 0) {
-            return;
-        }
-
-        System.out.println("row : " + row);
-        boolean upwards = true;
-
-        //Start-Bullet
-        canvas.drawCircle(getWidth() / getColumnCount() * columnStart, getHeight() / getRowCount() * (upwards ? row : row + 1), 8, paint);
-
-        //Ventilation-Line
-        for(int column = columnStart; column < columnEnd; ++column) {
-            int startX = getWidth() / getColumnCount() * column;
-            int endX = getWidth() / getColumnCount() * (column + 1);
-            int startY = getHeight() / getRowCount() * (upwards ? row : row + 1);
-            int endY = getHeight() / getRowCount() * (upwards ? row + 1 : row);
-            canvas.drawLine(startX, startY, endX, endY, paint);
-
-            upwards = !upwards;
-        }
-
-        //End-Bullet
-        canvas.drawCircle(getWidth() / getColumnCount() * columnEnd, getHeight() / getRowCount() * (upwards ? row : row + 1), 8, paint);
-    }
-
-    private void drawDragLine(Canvas canvas, Measurement m){
-        Bitmap bitmap;
-        Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(), R.drawable.arrowdown);
-        boolean bloodPressureActive = false;
-        int columnStart = m.getX1();
-        int columnEnd = m.getX2();
-        int rowStart = m.getY1();
-        int rowEnd = m.getY2();
-
-        switch(m.getId()){
-            case 6: //heart massage
-                bitmap = BitmapFactory.decodeResource(getResources(), (int)m.getStoredValue());
-                break;
-            case 7: //blood pressure
-                bloodPressureActive = true;
-                bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.arrowup);
-                break;
-            default:
-                bitmap = null;
-        }
-
-        if(bitmap != null){
-            if(bloodPressureActive){
-                canvas.drawBitmap(bitmap,getWidth() / getColumnCount() * columnStart,  getHeight() / getRowCount() * rowStart, paint);
-                canvas.drawBitmap(bitmap2, getWidth() / getColumnCount() * columnEnd, getHeight() / getRowCount() * rowEnd, paint);
-            } else {
-                canvas.drawBitmap(bitmap,getWidth() / getColumnCount() * columnStart,  getHeight() / getRowCount() * rowStart, paint);
-                canvas.drawBitmap(bitmap, getWidth() / getColumnCount() * columnEnd, getHeight() / getRowCount() * rowEnd, paint);
-            }
-        }
-    }
+//    private void drawDragLine(Canvas canvas, Measurement m){
+//        Bitmap bitmap;
+//        Bitmap bitmap2 = BitmapFactory.decodeResource(getResources(), R.drawable.arrowdown);
+//        boolean bloodPressureActive = false;
+//        int columnStart = m.getX1();
+//        int columnEnd = m.getX2();
+//        int rowStart = m.getY1();
+//        int rowEnd = m.getY2();
+//
+//        switch(m.getId()){
+//            case 6: //heart massage
+//                bitmap = BitmapFactory.decodeResource(getResources(), (int)m.getStoredValue());
+//                break;
+//            case 7: //blood pressure
+//                bloodPressureActive = true;
+//                bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.arrowup);
+//                break;
+//            default:
+//                bitmap = null;
+//        }
+//
+//        if(bitmap != null){
+//            if(bloodPressureActive){
+//                canvas.drawBitmap(bitmap,getWidth() / getColumnCount() * columnStart,  getHeight() / getRowCount() * rowStart, paint);
+//                canvas.drawBitmap(bitmap2, getWidth() / getColumnCount() * columnEnd, getHeight() / getRowCount() * rowEnd, paint);
+//            } else {
+//                canvas.drawBitmap(bitmap,getWidth() / getColumnCount() * columnStart,  getHeight() / getRowCount() * rowStart, paint);
+//                canvas.drawBitmap(bitmap, getWidth() / getColumnCount() * columnEnd, getHeight() / getRowCount() * rowEnd, paint);
+//            }
+//        }
+//    }
 
     int dragStartColumn = -1;
     int dragStartRow = -1;

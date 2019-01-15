@@ -16,10 +16,10 @@ import java.util.List;
 
 public class FinalFragment extends Fragment {
 
-    MultiSelectToggleGroup tbgUrgency;
-    MultiSelectToggleGroup tbgPresent;
-    List<String> urgencyArray;
-    List<String> presentArray;
+    private MultiSelectToggleGroup tbgUrgency;
+    private MultiSelectToggleGroup tbgPresent;
+    private List<String> urgencyArray;
+    private List<String> presentArray;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -52,6 +52,5 @@ public class FinalFragment extends Fragment {
             toggle.setMarkerColor(color);
             tbgPresent.addView(toggle);
         }
-
     }
 }
